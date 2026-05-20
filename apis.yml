@@ -24,6 +24,10 @@ apis:
       - type: Documentation
         url: https://docs.sciencelogic.com
 common:
+  - type: GitHubOrganization
+    url: https://github.com/ScienceLogic
+  - type: LinkedIn
+    url: https://www.linkedin.com/company/sciencelogic
   - type: Website
     url: https://sciencelogic.com
   - type: Documentation
