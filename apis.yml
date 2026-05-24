@@ -32,6 +32,8 @@ common:
     url: https://sciencelogic.com
   - type: Documentation
     url: https://docs.sciencelogic.com
+  - type: LLMsTxt
+    url: https://docs.sciencelogic.com/llms.txt
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com
