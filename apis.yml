@@ -24,6 +24,10 @@ apis:
       - type: Documentation
         url: https://docs.sciencelogic.com
 common:
+  - type: TrustCenter
+    url: security/sciencelogic-trust-center.yml
+  - type: DomainSecurity
+    url: security/sciencelogic-domain-security.yml
   - type: GitHubOrganization
     url: https://github.com/ScienceLogic
   - type: LinkedIn
@@ -34,6 +38,8 @@ common:
     url: https://docs.sciencelogic.com
   - type: LlmsText
     url: https://docs.sciencelogic.com/llms.txt
+  - url: https://sciencelogic.com/feed
+    type: Blog
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com
