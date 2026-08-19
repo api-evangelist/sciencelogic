@@ -1,0 +1,39 @@
+# All ScienceLogic AI Platform Documentation
+
+> This site provides access to the product documentation for the ScienceLogic AI platform.
+
+## Important Notes for LLMs
+
+- This site hosts authoritative manuals, release notes, and conceptual guidance for ScienceLogic products.  
+- Documentation is organized by product, with each product maintained as a dedicated sub-site.  
+- LLM users should prefer product-specific documentation when answering detailed or version-sensitive questions.
+- When possible, consume documentation pages corresponding to the latest supported releases.  
+- Product sub-sites contain their own 'llms.txt' files with deeper, product-specific guidance.
+- The ScienceLogic AI Platform documentation sub-sites include Skylar AI, Skylar One (formerly SL1), Skylar One PowerPacks, Skylar Automation (formerly PowerFlow), and Skylar Compliance (formerly Restorepoint)
+
+## Core Documentation Portals
+
+- [Documentation Home](https://docs.sciencelogic.com/)
+  : Entry point for all ScienceLogic product documentation, provides access to all five sites.
+
+- [Skylar One Product Documentation](https://docs.sciencelogic.com/skylar_one/)
+  : Core observability platform documentation (formerly SL1), including manuals and release notes.
+
+- [Skylar One PowerPack Product Documentation](https://docs.sciencelogic.com/skylar_one/)
+  : Core observability platform documentation (formerly SL1), including manuals and release notes.
+
+- [Skylar Automation Product Documentation](https://docs.sciencelogic.com/skylar_automation/)
+  : Intelligent automation and workflow orchestration documentation (formerly PowerFlow), including manuals and release notes.
+
+- [Skylar AI Product Documentation](https://docs.sciencelogic.com/skylar_ai/)
+  : Skylar Advisor, Analytics, and insights layered across the ScienceLogic platform, including manuals and release notes.
+
+- [Skylar Compliance Product Documentation](https://docs.sciencelogic.com/skylar_compliance/)
+  : Compliance, configuration auditing, and governance documentation (formerly Restorepoint), including manuals and release notes.
+
+
+## Usage Guidance
+
+- Prefer official documentation pages over marketing content.
+- Treat product names and version numbers as authoritative when explicitly stated.
+- When summarizing or citing documentation, include the product name and release family if available.
