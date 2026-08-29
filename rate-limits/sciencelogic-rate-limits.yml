@@ -1,89 +1,67 @@
 specification: API Commons Rate Limits
 specificationVersion: '0.1'
 schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/RateLimits
+generated: '2026-08-29'
+method: searched
+source: >-
+  openapi/sciencelogic-skylar-compliance-openapi.json;
+  https://docs.sciencelogic.com/latest/Content/Web_Content_Dev_and_Integration/ScienceLogic_API/api_intro.htm;
+  https://sciencelogic.com/why-sciencelogic/pricing
 provider: ScienceLogic
 providerId: sciencelogic
 created: '2026-05-04'
-# Provenance stamped 2026-08-11: this artifact was written by the API Evangelist
-# bulk sweep dated 2026-05-04, not harvested from the provider. See roadmap#35.
-method: generated
-modified: '2026-05-04'
+modified: '2026-08-29'
 tags:
   - AIOps
   - IT Operations
   - Rate Limiting
-  - Quotas
-  - Throttling
-description: Machine-readable rate limit definitions for the ScienceLogic API surface. Captures per-tier
-  quotas, burst behavior, response signaling, and recovery semantics. Defaults are scaffold values to
-  be replaced with published provider limits.
-headers:
-  limit: X-RateLimit-Limit
-  remaining: X-RateLimit-Remaining
-  reset: X-RateLimit-Reset
-  retryAfter: Retry-After
-  policy: RateLimit-Policy
-responseCodes:
-  throttled: 429
-  quotaExceeded: 429
-  serviceUnavailable: 503
-limits:
-  - tier: free
-    name: Free Tier Default
-    scope: api-key
-    metric: requests_per_minute
-    limit: 10
-    burst: 20
-    timeFrame: minute
-    applies:
-      - ScienceLogic
-  - tier: free
-    name: Free Tier Monthly Quota
-    scope: api-key
-    metric: requests_per_month
-    limit: 1000
-    timeFrame: month
-    applies:
-      - ScienceLogic
-  - tier: professional
-    name: Professional Tier Default
-    scope: api-key
-    metric: requests_per_minute
-    limit: 100
-    burst: 200
-    timeFrame: minute
-    applies:
-      - ScienceLogic
-  - tier: professional
-    name: Professional Tier Monthly Quota
-    scope: api-key
-    metric: requests_per_month
-    limit: 100000
-    timeFrame: month
-    applies:
-      - ScienceLogic
-  - tier: enterprise
-    name: Enterprise Negotiated Limit
-    scope: contract
-    metric: requests_per_minute
-    limit: 1000
-    burst: 5000
-    timeFrame: minute
-    applies:
-      - ScienceLogic
-policies:
-  - name: Backoff Strategy
-    description: Clients should implement exponential backoff with jitter, honoring the Retry-After header
-      when present.
-  - name: Burst Handling
-    description: Short bursts above the steady-state limit are tolerated up to the documented burst ceiling
-      before throttling engages.
-  - name: Quota Reset
-    description: Monthly quotas reset at the start of each calendar month in UTC. Per-minute and per-second
-      windows reset on a sliding-window basis.
-  - name: Fair Use
-    description: Even on uncapped enterprise tiers, sustained usage that materially impacts shared infrastructure
-      may be subject to fair-use throttling.
-maintainers:
-  - FN: Kin Lane
-    email: kin@apievangelist.com
+description: >-
+  ScienceLogic publishes NO API rate limits. This file REPLACES a 2026-05-04 bulk-sweep scaffold that
+  asserted X-RateLimit-* headers, a 429 status and per-tier per-minute quotas — none of which ScienceLogic
+  documents. The honest finding is a zero.
+limit_count: 0
+headers: {}
+headers_note: >-
+  No rate-limit response headers are declared in the 314-operation Skylar Compliance contract and none are
+  documented for the Skylar One REST or GraphQL APIs. The contract declares no 429 response on any
+  operation (the 4xx/5xx codes it uses are 400, 401, 402, 403, 404, 409, 421, 422, 500, 503, 504).
+responseCodes: {}
+limits: []
+why_zero: >-
+  Both product APIs run on the customer's own appliance rather than on a vendor-operated multi-tenant
+  service, so there is no shared capacity for ScienceLogic to ration and no commercial reason to publish a
+  per-caller limit. Commercial metering is per managed device per month, not per API call
+  (see plans/sciencelogic-plans-pricing.yml).
+related_throttles:
+  - name: Inbound message throttling (collection, not API)
+    description: >-
+      When Skylar One detects syslog messages or SNMP traps arriving from a single IP faster than 25
+      messages per second, it throttles them — the excess messages are deleted, not logged and not passed
+      to the event engine — and raises a Critical "Inbound Message Flood" event. Whitelisting an IP
+      requires contacting ScienceLogic Customer Support. This governs data ingestion into the platform, not
+      calls to the API.
+    scope: per source IP
+    limit: 25
+    window: second
+    unit: messages
+  - name: MCP server result cap (client-side, not the API)
+    description: >-
+      The self-hosted ScienceLogic MCP server applies MAX_QUERY_LIMIT (default 50) to cap how many results
+      an agent can request, explicitly "to prevent overloading API endpoints". This is a guard the operator
+      configures on the MCP server, not a limit the API enforces.
+    scope: per MCP tool call
+    limit: 50
+    unit: results
+    source: https://github.com/ScienceLogic/mcp
+  - name: Contract pagination ceiling
+    description: >-
+      The Skylar Compliance API caps the `limit` query parameter at 500 items per page (default 50). A
+      page-size ceiling, not a rate limit.
+    scope: per request
+    limit: 500
+    unit: items
+    source: openapi/sciencelogic-skylar-compliance-openapi.json
+agent_guidance: >-
+  With no published limit and no rate-limit headers, an agent has no runtime signal to back off against.
+  Treat 500/503/504 as the only throttle-adjacent signals, apply conservative client-side pacing, and
+  respect the appliance's page ceiling of 500.

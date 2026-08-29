@@ -1,0 +1,28 @@
+generated: '2026-08-29'
+method: generated
+source: openapi/sciencelogic-skylar-compliance-openapi.json
+provider: ScienceLogic
+providerId: sciencelogic
+api: Skylar Compliance API 2.0
+note: >-
+  Every operationId referenced by these skills was verified against
+  openapi/sciencelogic-skylar-compliance-openapi.json. No skill is grounded in the Skylar One REST or
+  GraphQL APIs, because ScienceLogic publishes no machine-readable contract for either — writing skills
+  against them would mean inventing operation names.
+skills:
+  - name: sciencelogic-device-compliance-audit
+    file: sciencelogic-device-compliance-audit.md
+    summary: Audit a device fleet for compliance-policy violations and report which devices fail which policies.
+    write_surface: false
+    operations: [list_domains, list_devices, list_policies, get_policy, device_compliance]
+  - name: sciencelogic-backup-diff-and-restore
+    file: sciencelogic-backup-diff-and-restore.md
+    summary: Investigate a configuration change by diffing device backups, and restore a known-good backup on explicit human approval.
+    write_surface: true
+    approval_required: true
+    operations: [list_devices, get_device, list_device_backups, get_backup, config_details, diff_backup, restore_backup, list_jobs, get_job, cancel_job]
+  - name: sciencelogic-appliance-health-triage
+    file: sciencelogic-appliance-health-triage.md
+    summary: Triage appliance health, HA status, agents, jobs and logs.
+    write_surface: false
+    operations: [system_status, get_high_availability_status, list_agents, list_jobs, list_historic_jobs, get_job, list_logs]

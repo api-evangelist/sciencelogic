@@ -1,0 +1,140 @@
+generated: '2026-08-29'
+method: derived
+source: openapi/sciencelogic-skylar-compliance-openapi.json
+provider: ScienceLogic
+providerId: sciencelogic
+api: Skylar Compliance API 2.0
+format: vendor-json
+format_note: 'The Skylar Compliance API does NOT use RFC 9457 application/problem+json. Every error is
+  a plain application/json object using the spec''s own "Error" model: a human-readable `message`, an
+  optional `errors` map of field name -> array of validation messages, and on some responses an `EncryptionStatus`
+  enum (Encrypted | Decrypted | Decrypting | Failure) describing the appliance disk encryption state.
+  There is no machine-readable error `type`, `code` or URI, so an agent must branch on the HTTP status
+  and parse `message`/`errors` as text.'
+envelope:
+  content_type: application/json
+  fields:
+  - name: message
+    type: string
+    description: Human-readable error summary, e.g. "Input validation failed"
+  - name: errors
+    type: object
+    description: Present on validation failures. Keys are request field names; values are arrays of messages.
+  - name: EncryptionStatus
+    type: string
+    enum:
+    - Encrypted
+    - Decrypted
+    - Decrypting
+    - Failure
+    description: Appliance decryption state; a decrypting appliance answers 503 until it finishes or fails.
+retryable_status_codes:
+- 500
+- 503
+- 504
+non_retryable_status_codes:
+- 400
+- 401
+- 402
+- 403
+- 404
+- 409
+- 421
+- 422
+problem_types:
+- status: 400
+  title: Bad Request
+  operations: 152
+  spec_descriptions:
+  - Bad Request
+  - Bad request
+  remediation: The request body failed input validation. Read `errors` in the response body — it is an
+    object keyed by field name, each value an array of human-readable validation messages. Fix the named
+    fields and retry; retrying unchanged will fail identically.
+  retryable: false
+- status: 404
+  title: Not Found
+  operations: 105
+  spec_descriptions:
+  - Not Found
+  - High availability is not configured on this appliance.
+  remediation: The addressed resource does not exist, or exists outside the domains the token is scoped
+    to. Do not retry; re-resolve the id.
+  retryable: false
+- status: 500
+  title: Internal Server Error
+  operations: 71
+  spec_descriptions:
+  - Internal Server Error
+  - Unable to update
+  - Unable to apply new logo
+  - Unable to retrieve asset notification settings
+  remediation: Server-side failure on the appliance. Safe to retry once with backoff; if it persists,
+    collect the appliance logs (GET /logs) and open a case with ScienceLogic Support.
+  retryable: true
+- status: 401
+  title: Unauthorized
+  operations: 20
+  spec_descriptions:
+  - Unauthorized
+  remediation: 'Authentication was missing, malformed or rejected. Create an API token in the Skylar Compliance
+    web interface and send it as `Authorization: Custom <token>`. Note the Error model also carries `EncryptionStatus`
+    — a freshly restarted appliance can reject logins until decryption completes.'
+  retryable: false
+- status: 403
+  title: Forbidden
+  operations: 7
+  spec_descriptions:
+  - Forbidden
+  remediation: Authenticated but the token lacks the permission the operation declares. Each operation
+    lists its required permission under the `Permissions` scheme (for example ViewDevices, BackupDevice,
+    RestoreDevice). Grant the permission to the role and retry.
+  retryable: false
+- status: 503
+  title: Service Unavailable
+  operations: 6
+  spec_descriptions:
+  - Service Unavailable
+  remediation: 'Appliance is unavailable — most commonly the disk encryption layer is still decrypting
+    after a restart (`EncryptionStatus: Decrypting`). Retry with backoff.'
+  retryable: true
+- status: 402
+  title: Payment Required
+  operations: 4
+  spec_descriptions:
+  - Payment Required
+  remediation: Licensing limit reached on the appliance. Not retryable by the caller; requires a licence
+    change.
+  retryable: false
+- status: 504
+  title: Gateway Timeout
+  operations: 3
+  spec_descriptions:
+  - Gateway Timeout
+  remediation: Upstream timeout — the appliance did not complete the operation in time. Retry with backoff;
+    long-running work is expressed as a job (GET /jobs).
+  retryable: true
+- status: 409
+  title: Conflict
+  operations: 2
+  spec_descriptions:
+  - Conflict
+  remediation: The request conflicts with current state (for example a duplicate name). Resolve the conflict
+    and retry.
+  retryable: false
+- status: 421
+  title: Misdirected Request
+  operations: 1
+  spec_descriptions:
+  - This node is on standby; requests should be directed to the active node instead.
+  remediation: Request was directed at an appliance that cannot answer it — in a clustered deployment,
+    retry against the correct node.
+  retryable: false
+- status: 422
+  title: Unprocessable Entity
+  operations: 1
+  spec_descriptions:
+  - Unprocessable Entity
+  remediation: The request was well-formed but semantically rejected. Correct the payload; do not retry
+    unchanged.
+  retryable: false

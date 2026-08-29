@@ -1,0 +1,102 @@
+generated: '2026-08-29'
+method: searched
+source: >-
+  openapi/sciencelogic-skylar-compliance-openapi.json;
+  https://trust.sciencelogic.com/; https://sciencelogic.com/trust-center;
+  https://support.sciencelogic.com/.well-known/openid-configuration
+provider: ScienceLogic
+providerId: sciencelogic
+entries:
+  - id: openapi-3
+    name: OpenAPI 3.0
+    conforms: true
+    evidence: >-
+      openapi/sciencelogic-skylar-compliance-openapi.json declares openapi 3.0.0 with 193 paths and 314
+      operations, published by ScienceLogic at
+      https://docs.sciencelogic.com/skylar_compliance/api/5-6/api.html
+  - id: rfc9457
+    name: RFC 9457 Problem Details for HTTP APIs
+    conforms: false
+    evidence: >-
+      No application/problem+json media type anywhere in the contract; errors use a vendor JSON envelope
+      ({message, errors}). See errors/sciencelogic-problem-types.yml
+  - id: oauth2
+    name: OAuth 2.0
+    conforms: false
+    evidence: >-
+      No oauth2 securityScheme in the Skylar Compliance contract; the product APIs authenticate with
+      appliance-issued tokens and session cookies. The OAuth 2.0 endpoints on
+      support.sciencelogic.com belong to the Salesforce-hosted Support Center, not to the product API.
+  - id: oidc
+    name: OpenID Connect
+    conforms: partial
+    evidence: >-
+      A valid OIDC discovery document is served at
+      https://support.sciencelogic.com/.well-known/openid-configuration (issuer
+      https://support.sciencelogic.com) for the customer Support Center. It is not the product API's
+      identity surface. Separately, Skylar One supports SSO/SAML for platform login, and the Skylar
+      Compliance contract carries a /saml/groups surface — but neither publishes an OIDC discovery
+      document of its own, because each is deployed on the customer's appliance.
+  - id: pagination
+    name: Offset/limit pagination with total count
+    conforms: true
+    evidence: >-
+      offset (default 0), limit (default 50, max 500), sort, fields and search query parameters, with
+      fields/offset/limit/total/search echoed in every list response envelope.
+  - id: idempotency
+    name: Idempotency keys on unsafe methods
+    conforms: false
+    evidence: The string "idempoten" does not occur in the contract; no Idempotency-Key header is declared.
+  - id: json-api
+    name: JSON:API
+    conforms: false
+    evidence: Responses use a bespoke envelope, not the JSON:API document structure or media type.
+  - id: rbac
+    name: Declared per-operation permission model
+    conforms: true
+    evidence: >-
+      The contract publishes a `Permissions` pseudo-scheme enumerating 66 named permissions and attaches the
+      required ones to each operation's security block — so an agent can determine authorization
+      requirements from the contract before calling.
+  - id: soc2
+    name: SOC 2
+    conforms: true
+    evidence: https://trust.sciencelogic.com/ lists a SOC 2 attestation (see security/sciencelogic-trust-center.yml)
+  - id: iso27001
+    name: ISO/IEC 27001
+    conforms: true
+    evidence: https://trust.sciencelogic.com/ lists ISO/IEC 27001 certification
+  - id: fedramp
+    name: FedRAMP
+    conforms: true
+    evidence: https://trust.sciencelogic.com/ and https://sciencelogic.com/trust-center advertise FedRAMP authorization
+  - id: csa-star
+    name: CSA STAR
+    conforms: true
+    evidence: https://trust.sciencelogic.com/ lists CSA STAR
+domain_standard:
+  market: IT operations management / AIOps / network configuration and change management (NCCM)
+  declared_in_contract: false
+  probed:
+    - standard: SCIM (urn:ietf:params:scim:schemas:*)
+      found: false
+      note: >-
+        User and role management is a bespoke REST surface (/users, /roles, /users/ldap/groups,
+        /saml/groups). No SCIM schema URN appears in the contract.
+    - standard: OData ($metadata)
+      found: false
+    - standard: OpenTelemetry / OTLP
+      found: false
+      note: >-
+        ScienceLogic publishes github.com/ScienceLogic/otel-components (a Go OpenTelemetry components
+        repo), so OTLP is used in the collection pipeline, but no OTLP surface is declared in either
+        published API contract. Recorded as not declared rather than as conformance.
+    - standard: SNMP / syslog collection models
+      found: partial
+      note: >-
+        The contract carries Settings/SNMP and Syslog tags, but these configure appliance-side collection
+        of those protocols; they are not a declaration that the API itself speaks a domain interchange
+        standard.
+  conclusion: >-
+    AIOps/NCCM has no widely adopted machine-readable interchange standard that a management API is
+    expected to declare, and ScienceLogic declares none. Reward-only: recorded as absent, not as a failure.

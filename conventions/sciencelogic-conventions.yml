@@ -1,0 +1,148 @@
+generated: '2026-08-29'
+method: derived
+source: >-
+  openapi/sciencelogic-skylar-compliance-openapi.json, plus
+  https://docs.sciencelogic.com/latest/Content/Web_Content_Dev_and_Integration/ScienceLogic_API/api_intro.htm
+  and .../ScienceLogic_API/resources_and_uris.htm and .../GraphQL_API/graphql_introduction.htm
+provider: ScienceLogic
+providerId: sciencelogic
+scope: >-
+  Cross-cutting runtime semantics for the two documented ScienceLogic API surfaces — the Skylar Compliance
+  REST API v2 (contract captured in openapi/) and the Skylar One (SL1) REST + GraphQL APIs (documented but
+  no machine-readable contract published). Both are appliance-hosted: the caller's base URL is their own
+  ScienceLogic appliance, not a vendor-operated host.
+auth:
+  style: api-key
+  skylar_compliance:
+    programmatic: 'Authorization: Custom <token> — tokens are minted in the Skylar Compliance web interface'
+    browser: session cookie (`session`), for the product UI only
+    authorization_model: >-
+      Per-operation permission requirements are declared in the contract via a pseudo-securityScheme named
+      `Permissions` (66 named permissions such as ViewDevices, BackupDevice, RestoreDevice, ModifyTokens).
+      It is not an authentication method — it is how the contract publishes required privileges per operation.
+  skylar_one:
+    rest: HTTP authentication against SL1 user accounts; base URI https://{appliance}/api
+    graphql: same SL1 authentication profiles and credentials as the UI; no separate login
+  oauth2: false
+  oauth2_note: Neither product API exposes an OAuth 2.0 or OIDC flow, so no scopes/ artifact is emitted.
+  see: authentication/sciencelogic-authentication.yml
+content_negotiation:
+  skylar_compliance: application/json (plus text/plain, text/csv, application/zip, application/octet-stream on export operations)
+  skylar_one_rest: Accept header selects application/json or application/xml
+idempotency:
+  supported: false
+  header: null
+  evidence: >-
+    No Idempotency-Key header, no idempotency parameter and no occurrence of the string "idempoten" appears
+    anywhere in the 314-operation Skylar Compliance contract, and the SL1 API documentation does not
+    describe one. Retrying a POST is not safe by contract.
+  agent_guidance: >-
+    Treat every POST/PUT/DELETE as at-most-once. Where an operation creates a job, read the job id from the
+    response and poll GET /jobs/{id} rather than re-issuing the request after a timeout.
+pagination:
+  style: offset-limit
+  request_params:
+    offset: {name: offset, in: query, default: 0, minimum: 0, description: number of items to skip}
+    limit: {name: limit, in: query, default: 50, minimum: 1, maximum: 500, description: number of items to return}
+    sort: {name: sort, in: query, example: 'Date,-Name', description: 'comma-separated fields; "-" prefix inverts to descending'}
+    fields: {name: fields, in: query, example: 'key,name', description: sparse fieldset — restricts the returned fields}
+    search: {name: search, in: query, description: full-text / structured filter}
+  response_fields: [fields, offset, limit, total, search]
+  note: Total item count is returned as `total`, so an agent can compute page count without walking to exhaustion.
+field_expansion:
+  sparse_fields: true
+  mechanism: the `fields` query parameter (comma-separated allow-list)
+  expansion: none — related entities are addressed as sub-resources (e.g. /devices/{id}/backups) rather than expanded inline
+request_id_tracing:
+  supported: unknown
+  evidence: No correlation/request-id header is declared in the contract or in the SL1 API documentation.
+versioning:
+  skylar_compliance: >-
+    Path-versioned. The contract declares servers[0].url `/api/v2` and info.version `2.0`; the published
+    reference is pinned per product release (the 5.6 reference lives at /skylar_compliance/api/5-6/api.html).
+  skylar_one: >-
+    Product-versioned rather than API-versioned. The REST API lives at https://{appliance}/api with no
+    version segment; the documentation set is versioned by SL1/Skylar One release (12.5.20, 12.5.1, 12.3).
+  see: lifecycle/sciencelogic-lifecycle.yml
+error_envelope:
+  format: vendor JSON (not RFC 9457)
+  shape: '{ message, errors: { field: [msg, ...] }, EncryptionStatus? }'
+  see: errors/sciencelogic-problem-types.yml
+rate_limit_signaling:
+  documented: false
+  headers: []
+  status_on_exhaustion: null
+  note: >-
+    Neither product publishes API rate limits or rate-limit response headers. The only throttle ScienceLogic
+    documents is inbound syslog/trap message throttling inside the platform (25 messages/second per source
+    IP), which is a collection behaviour, not an API limit. See rate-limits/.
+  see: rate-limits/sciencelogic-rate-limits.yml
+long_running_operations:
+  model: job
+  description: >-
+    Backups, restores, discovery, firmware pushes and command runs are asynchronous. The API returns a job
+    and the caller polls GET /jobs (running) or GET /jobs/historic (completed). GET /jobs/{id} reads one job.
+  cancel: DELETE /jobs/{id} (cancel_job); DELETE /jobs (cancel_all_jobs, "Abort all")
+reversibility:
+  grade: documented
+  grade_rationale: >-
+    The contract publishes real reversal operations with named operationIds, but neither the contract nor
+    the documentation states a bounded window inside which a reversal is guaranteed to work. Backup
+    availability is governed by customer-configured retention (RetentionDays / RetentionPolicy on archive
+    and backup settings), so the window is an appliance setting, not a vendor commitment. Recording a
+    window here would be inventing one.
+  write_surface: true
+  operations:
+    - action: restore a device configuration to an earlier backup
+      reverses: an unwanted configuration change on a managed device
+      operationId: restore_backup
+      method: POST
+      path: /devices/{id}/backups/{backup_id}/restore
+      window: null
+      window_note: >-
+        Bounded by how long that backup still exists. Retention is set per appliance/policy
+        (RetentionDays, RetentionPolicy on GET/PUT /settings/archive and on backup versions); no fixed
+        vendor-stated window exists.
+      docs: https://docs.sciencelogic.com/skylar_compliance/api/5-6/api.html
+    - action: cancel a running job
+      reverses: an in-flight backup, restore, discovery, firmware push or command run
+      operationId: cancel_job
+      method: DELETE
+      path: /jobs/{id}
+      window: while the job is still listed by GET /jobs
+      docs: https://docs.sciencelogic.com/skylar_compliance/api/5-6/api.html
+    - action: cancel every running job
+      reverses: a bulk operation fired in error
+      operationId: cancel_all_jobs
+      method: DELETE
+      path: /jobs
+      window: while jobs are still listed by GET /jobs
+      docs: https://docs.sciencelogic.com/skylar_compliance/api/5-6/api.html
+    - action: restore the appliance itself from an appliance archive
+      reverses: a bad appliance-level change
+      operationId: restore_restorepoint
+      method: POST
+      path: /settings/archive/restore
+      window: null
+      window_note: Bounded by the appliance archive retention the customer configures (GET/PUT /settings/archive).
+      docs: https://docs.sciencelogic.com/skylar_compliance/api/5-6/api.html
+    - action: stop remote support access
+      reverses: an opened remote support session
+      operationId: stop_remote_support
+      method: DELETE
+      path: /settings/appliance/support
+      window: while the session is open
+  irreversible:
+    - operationId: delete_device
+      note: DELETE /devices/{id} has no undo operation in the contract.
+    - operationId: delete_backup
+      note: DELETE /devices/{id}/backups/{backup_id} destroys the artifact a restore would need.
+    - operationId: delete_user
+      note: No restore path is published.
+  agent_guidance: >-
+    Before any write, capture the current state — for a device change, take or identify a backup first, so
+    restore_backup has something to restore to. Never rely on a retention window you have not read from
+    GET /settings/archive on that specific appliance.
+dry_run_mode:
+  supported: false
+  evidence: No dry-run, preview, validate-only or simulate parameter appears in the contract.

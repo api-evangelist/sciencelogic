@@ -1,0 +1,84 @@
+generated: '2026-08-29'
+method: searched
+source: >-
+  https://docs.sciencelogic.com/skylar_one/latest/Content/Manuals/Architecture/architecture_if_layer_apis.htm;
+  https://docs.sciencelogic.com/skylar_compliance/latest/Content/Release_Notes/Skylar_Compliance_MR/skylar_compliance_release_notes_2026.htm;
+  openapi/sciencelogic-skylar-compliance-openapi.json
+provider: ScienceLogic
+providerId: sciencelogic
+versioning:
+  skylar_compliance_api:
+    style: path-versioned
+    current: v2
+    server: /api/v2
+    info_version: '2.0'
+    reference_pinned_to_product_release: https://docs.sciencelogic.com/skylar_compliance/api/5-6/api.html
+  skylar_one_rest:
+    style: unversioned path, versioned by product release
+    base: https://{appliance}/api
+  skylar_one_graphql:
+    style: unversioned path, versioned by product release
+    base: https://{appliance}/gql
+  documentation_versions_offered: ['12.5.20', '12.5.1', '12.3']
+deprecation:
+  policy_published: true
+  policy_style: >-
+    Narrative, in-documentation. ScienceLogic does not publish a standalone API deprecation policy page,
+    a sunset schedule, or RFC 8594 Deprecation/Sunset headers. Deprecations are announced in the product
+    documentation and release notes, and the contract carries no `deprecated: true` operations.
+  sunset_headers: false
+  rfc8594: false
+  deprecated_operations_in_contract: 0
+  announced_deprecations:
+    - subject: Skylar One (SL1) REST API
+      status: maintenance-only, superseded by the GraphQL API
+      statement: >-
+        "Support for the REST API will continue after 8.14.0, However support will be limited to bug fixes
+        and ensuring the API continues to provide visibility to data residing in the relational data store
+        (MariaDB). Performance and log data stored in a NoSQL store (the Storage Node cluster) will not be
+        visible via the ScienceLogic REST API."
+      migration_target: SL1 GraphQL API
+      migration_statement: >-
+        "Customers planning to upgrade to a version of Skylar One that stores data in a NoSQL store or a
+        graph database should plan to update any integrations to use the GraphQL API instead."
+      source: https://docs.sciencelogic.com/skylar_one/latest/Content/Manuals/Architecture/architecture_if_layer_apis.htm
+      sunset_date: null
+    - subject: Skylar Compliance old UI reports (Information > Reports > Old UI Reports)
+      status: deprecation announced, no date
+      statement: >-
+        "Old user interface reports (Information > Reports > Old UI Reports) will be deprecated in upcoming
+        releases. To prevent any data loss, you should migrate any old reports to the new reports."
+      source: https://docs.sciencelogic.com/skylar_compliance/latest/Content/Release_Notes/Skylar_Compliance_MR/skylar_compliance_release_notes_2026.htm
+      sunset_date: null
+    - subject: Python 2 support in Skylar One custom code
+      status: removed in 12.5.1
+      statement: >-
+        "All Python 2 functionality was removed from Skylar One with the 12.5.1 release. If you still use
+        Python 2 for custom code, you cannot upgrade to this or any later releases until your custom code
+        is Python 3-compatible."
+      source: https://docs.sciencelogic.com/skylar_one/latest/Content/Release_Notes/12-5-7/12-5-7_release_notes.htm
+      sunset_date: null
+  documentation_eol_practice: >-
+    Documentation for end-of-life product versions is archived and its URLs return a "This Page Is Not
+    Available or a Link is Broken" page rather than a 410 — observed on
+    /latest/Content/Web_Content_Dev_and_Integration/ScienceLogic_API/api_status_headers.htm (HTTP 404 with
+    a soft-404 body).
+status_page:
+  published: false
+  probed:
+    - url: https://status.sciencelogic.com
+      status: 'NXDOMAIN (no response — host does not resolve)'
+  note: >-
+    No public status page was found. This is consistent with the delivery model: Skylar One and Skylar
+    Compliance are deployed on the customer's own appliances, so there is no vendor-operated runtime for a
+    status page to describe. Service status and incidents are handled through the Support Center
+    (https://support.sciencelogic.com/s/), which requires a customer login.
+sla:
+  published: false
+  note: >-
+    Support entitlements are described in the ScienceLogic Technical Support Welcome Guide
+    (https://sciencelogic.com/wp-content/uploads/2021/06/ScienceLogic_Technical_Support_Welcome_Guide_2020-v211.pdf,
+    a PDF linked from the legal page) and in the standard terms and conditions
+    (https://sciencelogic.com/company/standard-terms-and-conditions-v20260116). No machine-readable API SLA
+    is published.
+changelog: changelog/sciencelogic-changelog.yml

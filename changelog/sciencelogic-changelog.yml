@@ -1,0 +1,78 @@
+generated: '2026-08-29'
+method: searched
+source: >-
+  https://docs.sciencelogic.com/skylar_compliance/latest/Content/home_release_notes.htm and
+  https://docs.sciencelogic.com/skylar_one/latest/Content/home_skylar_one_release_notes.htm
+provider: ScienceLogic
+providerId: sciencelogic
+description: >-
+  ScienceLogic publishes dated release notes per product on docs.sciencelogic.com. There is no single
+  API-level changelog: changes to the Skylar Compliance API and the Skylar One REST/GraphQL APIs are
+  documented inside the product release notes for the release that shipped them.
+scheme: >-
+  Skylar One uses semantic-ish product versioning with release-family codenames (12.5.x "Juneau",
+  12.3.x "Ibiza"; the AP2 user interface ships its own dessert-codenamed versions, e.g. 8.26.4-45
+  "Mochi"). Skylar Compliance ships a major version (5.6) plus datestamped maintenance releases
+  (YYYYMMDD).
+current_versions:
+  skylar_one_platform: 12.5.7
+  skylar_one_ap2_ui: 8.26.4-45 (Mochi)
+  skylar_one_previous_family: 12.3.14 (Ibiza)
+  skylar_compliance: '5.6'
+  skylar_compliance_latest_maintenance: '20260826'
+  skylar_compliance_api: '2.0'
+  skylar_ai_platform: 2.2.x
+  skylar_analytics: 1.8.x
+indexes:
+  - product: Skylar One (formerly SL1)
+    url: https://docs.sciencelogic.com/skylar_one/latest/Content/home_skylar_one_release_notes.htm
+  - product: Skylar One AP2 user interface
+    url: https://docs.sciencelogic.com/skylar_one/latest/Content/home_ap2_release_notes.htm
+  - product: Skylar Compliance (formerly Restorepoint)
+    url: https://docs.sciencelogic.com/skylar_compliance/latest/Content/home_release_notes.htm
+  - product: Skylar AI
+    url: https://docs.sciencelogic.com/skylar_ai/latest/Content/home_release_notes.htm
+entries:
+  - version: '20260826'
+    date: '2026-08-26'
+    product: Skylar Compliance 5.6 maintenance release
+    breaking: false
+    url: https://docs.sciencelogic.com/skylar_compliance/latest/Content/Release_Notes/Skylar_Compliance_MR/skylar_compliance_release_notes_2026.htm
+    highlights:
+      - Fixed violations for policies removed from a device still appearing in Latest reports (Case 00691087)
+      - Backup export from the UI can now use the inferred file type or the extension defined in the plugin file (Case 00698389)
+      - Fixed a "Forbidden" error on the Device Table when domain filters were applied by users with specific permissions; the domain public endpoint was updated to include a missing ID parameter (Case 00699831)
+      - Fixed "Push Device Backup" alerts not being sent correctly
+    api_affecting: true
+    api_note: The domain public endpoint gained a missing ID parameter — a contract-visible change.
+  - version: 12.5.7
+    date: null
+    date_note: The release-notes page does not carry a machine-readable publication date.
+    product: Skylar One (Juneau)
+    breaking: false
+    url: https://docs.sciencelogic.com/skylar_one/latest/Content/Release_Notes/12-5-7/12-5-7_release_notes.htm
+    highlights:
+      - Package and security updates plus optimization updates
+      - Ships AP2 user interface 8.26.4-45 (Mochi) by default
+      - Patch-only release; no ISO
+  - version: 12.5.1
+    date: null
+    product: Skylar One (Juneau)
+    breaking: true
+    url: https://docs.sciencelogic.com/skylar_one/latest/Content/Release_Notes/12-5-1/12-5-1_release_notes.htm
+    highlights:
+      - All Python 2 functionality removed from the platform
+    breaking_note: >-
+      Custom code (Dynamic Applications, Run Book Automations, snippets) that still uses Python 2 blocks
+      the upgrade to 12.5.1 or any later release until it is made Python 3 compatible.
+  - version: 12.3.10
+    date: null
+    product: SL1 (Ibiza)
+    breaking: false
+    url: https://docs.sciencelogic.com/skylar_one/latest/Content/Release_Notes/12-3-10/12-3-10_release_notes.htm
+    highlights:
+      - DoDIN-certified release
+window_note: >-
+  Recent window only. Skylar One publishes 12.5.1 through 12.5.7 and 12.3.7 through 12.3.14 as separate
+  dated release-note pages; Skylar Compliance publishes 2025 and 2026 maintenance-release pages plus the
+  5.6 GA notes and a separate virtual-appliance release notes track.

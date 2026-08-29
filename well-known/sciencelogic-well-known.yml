@@ -1,0 +1,66 @@
+generated: '2026-08-29'
+method: probed
+source: live GET of /.well-known/* on every ScienceLogic host in apis.yml plus the docs and support portal hosts
+provider: ScienceLogic
+providerId: sciencelogic
+note: >-
+  Only one real document was served. support.sciencelogic.com returns a valid OpenID Connect discovery
+  document — it is the Salesforce Experience Cloud identity surface for the ScienceLogic Support Center,
+  not the authentication surface of the Skylar One or Skylar Compliance product APIs (those use
+  appliance-local tokens and session cookies; see authentication/). The same host answers HTTP 200 with a
+  10KB Salesforce HTML shell for /.well-known/security.txt, /.well-known/api-catalog and
+  /.well-known/ai-plugin.json — those are SPA catch-alls, recorded as misses, not documents.
+hosts:
+  - host: sciencelogic.com
+    documents:
+      - path: /.well-known/security.txt
+        status: 404
+      - path: /.well-known/openid-configuration
+        status: 404
+      - path: /.well-known/oauth-authorization-server
+        status: 404
+      - path: /.well-known/api-catalog
+        status: 404
+      - path: /.well-known/ai-plugin.json
+        status: 404
+  - host: docs.sciencelogic.com
+    documents:
+      - path: /.well-known/security.txt
+        status: 404
+      - path: /.well-known/openid-configuration
+        status: 404
+      - path: /.well-known/oauth-authorization-server
+        status: 404
+      - path: /.well-known/api-catalog
+        status: 404
+      - path: /.well-known/ai-plugin.json
+        status: 404
+      - path: /.well-known/agent-card.json
+        status: 404
+  - host: support.sciencelogic.com
+    documents:
+      - path: /.well-known/openid-configuration
+        status: 200
+        file: sciencelogic-support-openid-configuration.json
+        content_type: application/json;charset=UTF-8
+        issuer: https://support.sciencelogic.com
+      - path: /.well-known/security.txt
+        status: 200
+        content_type: text/html; charset=UTF-8
+        result: miss
+        note: HTML shell (Salesforce Experience Cloud catch-all), not an RFC 9116 document
+      - path: /.well-known/oauth-authorization-server
+        status: 200
+        content_type: text/html; charset=UTF-8
+        result: miss
+        note: HTML shell, not an RFC 8414 document
+      - path: /.well-known/api-catalog
+        status: 200
+        content_type: text/html; charset=UTF-8
+        result: miss
+        note: HTML shell, not an RFC 9727 API catalog
+      - path: /.well-known/ai-plugin.json
+        status: 200
+        content_type: text/html; charset=UTF-8
+        result: miss
+        note: HTML shell, not a plugin manifest

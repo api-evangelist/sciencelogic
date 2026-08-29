@@ -1,0 +1,75 @@
+generated: '2026-08-29'
+method: searched
+source: >-
+  https://github.com/ScienceLogic (org repo listing), https://pypi.org/pypi/sciencelogic/json,
+  https://pypi.org/pypi/restorepoint/json, https://github.com/ScienceLogic/mcp
+provider: ScienceLogic
+providerId: sciencelogic
+description: >-
+  ScienceLogic publishes no first-party, registry-distributed SDK for the Skylar One (SL1) REST/GraphQL
+  API or the Skylar Compliance API. The only first-party distributable found is the ScienceLogic MCP
+  server, shipped as a container image from the ScienceLogic GitHub organization — and its own README
+  explicitly disclaims official product status. The two client libraries that exist on PyPI are
+  community-maintained by individuals, not by ScienceLogic.
+official_sdk_count: 0
+package_count: 3
+packages:
+  - name: ScienceLogic MCP server (mcp-sl)
+    registry: ghcr
+    identifier: ghcr.io/sciencelogic/mcp
+    language: Python
+    official: false
+    first_party_org: true
+    version: 0.2.2
+    published: null
+    repository: https://github.com/ScienceLogic/mcp
+    source_of_version: >-
+      pyproject.toml `version` on ScienceLogic/mcp@main (the image is not published to PyPI and the
+      GHCR tag list requires authentication, so no registry-dated release could be read)
+    note: >-
+      Published by the ScienceLogic GitHub organization and authored by a @sciencelogic.com engineer,
+      but the repository README states verbatim "This is not an official ScienceLogic product." Recorded
+      as official:false on that self-declaration. `published:` is null because neither PyPI nor an
+      anonymous GHCR tag listing answered for this artifact — the version is read from the repo manifest.
+    install: >-
+      docker run --rm -p 8000:8000 -e SKY_COMP_API_URL=... -e SKY_COMP_API_KEY=... -e SKY_ONE_API_URL=...
+      -e SKY_ONE_API_KEY=... ghcr.io/sciencelogic/mcp:latest
+    license: Apache-2.0
+  - name: sciencelogic
+    registry: pypi
+    identifier: sciencelogic
+    language: Python
+    official: false
+    version: 0.6.0
+    published: null
+    repository: https://github.com/tonybaloney/sciencelogic
+    author: Anthony Shaw
+    note: >-
+      Community Python client for the SL1 (EM7) REST API. Not published by ScienceLogic. `published:`
+      is null because the PyPI JSON record for this release carries no upload date usable as an
+      unambiguous release date for the latest version at probe time.
+  - name: restorepoint
+    registry: pypi
+    identifier: restorepoint
+    language: Python
+    official: false
+    version: 1.4.1
+    published: null
+    repository: https://github.com/pschmitt/python-restorepoint
+    author: Philipp Schmitt
+    note: >-
+      Community Python client for the Restorepoint API (the product ScienceLogic acquired and now sells
+      as Skylar Compliance). Not published by ScienceLogic.
+registries_checked:
+  - registry: npm
+    result: no first-party or matching package (registry.npmjs.org 404 for sciencelogic, @sciencelogic/mcp, sl1-client)
+  - registry: pypi
+    result: two community packages found; no first-party ScienceLogic namespace
+  - registry: ghcr
+    result: ghcr.io/sciencelogic/mcp referenced by the ScienceLogic/mcp README; anonymous tag listing DENIED
+  - registry: maven-central
+    result: not checked against a named coordinate — no Java SDK is referenced anywhere in ScienceLogic docs or repos
+  - registry: rubygems
+    result: no first-party package referenced in docs or repos
+  - registry: crates.io
+    result: no first-party package referenced in docs or repos

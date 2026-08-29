@@ -1,141 +1,112 @@
 specification: API Commons Plans
 specificationVersion: '0.1'
 schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/Plans
+generated: '2026-08-29'
+method: searched
+source: https://sciencelogic.com/why-sciencelogic/pricing
 provider: ScienceLogic
 providerId: sciencelogic
 created: '2026-05-04'
-# Provenance stamped 2026-08-11: this artifact was written by the API Evangelist
-# bulk sweep dated 2026-05-04, not harvested from the provider. See roadmap#35.
-method: generated
-modified: '2026-05-04'
+modified: '2026-08-29'
 tags:
   - AIOps
   - IT Operations
-description: Machine-readable plans and pricing scaffold for this API provider. Conforms to the API Commons
-  Plans schema. Tier limits and prices are scaffold defaults; replace with provider-published values.
+description: >-
+  ScienceLogic publishes list pricing on its pricing page for the two metered products, Skylar One and
+  Skylar Compliance. Pricing is per managed device per month, "From" prices only, with volume and
+  device-group pricing quoted by sales. The Skylar AI products carry no published price. This file
+  REPLACES a 2026-05-04 bulk-sweep scaffold whose free/paid tiers, request quotas and per-minute rate
+  limits were invented defaults, not ScienceLogic's published plans.
+billing_unit: >-
+  A "node" or "managed device" — any resource that can be discovered and managed by the software and for
+  which it collects fault, performance, configuration and other metrics. Includes physical, network
+  addressable and virtual devices.
+billing_model: >-
+  Metered on usage, assessed periodically against average daily usage; overages above the licensed scope
+  are invoiced in arrears at an agreed rate.
+free_tier: false
+trial:
+  available: true
+  skylar_one: 14-day Skylar One test drive
+  skylar_compliance: Skylar Compliance (Restorepoint) trial
+  url: https://sciencelogic.com/free-trial
+plan_count: 4
 plans:
-  - id: sciencelogic-free
-    name: Free
-    type: freemium
-    description: Free entry tier for the ScienceLogic API surface. Intended for evaluation, prototyping,
-      and low-volume integrations. Real limits and pricing must be reconciled with the provider's published
-      plan documentation.
-    entries:
-      - label: API Requests
-        description: Monthly API request quota across all included endpoints
-        name: api_requests
-        type: quota
-        metric: requests
-        limit: 1000
-        timeFrame: month
-        geo: global
-        domains: []
-        unit: 1
-        price: '0.00'
-        userMultiplied: false
-      - label: Rate Limit
-        description: Maximum requests per minute on the free tier
-        name: rate_limit
-        type: rate
-        metric: requests_per_minute
-        limit: 10
-        timeFrame: minute
-        geo: global
-        domains: []
-        unit: 1
-        price: '0.00'
-        userMultiplied: false
-    elements:
-      - name: Public Documentation
-      - name: Community Support
-      - name: Sandbox Access
-      - name: ScienceLogic
-  - id: sciencelogic-pro
-    name: Professional
-    type: paid
-    description: Production tier for ScienceLogic. Provides higher quotas, priority support, and access
-      to the broader API portfolio. Pricing placeholder; align with the provider's pricing page.
-    entries:
-      - label: API Requests
-        description: Monthly API request quota
-        name: api_requests
-        type: quota
-        metric: requests
-        limit: 100000
-        timeFrame: month
-        geo: global
-        domains: []
-        unit: 1
-        price: TBD
-        userMultiplied: false
-      - label: Rate Limit
-        description: Maximum requests per minute on the professional tier
-        name: rate_limit
-        type: rate
-        metric: requests_per_minute
-        limit: 100
-        timeFrame: minute
-        geo: global
-        domains: []
-        unit: 1
-        price: '0.00'
-        userMultiplied: false
-      - label: Overage
-        description: Per-request price after monthly quota is exceeded
-        name: overage
-        type: metered
-        metric: requests
-        limit: -1
-        timeFrame: month
-        geo: global
-        domains: []
-        unit: 1000
-        price: TBD
-        userMultiplied: false
-    elements:
-      - name: All Production Endpoints
-      - name: Email Support
-      - name: SLA Targets
-      - name: Webhook Subscriptions
-      - name: ScienceLogic
-  - id: sciencelogic-enterprise
-    name: Enterprise
-    type: enterprise
-    description: Custom-negotiated tier for ScienceLogic. Includes dedicated capacity, contractual SLAs,
-      security review, data residency options, and named technical account management.
-    entries:
-      - label: API Requests
-        description: Negotiated request volume; -1 indicates uncapped subject to fair use
-        name: api_requests
-        type: quota
-        metric: requests
-        limit: -1
-        timeFrame: month
-        geo: configurable
-        domains: []
-        unit: 1
-        price: custom
-        userMultiplied: false
-      - label: Rate Limit
-        description: Negotiated burst and steady-state rate
-        name: rate_limit
-        type: rate
-        metric: requests_per_minute
-        limit: 1000
-        timeFrame: minute
-        geo: configurable
-        domains: []
-        unit: 1
-        price: custom
-        userMultiplied: false
-    elements:
-      - name: Unlimited / Negotiated Volume
-      - name: 24/7 Dedicated Support
-      - name: Contractual SLA
-      - name: Security & Compliance Review
-      - name: Dedicated Account Manager
-      - name: Custom Data Residency
-      - name: ScienceLogic
-maintainers:
-  - FN: Kin Lane
-    email: kin@apievangelist.com
+  - id: skylar-one-standard
+    name: Skylar One Standard
+    product: Skylar One
+    subtitle: Observability, Services and Integration
+    price: '5.00'
+    price_qualifier: from
+    currency: USD
+    unit: per device
+    period: month
+    included:
+      - PowerPacks
+      - Skylar One Studio
+      - Hybrid cloud monitoring
+      - Infrastructure and app observability
+      - 400+ out-of-the-box integrations
+      - Event management
+      - Business service visibility
+      - Behavioral correlation
+      - SSO/SAML and API access
+    note: Contact ScienceLogic for device group pricing.
+  - id: skylar-one-advanced
+    name: Skylar One Advanced
+    product: Skylar One
+    subtitle: Standard + IT Workflow Automation
+    price: '6.00'
+    price_qualifier: from
+    currency: USD
+    unit: per device
+    period: month
+    included:
+      - Everything in Skylar One Standard
+      - Skylar Automation SyncPacks
+      - 100+ workflow automations
+      - Low-code authoring of custom workflows
+    note: Contact ScienceLogic for device group pricing.
+  - id: skylar-compliance-standard
+    name: Skylar Compliance Standard
+    product: Skylar Compliance
+    subtitle: Network Automation and Compliance
+    price: '12.00'
+    price_qualifier: from
+    currency: USD
+    unit: per device
+    period: month
+    included:
+      - Configuration backup and one-click recovery
+      - Change detection and automation
+      - Compliance auditing and reporting
+      - 100+ vendor-native integrations
+      - SaaS, private/public cloud, on-prem deployment
+      - SSO/SAML and API access
+    note: Contact ScienceLogic for volume discounts and enterprise pricing.
+  - id: skylar-compliance-advanced-ha
+    name: Skylar Compliance Advanced (H/A)
+    product: Skylar Compliance
+    subtitle: Standard + High Availability
+    price: '20.00'
+    price_qualifier: from
+    currency: USD
+    unit: per device
+    period: month
+    included:
+      - Everything in Skylar Compliance Standard
+      - Sync between primary and secondary appliances
+      - Automatic failover, backup and business continuation
+      - SaaS, private/public cloud, on-prem deployment
+    note: Contact ScienceLogic for volume discounts and enterprise pricing.
+unpriced_products:
+  - name: Skylar Analytics
+    statement: 'List Price: Please reach out to your ScienceLogic team for more information.'
+    capabilities: [Predictive alerting, Anomaly detection, ODBC, Visualizations]
+  - name: Skylar Advisor
+    statement: 'List Price: Please reach out to your ScienceLogic team for more information.'
+    capabilities: [Advisories, Knowledge management and sharing, Conversational interface]
+api_access_note: >-
+  "SSO/SAML and API access" is listed as an included feature of both Skylar One Standard and Skylar
+  Compliance Standard. There is no separate API plan, no per-call pricing and no published API quota — API
+  access is a feature of the product licence, metered by managed device rather than by request.

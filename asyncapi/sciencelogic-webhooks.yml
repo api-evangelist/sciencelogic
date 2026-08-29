@@ -1,0 +1,51 @@
+generated: '2026-08-29'
+method: searched
+source: >-
+  https://docs.sciencelogic.com/skylar_one/latest/Content/Manuals/Events/event_webhooks.htm;
+  https://docs.sciencelogic.com/skylar_one/latest/llms.txt
+provider: ScienceLogic
+providerId: sciencelogic
+asyncapi_published: false
+asyncapi_note: >-
+  ScienceLogic publishes no AsyncAPI document for any product. Probed the docs host and the ScienceLogic
+  GitHub organization; no /asyncapi.yaml, no event catalog, no channel definitions. Recorded as absent —
+  not fabricated.
+webhooks:
+  published: true
+  direction: inbound
+  direction_note: >-
+    This is the important qualifier. Skylar One is a webhook RECEIVER, not a webhook sender: you point a
+    third-party system's webhooks at a Skylar One webhook receiver and Skylar One turns the payloads into
+    platform events. ScienceLogic does not document an outbound webhook subscription API through which an
+    external consumer registers a URL to be notified when a ScienceLogic event fires. Outbound notification
+    is instead handled by Run Book Automations and by Skylar Automation (formerly PowerFlow) integrations,
+    which are configured in the platform rather than subscribed to over an API.
+  docs: https://docs.sciencelogic.com/skylar_one/latest/Content/Manuals/Events/event_webhooks.htm
+  product: Skylar One (formerly SL1)
+  minimum_version: 11.2.0
+  transport: HTTP
+  configuration_steps:
+    - Upgrade to Skylar One version 11.2.0 or later
+    - Enable the "Data Collection: Webhook Collector" system process (disabled by default) on the Process Manager page
+    - Configure Message Collectors or an All-In-One Appliance to process webhooks
+    - Add a ScienceLogic Library containing webhook handlers and include it in an execution environment
+    - Create a collector group and align one or more Message Collectors and devices to it
+    - Create a webhook receiver
+    - Define an event policy that generates events from received webhook payloads
+  entities:
+    - name: Webhook receiver
+      description: The endpoint on a Message Collector that accepts inbound webhook messages from a provider system.
+    - name: Webhook handler
+      description: Code in a ScienceLogic Library that parses an inbound payload into a shape SL1 can align to a device.
+    - name: Event policy
+      description: The rule that turns a parsed webhook payload into a Skylar One event with a severity.
+  event_surface_note: >-
+    The events Skylar One raises from webhooks are readable over the SL1 GraphQL API (the `events` root
+    field, exposed as the `list_events` MCP tool) and over the SL1 REST API's /event resource. That is a
+    poll surface, not a push subscription.
+outbound_options:
+  - name: Run Book Automations
+    description: Platform automations that can issue HTTP requests to external systems when an event fires. Configured in the SL1 UI, not subscribed to over an API.
+  - name: Skylar Automation (formerly PowerFlow)
+    description: The integration/orchestration product that syncs SL1 events and data with ITSM and CMDB systems via SyncPacks.
+    docs: https://docs.sciencelogic.com/skylar_automation/

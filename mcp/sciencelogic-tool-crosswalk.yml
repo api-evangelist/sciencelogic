@@ -1,0 +1,146 @@
+generated: '2026-08-29'
+method: derived
+source: >-
+  mcp/sciencelogic-mcp.yml (tool list from https://github.com/ScienceLogic/mcp README) bound to
+  openapi/sciencelogic-skylar-compliance-openapi.json operationIds
+provider: ScienceLogic
+providerId: sciencelogic
+surfaces:
+  openapi:
+    file: openapi/sciencelogic-skylar-compliance-openapi.json
+    title: Skylar Compliance API 2.0
+    operations: 314
+    gated: false
+    published_at: https://docs.sciencelogic.com/skylar_compliance/api/5-6/api.html
+  graphql:
+    endpoint: https://{skylar-one-appliance}/gql
+    gated: true
+    note: >-
+      The SL1/Skylar One GraphQL API runs on the customer's own Administration Portal, All-In-One
+      Appliance or Database Server and authenticates with SL1 user credentials. There is no public
+      endpoint to introspect, so the Skylar One tools below are mapped by the GraphQL root field the
+      vendor README names, not by an introspected schema.
+    docs: https://docs.sciencelogic.com/latest/Content/Web_Content_Dev_and_Integration/GraphQL_API/graphql_introduction.htm
+  mcp:
+    url: null
+    gated: true
+    note: >-
+      Self-hosted only (ghcr.io/sciencelogic/mcp). No vendor-operated endpoint exists, so inputSchemas
+      could not be introspected; bindings below are name- and endpoint-derived from the vendor's own
+      README tool tables, which cite the exact backing operation for every Skylar Compliance tool.
+crosswalk:
+  - tool: sc_list_devices
+    category: device
+    rest: [list_devices]
+    binding: direct
+    confidence: high
+    note: Vendor README cites GET /devices
+  - tool: sc_get_device_by_id
+    category: device
+    rest: [get_device]
+    binding: direct
+    confidence: high
+  - tool: sc_list_device_backups_by_type
+    category: backup
+    rest: [list_device_backups]
+    binding: direct
+    confidence: high
+    note: Tool reshapes the response, splitting the backup history by config type
+  - tool: sc_get_device_backup_by_id
+    category: backup
+    rest: [get_backup]
+    binding: direct
+    confidence: high
+  - tool: sc_get_device_backup
+    category: backup
+    rest: [config_details]
+    binding: direct
+    confidence: high
+    note: POST /devices/{id}/backups/{backup_id}/config
+  - tool: sc_compare_backup
+    category: backup
+    rest: [diff_backup]
+    binding: direct
+    confidence: high
+    note: POST /devices/backups/diff
+  - tool: sc_list_agents
+    category: agent
+    rest: [list_agents]
+    binding: direct
+    confidence: high
+  - tool: sc_list_jobs
+    category: job
+    rest: [list_jobs]
+    binding: direct
+    confidence: high
+  - tool: sc_get_job_by_id
+    category: job
+    rest: [get_job]
+    binding: direct
+    confidence: high
+  - tool: sc_list_historic_jobs
+    category: job
+    rest: [list_historic_jobs]
+    binding: direct
+    confidence: high
+  - tool: sc_list_logs
+    category: observability
+    rest: [list_logs]
+    binding: direct
+    confidence: high
+  - tool: sc_status
+    category: appliance
+    rest: [system_status, get_high_availability_status]
+    binding: composite
+    confidence: high
+    note: One tool fans out to GET /status and GET /settings/ha/status
+  - tool: sc_list_compliance_policies
+    category: compliance
+    rest: [list_policies]
+    binding: direct
+    confidence: high
+  - tool: sc_get_compliance_policy_by_id
+    category: compliance
+    rest: [get_policy]
+    binding: direct
+    confidence: high
+  - tool: sc_get_device_compliance_results
+    category: compliance
+    rest: [device_compliance]
+    binding: direct
+    confidence: high
+  - tool: sc_list_plugins
+    category: plugin
+    rest: [list_plugins]
+    binding: direct
+    confidence: high
+  - tool: sc_list_domains
+    category: domain
+    rest: [list_domains]
+    binding: direct
+    confidence: high
+mcp_only:
+  - tool: s1_list_devices
+    reason: Skylar One surface — backed by the SL1 GraphQL `devices` field; SL1 has no public OpenAPI in this repo
+  - tool: s1_get_asset_by_device_id
+    reason: Skylar One surface — GraphQL `assets`
+  - tool: s1_list_events
+    reason: Skylar One surface — GraphQL `events`
+  - tool: s1_list_business_services
+    reason: Skylar One surface — GraphQL `harProviders`
+  - tool: s1_get_appliance_status
+    reason: Skylar One surface — GraphQL `appliances`
+rest_only_summary: >-
+  297 of the 314 Skylar Compliance operations have no MCP tool. The server exposes a read-only slice:
+  every destructive or state-changing operation in the contract — restore_backup, delete_device,
+  cancel_job, push_firmware, credential and user management, all of /settings/** — is deliberately
+  unmapped. Whole tag groups with no tool at all include Command, Credential, Discovery, Firmware,
+  Template, Token, User, Role, Schedule, Export, Network, Syslog, Transcript and every Settings/* tag.
+coverage:
+  mcp_tools_total: 22
+  mcp_tools_bound_to_rest: 17
+  mcp_tools_graphql_only: 5
+  rest_operations_total: 314
+  rest_operations_with_tool: 18
+  rest_operations_without_tool: 296
+  read_only_tool_surface: true

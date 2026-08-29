@@ -1,0 +1,109 @@
+overlay: 1.0.0
+info:
+  title: API Evangelist enhancements for the Skylar Compliance API
+  version: 1.0.0
+extends: ../openapi/sciencelogic-skylar-compliance-openapi.json
+x-provenance:
+  generated: '2026-08-29'
+  method: generated
+  source: >-
+    Derived from openapi/sciencelogic-skylar-compliance-openapi.json plus the ScienceLogic artifacts in this
+    repo (conventions/, errors/, lifecycle/, authentication/, data-model/, mcp/). The original contract is
+    never mutated; this overlay records what API Evangelist adds on top of it.
+actions:
+  - target: $.info
+    description: Record where the contract was published and who owns it, which the original omits.
+    update:
+      contact:
+        name: ScienceLogic Support
+        url: https://support.sciencelogic.com/s/
+      x-provider: ScienceLogic
+      x-provider-id: sciencelogic
+      x-product: Skylar Compliance (formerly Restorepoint)
+      x-published-at: https://docs.sciencelogic.com/skylar_compliance/api/5-6/api.html
+      x-product-release: '5.6'
+      x-terms-of-service: https://sciencelogic.com/company/standard-terms-and-conditions-v20260116
+  - target: $.servers
+    description: >-
+      The original declares a single relative server (/api/v2). Record that the host is the customer's own
+      appliance, so a consumer knows a base URL is required and where it comes from.
+    update:
+      - url: https://{appliance}/api/v2
+        description: >-
+          Skylar Compliance is deployed as an appliance in the customer's environment. {appliance} is the
+          hostname or IP of that appliance; the trailing /api/v2 is fixed.
+        variables:
+          appliance:
+            default: skylar-compliance.example.internal
+            description: Hostname or IP address of the customer's Skylar Compliance appliance.
+  - target: $.info
+    description: Record the runtime semantics the contract does not declare, so an agent can plan before calling.
+    update:
+      x-conventions:
+        pagination:
+          style: offset-limit
+          params: [offset, limit, sort, fields, search]
+          limit_default: 50
+          limit_max: 500
+          response_total_field: total
+        idempotency:
+          supported: false
+        dry_run:
+          supported: false
+        rate_limits:
+          published: false
+        error_format: vendor-json
+        artifact: ../conventions/sciencelogic-conventions.yml
+  - target: $.info
+    description: >-
+      Record the reversibility posture — which write operations can be taken back and on what window —
+      because nothing in the original contract expresses it.
+    update:
+      x-reversibility:
+        grade: documented
+        reversal_operations:
+          - operationId: restore_backup
+            reverses: an unwanted device configuration change
+            window: bounded by customer-configured backup retention; no vendor-stated window
+          - operationId: cancel_job
+            reverses: an in-flight job
+            window: while the job appears in GET /jobs
+          - operationId: cancel_all_jobs
+            reverses: a bulk operation fired in error
+            window: while jobs appear in GET /jobs
+          - operationId: restore_restorepoint
+            reverses: a bad appliance-level change
+            window: bounded by customer-configured appliance archive retention
+        irreversible: [delete_device, delete_backup, delete_user]
+        artifact: ../conventions/sciencelogic-conventions.yml
+  - target: $.components.securitySchemes.Permissions
+    description: >-
+      The original abuses an openIdConnect scheme to publish per-operation permission requirements. Flag
+      that explicitly so tooling does not treat it as a usable auth flow.
+    update:
+      x-not-an-auth-scheme: true
+      x-purpose: >-
+        Documentation-only. Publishes the permission each operation requires. It is not a valid
+        authentication method — the contract says so in its own description.
+      x-permission-count: 66
+  - target: $.info
+    description: Record the error envelope, since the contract uses a bespoke shape rather than RFC 9457.
+    update:
+      x-error-format:
+        media_type: application/json
+        rfc9457: false
+        shape: '{ message, errors: { field: [msg] }, EncryptionStatus? }'
+        artifact: ../errors/sciencelogic-problem-types.yml
+  - target: $.info
+    description: >-
+      Record which operations an MCP client can reach today, and that the tool surface is read-only, so an
+      agent planner knows the difference between the contract and the agent surface.
+    update:
+      x-mcp:
+        server: https://github.com/ScienceLogic/mcp
+        deployment: self-hosted
+        tools_bound_to_this_contract: 17
+        operations_covered: 18
+        operations_total: 314
+        tool_surface: read-only
+        artifact: ../mcp/sciencelogic-tool-crosswalk.yml

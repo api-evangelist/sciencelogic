@@ -1,0 +1,58 @@
+generated: '2026-08-29'
+method: derived
+source: openapi/sciencelogic-skylar-compliance-openapi.json
+summary:
+  types:
+  - apiKey
+  - openIdConnect
+  api_key_in:
+  - cookie
+  - header
+schemes:
+- name: Cookie
+  type: apiKey
+  in: cookie
+  parameter: session
+  description: |-
+    The Skylar Compliance web interface uses session cookies to authenticate API requests coming from a user's browser.
+    Please use authentication tokens when integrating with the Skylar Compliance API programmatically.
+
+    Example header:
+
+    ```http
+    Cookie: session=abcde12345; Path=/; HttpOnly
+    ```
+  sources:
+  - openapi/sciencelogic-skylar-compliance-openapi.json
+- name: Token
+  type: apiKey
+  in: header
+  parameter: Authorization
+  description: |-
+    To integrate with the Skylar Compliance API, please use the web interface to create API tokens. API requests via
+    token should pass an `Authorization` header using the `Custom` prefix.
+
+    Example header:
+
+    ```http
+    Authorization: Custom qVUXmMhPsle3NVU...
+    ```
+  sources:
+  - openapi/sciencelogic-skylar-compliance-openapi.json
+- name: Permissions
+  type: openIdConnect
+  openIdConnectUrl: https://ignore.example.com
+  description: |-
+    Lists required [Permissions](#tag/Permission) for each individual endpoint.
+
+    **Please note:** Whilst this authentication method is listed as an OpenID Connect authentication type, it
+    is only used for the purposes of displaying the required permissions on each endpoint and is _not_ a valid
+    authentication method by itself.
+
+    - `ModifyDevice`
+    - `BackupDevice`
+    - `RestoreDevice`
+    - `CommandDevice`
+    - `Vie
+  sources:
+  - openapi/sciencelogic-skylar-compliance-openapi.json

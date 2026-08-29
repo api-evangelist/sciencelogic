@@ -1,0 +1,214 @@
+generated: '2026-08-29'
+method: derived
+source: openapi/sciencelogic-skylar-compliance-openapi.json
+provider: ScienceLogic
+providerId: sciencelogic
+api: Skylar Compliance API 2.0
+derivation_note: >-
+  The published contract inlines every schema (components.schemas is empty; internal reuse is expressed as
+  JSON Pointer $refs into other operations' response bodies). The entity graph below is therefore derived
+  from the resource/sub-resource path structure and from the foreign-key style id fields that appear in
+  request and response bodies, not from named component schemas.
+entities:
+  - name: Device
+    collection: /devices
+    identifier: ID
+    description: A managed network device or appliance whose configuration Skylar Compliance backs up, compares and tests for compliance. The central entity of the product.
+    operations: 22
+    sub_resources: [backups, compliance, monitors, knownhosts, plugincommand, assetfields]
+  - name: Backup
+    collection: /devices/{id}/backups
+    identifier: BackupID
+    description: A captured configuration of a device at a point in time. Restorable, diffable, exportable, and subject to retention policy.
+  - name: Agent
+    collection: /agents
+    identifier: AgentID
+    description: A distributed collection agent that reaches devices the master appliance cannot. Agents can be chained (SecondaryToAgentID).
+  - name: Job
+    collection: /jobs
+    identifier: JobUID
+    description: An asynchronous unit of work — a backup, restore, discovery, firmware push or command run. Completed jobs move to /jobs/historic.
+  - name: Policy
+    collection: /policies
+    identifier: PolicyID
+    description: A compliance policy composed of rules and variables, tested against device configurations to produce compliance results and scores.
+    sub_resources: [rules, test, scores]
+  - name: Rule
+    collection: /policies/{id}/rules
+    identifier: RuleID
+    description: A single compliance assertion inside a policy.
+  - name: Domain
+    collection: /domains
+    identifier: DomainID
+    description: The multi-tenancy boundary. Almost every other entity carries a DomainID, and a token's domain scope determines what it can see.
+    sub_resources: [relationships]
+  - name: Credential
+    collection: /credentials
+    identifier: CredentialID
+    description: Stored device access credentials, optionally sourced from an external vault provider (CyberArk).
+  - name: Command
+    collection: /commands
+    identifier: CommandID
+    description: A reusable command definition that can be scheduled and executed against devices, producing outputs.
+    sub_resources: [schedules, perform]
+  - name: CommandOutput
+    collection: /commands/outputs
+    identifier: OutputID
+    description: The captured result of a command run, groupable via CommandOutputGroupID.
+  - name: Plugin
+    collection: /plugins
+    identifier: name
+    description: The device-type driver that knows how to talk to a given vendor device, with defaults and redaction rules.
+    sub_resources: [redactrules, defaults]
+  - name: Template
+    collection: /templates
+    identifier: ID
+    description: A configuration template that can be pushed to devices.
+  - name: Firmware
+    collection: /firmware
+    identifier: FirmwareID
+    description: A firmware image that can be pushed to a target device.
+  - name: FileServer
+    collection: /fileservers
+    identifier: FileServerID
+    description: An external destination for exported backups and archives.
+  - name: User
+    collection: /users
+    identifier: UserID
+    description: A Skylar Compliance operator account, aligned to roles and domains, optionally federated via LDAP or SAML.
+  - name: Role
+    collection: /roles
+    identifier: RoleID
+    description: A named grant of the 66 permissions the contract enumerates.
+  - name: Token
+    collection: /tokens
+    identifier: ID
+    description: An API token — the programmatic authentication credential for this API.
+  - name: Label
+    collection: /labels
+    identifier: ID
+    description: A free-form tag applied to devices for grouping and filtering.
+  - name: Schedule
+    collection: /schedules
+    identifier: ID
+    description: A recurring plan that drives backups, commands and reports.
+  - name: Report
+    collection: /reports
+    identifier: ID
+    description: A generated compliance or operational report, itself schedulable.
+  - name: Discovery
+    collection: /discovery
+    identifier: ID
+    description: A network discovery session that finds candidate devices.
+  - name: Transcript
+    collection: /transcripts
+    identifier: TranscriptID
+    description: A recorded terminal session against a device.
+  - name: Log
+    collection: /logs
+    identifier: ID
+    description: Appliance activity log records; syslog is a separate collection (/syslogs).
+relationships:
+  - from: Device
+    to: Domain
+    type: belongs_to
+    via: DomainID
+  - from: Device
+    to: Backup
+    type: has_many
+    via: /devices/{id"}/backups
+  - from: Device
+    to: Credential
+    type: belongs_to
+    via: CredentialID
+  - from: Device
+    to: Plugin
+    type: belongs_to
+    via: base_plugin_key
+  - from: Device
+    to: Agent
+    type: belongs_to
+    via: AgentID
+  - from: Device
+    to: Backup
+    type: has_one
+    via: LastSuccessfulBackupID
+    note: pointer to the most recent good backup
+  - from: Device
+    to: Label
+    type: has_many
+    via: ModifyLabels surface
+  - from: Backup
+    to: Device
+    type: belongs_to
+    via: DeviceID
+  - from: Backup
+    to: BackupFile
+    type: has_many
+    via: BackupFileID
+  - from: Agent
+    to: Agent
+    type: belongs_to
+    via: SecondaryToAgentID
+    note: agent chaining
+  - from: Agent
+    to: Domain
+    type: belongs_to
+    via: DomainID
+  - from: Policy
+    to: Rule
+    type: has_many
+    via: /policies/{id"}/rules
+  - from: Policy
+    to: Domain
+    type: belongs_to
+    via: DomainID
+  - from: Command
+    to: CommandSchedule
+    type: has_many
+    via: /commands/{id"}/schedules
+  - from: Command
+    to: CommandOutput
+    type: has_many
+    via: CommandID
+  - from: CommandOutput
+    to: CommandOutputGroup
+    type: belongs_to
+    via: CommandOutputGroupID
+  - from: User
+    to: Role
+    type: belongs_to
+    via: RoleID
+  - from: User
+    to: Domain
+    type: belongs_to
+    via: DomainID
+  - from: Role
+    to: Permission
+    type: has_many
+    via: scoped_permission[]
+  - from: Job
+    to: Device
+    type: belongs_to
+    via: DeviceID
+  - from: Firmware
+    to: Device
+    type: pushed_to
+    via: TargetDeviceID
+  - from: Credential
+    to: CyberArkProvider
+    type: belongs_to
+    via: ProviderID
+  - from: Report
+    to: Schedule
+    type: has_many
+    via: /reports/schedules
+  - from: Domain
+    to: Domain
+    type: has_many
+    via: /domains/{id"}/relationships
+    note: domain hierarchy
+tenancy_note: >-
+  DomainID is the single most widespread foreign key in the contract (19 distinct occurrences across
+  request and response bodies). An agent operating this API must treat domain scope as the primary reason a
+  resource is invisible — a 404 on a valid id is frequently a domain-scoping outcome, not a missing record.

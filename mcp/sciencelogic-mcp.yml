@@ -1,0 +1,117 @@
+generated: '2026-08-29'
+method: searched
+source: https://github.com/ScienceLogic/mcp
+provider: ScienceLogic
+providerId: sciencelogic
+name: ScienceLogic MCP (mcp-sl)
+description: >-
+  A FastMCP server published by the ScienceLogic GitHub organization that gives AI agents access to
+  ScienceLogic products through their existing APIs. It mounts two sub-servers in one process: Skylar
+  Compliance (formerly Restorepoint, v5.6) at /sky_comp/mcp, backed by the Skylar Compliance REST API,
+  and Skylar One (formerly SL1, AP2 "Nougat") at /sky_one/mcp, backed by the SL1 GraphQL API. It is
+  self-hosted next to the customer's own appliances — ScienceLogic operates no hosted MCP endpoint.
+status: published
+version: 0.2.2
+repository: https://github.com/ScienceLogic/mcp
+license: Apache-2.0
+official: false
+official_note: >-
+  Published by the ScienceLogic GitHub organization and authored by a @sciencelogic.com engineer, but the
+  README states verbatim "This is not an official ScienceLogic product" and "This MCP server is for
+  experimental use only".
+deployment:
+  mode: local-stdio
+  endpoint:
+  install: >-
+    docker run --rm -p 8000:8000 -e SKY_COMP_API_URL=https://changeme/api/ -e SKY_COMP_API_KEY=changeme
+    -e SKY_ONE_API_URL=https://changeme/ -e SKY_ONE_API_KEY=changeme ghcr.io/sciencelogic/mcp:latest
+  package: https://github.com/ScienceLogic/mcp
+  auth: api-key
+  verified: searched
+  mode_note: >-
+    Recorded as local-stdio because a human must install and run it before any agent can reach it —
+    ScienceLogic publishes no hosted URL an MCP client can POST to. The transport is actually streamable
+    HTTP, not stdio: once the operator runs the container the server listens on
+    http://localhost:8000/sky_one/mcp and http://localhost:8000/sky_comp/mcp. It is not a remote surface
+    in the sense this field distinguishes, because there is no vendor-operated endpoint.
+transport: streamable-http
+endpoints_when_self_hosted:
+  - path: /sky_one/mcp
+    product: Skylar One (formerly SL1)
+    backing_api: SL1 GraphQL API
+    tool_prefix: s1_
+  - path: /sky_comp/mcp
+    product: Skylar Compliance (formerly Restorepoint) 5.6
+    backing_api: Skylar Compliance REST API v2
+    tool_prefix: sc_
+security:
+  server_authentication: none
+  server_authentication_note: >-
+    Verbatim from the repository README — "This MCP server is unathenticated", "Not recommended for public
+    networks", "Access to this server grants access to your ScienceLogic appliances". The server proxies
+    to the backing APIs using credentials supplied as environment variables.
+  upstream_credentials:
+    - SKY_COMP_API_KEY (Skylar Compliance API token)
+    - SKY_ONE_API_KEY (base64 'user:pass' basic auth for Skylar One)
+  elicitation: >-
+    SUPPORT_ELICITATION (default true) makes the server request additional confirmation from the operator
+    on non-READ API calls.
+  max_query_limit: >-
+    MAX_QUERY_LIMIT (default 50) caps how many results an agent can request, to protect the backing API.
+tools:
+  skylar_compliance:
+    - name: list_devices
+      description: Returns a list of device details
+    - name: get_device_by_id
+      description: Returns a device by ID
+    - name: list_device_backups_by_type
+      description: Returns a history of backups for a Skylar Compliance device split out by config type
+    - name: get_device_backup_by_id
+      description: Returns a device backup by id
+    - name: get_device_backup
+      description: Returns the lines of a backup
+    - name: compare_backup
+      description: Shows the difference between two backups
+    - name: list_agents
+      description: Returns a list of agents
+    - name: list_jobs
+      description: Returns a list of any running jobs
+    - name: get_job_by_id
+      description: Returns a job by id
+    - name: list_historic_jobs
+      description: Returns a list of any historic jobs
+    - name: list_logs
+      description: Returns system logs
+    - name: status
+      description: Returns the health and HA status of the appliance
+    - name: list_compliance_policies
+      description: Returns a list of compliance policies
+    - name: get_compliance_policy_by_id
+      description: Returns a compliancy policy by id
+    - name: get_device_compliance_results
+      description: Returns the results of a device's compliance test
+    - name: list_plugins
+      description: Returns a list of device plugins
+    - name: list_domains
+      description: Returns a list of domains
+  skylar_one:
+    - name: list_devices
+      description: Returns a list of device details
+      graphql: devices
+    - name: get_asset_by_device_id
+      description: Returns assets for a device
+      graphql: assets
+    - name: list_events
+      description: Returns a list of events, sorted by most recent
+      graphql: events
+    - name: list_business_services
+      description: Returns a list of business services
+      graphql: harProviders
+    - name: get_appliance_status
+      description: Returns a list of appliances and their status
+      graphql: appliances
+tool_count: 22
+tools_source: >-
+  README.md tool tables on ScienceLogic/mcp@main. A live tools/list introspection was not possible: the
+  server has no vendor-hosted endpoint to POST to, so input schemas require running the container against
+  a customer appliance.
