@@ -52,106 +52,2122 @@ created: '2026-03-27'
 modified: '2026-08-29'
 specificationVersion: '0.23'
 apis:
-  - aid: sciencelogic:sciencelogic
-    name: ScienceLogic
-    description: >-
-      The ScienceLogic AI Platform (Skylar) — AIOps, IT infrastructure and application observability,
-      service management, network configuration compliance, and automated remediation.
-    humanURL: https://sciencelogic.com
-    tags:
-      - AIOps
-      - Observability
-    properties:
-      - type: Documentation
-        url: https://docs.sciencelogic.com
-  - aid: sciencelogic:skylar-compliance-api
-    name: Skylar Compliance API
-    description: >-
-      The REST API for Skylar Compliance (formerly Restorepoint) — ScienceLogic's network configuration
-      and change management product. 314 operations across 193 paths covering devices, configuration
-      backups, backup diffing and restore, compliance policies and rules, discovery, credentials, firmware
-      and template push, agents, jobs, users, roles and appliance settings. ScienceLogic states that the
-      product's own web interface uses this same API for every operation. The API is served by the
-      customer's own Skylar Compliance appliance at /api/v2.
-    humanURL: https://docs.sciencelogic.com/skylar_compliance/api/5-6/api.html
-    baseURL: https://{appliance}/api/v2
-    tags:
-      - Compliance
-      - Network Configuration Management
-      - Backup
-    properties:
-      - type: OpenAPI
-        url: openapi/sciencelogic-skylar-compliance-openapi.json
-      - type: APIReference
-        url: https://docs.sciencelogic.com/skylar_compliance/api/5-6/api.html
-      - type: Overlay
-        url: overlays/sciencelogic-skylar-compliance-overlay.yaml
-      - type: ErrorCatalog
-        url: errors/sciencelogic-problem-types.yml
-      - type: DataModel
-        url: data-model/sciencelogic-data-model.yml
-      - type: Documentation
-        url: https://docs.sciencelogic.com/skylar_compliance/
-  - aid: sciencelogic:skylar-one-graphql-api
-    name: Skylar One GraphQL API
-    description: >-
-      The GraphQL API for Skylar One (formerly SL1). ScienceLogic's forward-looking interface — the default
-      AP2 user interface uses it exclusively and makes no REST calls, and performance and log data held in
-      the NoSQL storage-node cluster is visible only through it. It uses the same authentication profiles
-      and credentials as the platform, and is served from the Administration Portal, All-In-One Appliance
-      or Database Server. SL1 12.3.0 and later ship a built-in GQL Browser at System > Tools > GQL Browser.
-      No published SDL or introspection endpoint is reachable from outside a customer deployment.
-    humanURL: https://docs.sciencelogic.com/latest/Content/Web_Content_Dev_and_Integration/GraphQL_API/graphql_introduction.htm
-    baseURL: https://{appliance}/gql
-    tags:
-      - GraphQL
-      - Observability
-    properties:
-      - type: Documentation
-        url: https://docs.sciencelogic.com/latest/Content/Web_Content_Dev_and_Integration/GraphQL_API/graphql_title_page_web.htm
-      - type: GettingStarted
-        url: https://docs.sciencelogic.com/latest/Content/Web_Content_Dev_and_Integration/GraphQL_API/graphql_introduction.htm
-  - aid: sciencelogic:skylar-one-rest-api
-    name: Skylar One REST API
-    description: >-
-      The REST API for Skylar One (formerly SL1), giving external systems programmatic access to tickets,
-      devices, organizations, events, monitoring policies, dynamic applications, schedules, thresholds and
-      collected data. Requests carry SL1 login credentials over HTTPS and select application/json or
-      application/xml with an Accept header. ScienceLogic has placed it in maintenance: support after
-      8.14.0 is limited to bug fixes, it cannot see data held in the NoSQL storage-node cluster, and
-      customers are directed to the GraphQL API for new integrations. No machine-readable contract is
-      published for it.
-    humanURL: https://docs.sciencelogic.com/latest/Content/Web_Content_Dev_and_Integration/ScienceLogic_API/api_intro.htm
-    baseURL: https://{appliance}/api
-    tags:
-      - REST
-      - Observability
-    properties:
-      - type: Documentation
-        url: https://docs.sciencelogic.com/latest/Content/Web_Content_Dev_and_Integration/ScienceLogic_API/api_intro.htm
-      - type: APIReference
-        url: https://docs.sciencelogic.com/latest/Content/Web_Content_Dev_and_Integration/ScienceLogic_API/resources_and_uris.htm
-      - type: Deprecation
-        url: lifecycle/sciencelogic-lifecycle.yml
-  - aid: sciencelogic:sciencelogic-mcp
-    name: ScienceLogic MCP Server
-    description: >-
-      A FastMCP server published by the ScienceLogic GitHub organization exposing 22 read-only tools across
-      two sub-servers — Skylar One (backed by the SL1 GraphQL API) and Skylar Compliance (backed by the
-      Skylar Compliance REST API). Self-hosted from a container image next to the customer's own
-      appliances; ScienceLogic operates no hosted MCP endpoint. The README states it is unauthenticated,
-      for experimental use, and not an official ScienceLogic product.
-    humanURL: https://github.com/ScienceLogic/mcp
-    tags:
-      - MCP
-      - Agents
-    properties:
-      - type: MCPServer
-        url: mcp/sciencelogic-mcp.yml
-      - type: ToolCrosswalk
-        url: mcp/sciencelogic-tool-crosswalk.yml
-      - type: SourceCode
-        url: https://github.com/ScienceLogic/mcp
+- aid: sciencelogic:sciencelogic
+  name: ScienceLogic
+  description: >-
+    The ScienceLogic AI Platform (Skylar) — AIOps, IT infrastructure and application observability, service
+    management, network configuration compliance, and automated remediation.
+  humanURL: https://sciencelogic.com
+  tags:
+  - AIOps
+  - Observability
+  properties:
+  - type: Documentation
+    url: https://docs.sciencelogic.com
+- aid: sciencelogic:skylar-one-graphql-api
+  name: Skylar One GraphQL API
+  description: >-
+    The GraphQL API for Skylar One (formerly SL1). ScienceLogic's forward-looking interface — the default
+    AP2 user interface uses it exclusively and makes no REST calls, and performance and log data held
+    in the NoSQL storage-node cluster is visible only through it. It uses the same authentication profiles
+    and credentials as the platform, and is served from the Administration Portal, All-In-One Appliance
+    or Database Server. SL1 12.3.0 and later ship a built-in GQL Browser at System > Tools > GQL Browser.
+    No published SDL or introspection endpoint is reachable from outside a customer deployment.
+  humanURL: >-
+    https://docs.sciencelogic.com/latest/Content/Web_Content_Dev_and_Integration/GraphQL_API/graphql_introduction.htm
+  baseURL: https://{appliance}/gql
+  tags:
+  - GraphQL
+  - Observability
+  properties:
+  - type: Documentation
+    url: >-
+      https://docs.sciencelogic.com/latest/Content/Web_Content_Dev_and_Integration/GraphQL_API/graphql_title_page_web.htm
+  - type: GettingStarted
+    url: >-
+      https://docs.sciencelogic.com/latest/Content/Web_Content_Dev_and_Integration/GraphQL_API/graphql_introduction.htm
+- aid: sciencelogic:skylar-one-rest-api
+  name: Skylar One REST API
+  description: >-
+    The REST API for Skylar One (formerly SL1), giving external systems programmatic access to tickets,
+    devices, organizations, events, monitoring policies, dynamic applications, schedules, thresholds and
+    collected data. Requests carry SL1 login credentials over HTTPS and select application/json or application/xml
+    with an Accept header. ScienceLogic has placed it in maintenance: support after 8.14.0 is limited
+    to bug fixes, it cannot see data held in the NoSQL storage-node cluster, and customers are directed
+    to the GraphQL API for new integrations. No machine-readable contract is published for it.
+  humanURL: >-
+    https://docs.sciencelogic.com/latest/Content/Web_Content_Dev_and_Integration/ScienceLogic_API/api_intro.htm
+  baseURL: https://{appliance}/api
+  tags:
+  - REST
+  - Observability
+  properties:
+  - type: Documentation
+    url: >-
+      https://docs.sciencelogic.com/latest/Content/Web_Content_Dev_and_Integration/ScienceLogic_API/api_intro.htm
+  - type: APIReference
+    url: >-
+      https://docs.sciencelogic.com/latest/Content/Web_Content_Dev_and_Integration/ScienceLogic_API/resources_and_uris.htm
+  - type: Deprecation
+    url: lifecycle/sciencelogic-lifecycle.yml
+- aid: sciencelogic:sciencelogic-mcp
+  name: ScienceLogic MCP Server
+  description: >-
+    A FastMCP server published by the ScienceLogic GitHub organization exposing 22 read-only tools across
+    two sub-servers — Skylar One (backed by the SL1 GraphQL API) and Skylar Compliance (backed by the
+    Skylar Compliance REST API). Self-hosted from a container image next to the customer's own appliances;
+    ScienceLogic operates no hosted MCP endpoint. The README states it is unauthenticated, for experimental
+    use, and not an official ScienceLogic product.
+  humanURL: https://github.com/ScienceLogic/mcp
+  tags:
+  - MCP
+  - Agents
+  properties:
+  - type: MCPServer
+    url: mcp/sciencelogic-mcp.yml
+  - type: ToolCrosswalk
+    url: mcp/sciencelogic-tool-crosswalk.yml
+  - type: SourceCode
+    url: https://github.com/ScienceLogic/mcp
+- aid: sciencelogic:sciencelogic-agent-api
+  name: ScienceLogic Agent API
+  description: >-
+    Agents allow a Skylar Compliance appliance to manage devices located on a remote or otherwise disjointed
+    network, not
+
+    directly routable by Skylar Compliance, without the need of complex firewall changes, Network Address
+    Translation, or
+
+    VPNs. For instance, a Service Provider can set up a central Skylar Compliance appliance and deploy
+    agents on customer
+
+    networks, enabling backups of devices on remote sites.
+
+
+    An Agent can be deployed as a Virtual or Hardware appliance on the remote network; the Agent provides
+    faster
+
+    operations by locally performing all the tasks that would typically require extensive network interaction.
+
+    Configurations, logs, etc. are processed locally by the agent, and uploaded to the master Skylar Compliance
+    appliance.
+
+
+    **Please note:** Agents are only available with an Enterprise licence.
+  humanURL: https://sciencelogic.com
+  baseURL: https://{appliance}/api/v2
+  tags:
+  - Agent
+  properties:
+  - type: OpenAPI
+    url: openapi/sciencelogic-agent-api-openapi.yml
+  - type: APIReference
+    url: https://docs.sciencelogic.com/skylar_compliance/api/5-6/api.html
+  - type: ErrorCatalog
+    url: errors/sciencelogic-problem-types.yml
+  - type: DataModel
+    url: data-model/sciencelogic-data-model.yml
+  - type: Documentation
+    url: https://docs.sciencelogic.com/skylar_compliance/
+- aid: sciencelogic:sciencelogic-agent-debug-api
+  name: ScienceLogic Agent/Debug API
+  description: Endpoints that can aid in debugging agent problems.
+  humanURL: https://sciencelogic.com
+  baseURL: https://{appliance}/api/v2
+  tags:
+  - Agent/Debug
+  properties:
+  - type: OpenAPI
+    url: openapi/sciencelogic-agent-debug-api-openapi.yml
+  - type: APIReference
+    url: https://docs.sciencelogic.com/skylar_compliance/api/5-6/api.html
+  - type: ErrorCatalog
+    url: errors/sciencelogic-problem-types.yml
+  - type: DataModel
+    url: data-model/sciencelogic-data-model.yml
+  - type: Documentation
+    url: https://docs.sciencelogic.com/skylar_compliance/
+- aid: sciencelogic:sciencelogic-agent-remote-api
+  name: ScienceLogic Agent/Remote API
+  description: Start and stop remote support access on agents.
+  humanURL: https://sciencelogic.com
+  baseURL: https://{appliance}/api/v2
+  tags:
+  - Agent/Remote
+  properties:
+  - type: OpenAPI
+    url: openapi/sciencelogic-agent-remote-api-openapi.yml
+  - type: APIReference
+    url: https://docs.sciencelogic.com/skylar_compliance/api/5-6/api.html
+  - type: ErrorCatalog
+    url: errors/sciencelogic-problem-types.yml
+  - type: DataModel
+    url: data-model/sciencelogic-data-model.yml
+  - type: Documentation
+    url: https://docs.sciencelogic.com/skylar_compliance/
+- aid: sciencelogic:sciencelogic-backup-api
+  name: ScienceLogic Backup API
+  description: >-
+    A device backup can encapsulates one or more device configurations. Depending on the type of device,
+    a device
+
+    backup might be a simple text file or a multi-gigabyte TGZ.
+  humanURL: https://sciencelogic.com
+  baseURL: https://{appliance}/api/v2
+  tags:
+  - Backup
+  properties:
+  - type: OpenAPI
+    url: openapi/sciencelogic-backup-api-openapi.yml
+  - type: APIReference
+    url: https://docs.sciencelogic.com/skylar_compliance/api/5-6/api.html
+  - type: ErrorCatalog
+    url: errors/sciencelogic-problem-types.yml
+  - type: DataModel
+    url: data-model/sciencelogic-data-model.yml
+  - type: Documentation
+    url: https://docs.sciencelogic.com/skylar_compliance/
+- aid: sciencelogic:sciencelogic-command-api
+  name: ScienceLogic Command API
+  description: >-
+    Skylar Compliance allows you to send a CLI command to a device or group of devices and capture the
+    output of the
+
+    command. This is a very convenient tool to perform a task concurrently on a group of devices, such
+    as changing
+
+    the administrator password.
+
+
+    ### Using variables
+
+
+    Commands can be parameterised for different devices, using the format `$parameter$`, where `$` is
+    the Variable
+
+    Delimiter you've set for your Command. For instance, to change the admin password for a number of
+    ScreenOS
+
+    devices, select the devices and enter the command:
+
+
+    ```
+
+    set admin password $password$
+
+    ```
+
+
+    When running a parameterised command against devices, you have to pass a replacement value for each
+    device.
+
+
+    **Note:** A parameter can only consist of letters, numbers, and the underscore character `_`. If the
+    replacement
+
+    string contains escape sequences (such as `\n`), they must be double-escaped (`\\n`).
+
+
+    ### Lua Functions Inputs
+
+
+    Lua Functions commands support parameterized inputs that are passed to the function. Each input can
+    have:
+
+    - **Source: text** - Hardcoded value when creating the command
+
+    - **Source: prompt** - User is prompted to enter value when running the command
+
+    - **Source: csv** - Values are imported from a CSV file
+
+
+    Inputs can be marked as `Secret` to hide values in outputs and transcripts.
+  humanURL: https://sciencelogic.com
+  baseURL: https://{appliance}/api/v2
+  tags:
+  - Command
+  properties:
+  - type: OpenAPI
+    url: openapi/sciencelogic-command-api-openapi.yml
+  - type: APIReference
+    url: https://docs.sciencelogic.com/skylar_compliance/api/5-6/api.html
+  - type: ErrorCatalog
+    url: errors/sciencelogic-problem-types.yml
+  - type: DataModel
+    url: data-model/sciencelogic-data-model.yml
+  - type: Documentation
+    url: https://docs.sciencelogic.com/skylar_compliance/
+- aid: sciencelogic:sciencelogic-command-output-api
+  name: ScienceLogic Command/Output API
+  description: >-
+    Logs from running [scheduled commands](#tag/CommandSchedule) with `StoreLog` enabled can be retrieved
+    here.
+  humanURL: https://sciencelogic.com
+  baseURL: https://{appliance}/api/v2
+  tags:
+  - Command/Output
+  properties:
+  - type: OpenAPI
+    url: openapi/sciencelogic-command-output-api-openapi.yml
+  - type: APIReference
+    url: https://docs.sciencelogic.com/skylar_compliance/api/5-6/api.html
+  - type: ErrorCatalog
+    url: errors/sciencelogic-problem-types.yml
+  - type: DataModel
+    url: data-model/sciencelogic-data-model.yml
+  - type: Documentation
+    url: https://docs.sciencelogic.com/skylar_compliance/
+- aid: sciencelogic:sciencelogic-command-schedule-api
+  name: ScienceLogic Command/Schedule API
+  description: Commands can be scheduled to run automatically at defined intervals or once.
+  humanURL: https://sciencelogic.com
+  baseURL: https://{appliance}/api/v2
+  tags:
+  - Command/Schedule
+  properties:
+  - type: OpenAPI
+    url: openapi/sciencelogic-command-schedule-api-openapi.yml
+  - type: APIReference
+    url: https://docs.sciencelogic.com/skylar_compliance/api/5-6/api.html
+  - type: ErrorCatalog
+    url: errors/sciencelogic-problem-types.yml
+  - type: DataModel
+    url: data-model/sciencelogic-data-model.yml
+  - type: Documentation
+    url: https://docs.sciencelogic.com/skylar_compliance/
+- aid: sciencelogic:sciencelogic-command-variables-api
+  name: ScienceLogic Command/Variables API
+  description: >-
+    Commands can have one or multiple variables. The user can upload a csv file with a list of variables
+    and they will
+
+    be parsed and used when running the command.
+  humanURL: https://sciencelogic.com
+  baseURL: https://{appliance}/api/v2
+  tags:
+  - Command/Variables
+  properties:
+  - type: OpenAPI
+    url: openapi/sciencelogic-command-variables-api-openapi.yml
+  - type: APIReference
+    url: https://docs.sciencelogic.com/skylar_compliance/api/5-6/api.html
+  - type: ErrorCatalog
+    url: errors/sciencelogic-problem-types.yml
+  - type: DataModel
+    url: data-model/sciencelogic-data-model.yml
+  - type: Documentation
+    url: https://docs.sciencelogic.com/skylar_compliance/
+- aid: sciencelogic:sciencelogic-credential-api
+  name: ScienceLogic Credential API
+  description: Set of username and up to two passwords that can be used across multiple devices.
+  humanURL: https://sciencelogic.com
+  baseURL: https://{appliance}/api/v2
+  tags:
+  - Credential
+  properties:
+  - type: OpenAPI
+    url: openapi/sciencelogic-credential-api-openapi.yml
+  - type: APIReference
+    url: https://docs.sciencelogic.com/skylar_compliance/api/5-6/api.html
+  - type: ErrorCatalog
+    url: errors/sciencelogic-problem-types.yml
+  - type: DataModel
+    url: data-model/sciencelogic-data-model.yml
+  - type: Documentation
+    url: https://docs.sciencelogic.com/skylar_compliance/
+- aid: sciencelogic:sciencelogic-credential-bulk-api
+  name: ScienceLogic Credential/Bulk API
+  description: >-
+    Allows creating or updating multiple credentials at once. It will create a scheduled task with the
+    given credentials and create a log
+
+    entry for the beginning and end of the credentials creation/modification.
+  humanURL: https://sciencelogic.com
+  baseURL: https://{appliance}/api/v2
+  tags:
+  - Credential/Bulk
+  properties:
+  - type: OpenAPI
+    url: openapi/sciencelogic-credential-bulk-api-openapi.yml
+  - type: APIReference
+    url: https://docs.sciencelogic.com/skylar_compliance/api/5-6/api.html
+  - type: ErrorCatalog
+    url: errors/sciencelogic-problem-types.yml
+  - type: DataModel
+    url: data-model/sciencelogic-data-model.yml
+  - type: Documentation
+    url: https://docs.sciencelogic.com/skylar_compliance/
+- aid: sciencelogic:sciencelogic-credential-provider-cyberark-api
+  name: ScienceLogic Credential/Provider/Cyber Ark API
+  description: Allows retrieving credentials from the external vault.
+  humanURL: https://sciencelogic.com
+  baseURL: https://{appliance}/api/v2
+  tags:
+  - Credential/Provider/CyberArk
+  properties:
+  - type: OpenAPI
+    url: openapi/sciencelogic-credential-provider-cyberark-api-openapi.yml
+  - type: APIReference
+    url: https://docs.sciencelogic.com/skylar_compliance/api/5-6/api.html
+  - type: ErrorCatalog
+    url: errors/sciencelogic-problem-types.yml
+  - type: DataModel
+    url: data-model/sciencelogic-data-model.yml
+  - type: Documentation
+    url: https://docs.sciencelogic.com/skylar_compliance/
+- aid: sciencelogic:sciencelogic-device-api
+  name: ScienceLogic Device API
+  description: Devices are Skylar Compliance's representation of physical or virtual network devices.
+  humanURL: https://sciencelogic.com
+  baseURL: https://{appliance}/api/v2
+  tags:
+  - Device
+  properties:
+  - type: OpenAPI
+    url: openapi/sciencelogic-device-api-openapi.yml
+  - type: APIReference
+    url: https://docs.sciencelogic.com/skylar_compliance/api/5-6/api.html
+  - type: ErrorCatalog
+    url: errors/sciencelogic-problem-types.yml
+  - type: DataModel
+    url: data-model/sciencelogic-data-model.yml
+  - type: Documentation
+    url: https://docs.sciencelogic.com/skylar_compliance/
+- aid: sciencelogic:sciencelogic-device-backup-api
+  name: ScienceLogic Device/Backup API
+  description: >-
+    A device backup can encapsulates one or more device configurations. Depending on the type of device,
+    a device
+
+    backup might be a simple text file or a multi-gigabyte TGZ.
+  humanURL: https://sciencelogic.com
+  baseURL: https://{appliance}/api/v2
+  tags:
+  - Device/Backup
+  properties:
+  - type: OpenAPI
+    url: openapi/sciencelogic-device-backup-api-openapi.yml
+  - type: APIReference
+    url: https://docs.sciencelogic.com/skylar_compliance/api/5-6/api.html
+  - type: ErrorCatalog
+    url: errors/sciencelogic-problem-types.yml
+  - type: DataModel
+    url: data-model/sciencelogic-data-model.yml
+  - type: Documentation
+    url: https://docs.sciencelogic.com/skylar_compliance/
+- aid: sciencelogic:sciencelogic-device-bulkcreate-api
+  name: ScienceLogic Device/Bulk Create API
+  description: >-
+    Allows creating multiple devices at once. It will create a scheduled task with the given devices and
+    create a log
+
+    entry for each device creation and one when all the devices are created.
+  humanURL: https://sciencelogic.com
+  baseURL: https://{appliance}/api/v2
+  tags:
+  - Device/BulkCreate
+  properties:
+  - type: OpenAPI
+    url: openapi/sciencelogic-device-bulkcreate-api-openapi.yml
+  - type: APIReference
+    url: https://docs.sciencelogic.com/skylar_compliance/api/5-6/api.html
+  - type: ErrorCatalog
+    url: errors/sciencelogic-problem-types.yml
+  - type: DataModel
+    url: data-model/sciencelogic-data-model.yml
+  - type: Documentation
+    url: https://docs.sciencelogic.com/skylar_compliance/
+- aid: sciencelogic:sciencelogic-device-bulkedit-api
+  name: ScienceLogic Device/Bulk Edit API
+  description: >-
+    Allows editing multiple devices at once. This losely follows the structure of the [Device](#tag/Device)
+    model.
+
+
+    Skylar Compliance will aggregate values for individual settings.
+
+
+    **String** values that are not the same across all selected devices will be returned as `[Multiple]`.
+    You can
+
+    either override all values by setting a different value or leave unchanged by passing back `[Multiple]`.
+
+
+    **Boolean** values on the [Device](#tag/Device) model will have their equivalent field as integers,
+    with `-1`
+
+    meaning multiple values, `0` for `false` and `1` for `true`. Either set a new value for a field or
+    pass back `-1`
+
+    to leave it unchanged.
+
+
+    **Integers** will use `-1` to denote multiple values. Either set a new value for a field or pass back
+    `-1` to
+
+    leave it unchanged.
+
+
+    Please note that not all fields of the [Device](#tag/Device) model can be edited this way.
+  humanURL: https://sciencelogic.com
+  baseURL: https://{appliance}/api/v2
+  tags:
+  - Device/BulkEdit
+  properties:
+  - type: OpenAPI
+    url: openapi/sciencelogic-device-bulkedit-api-openapi.yml
+  - type: APIReference
+    url: https://docs.sciencelogic.com/skylar_compliance/api/5-6/api.html
+  - type: ErrorCatalog
+    url: errors/sciencelogic-problem-types.yml
+  - type: DataModel
+    url: data-model/sciencelogic-data-model.yml
+  - type: Documentation
+    url: https://docs.sciencelogic.com/skylar_compliance/
+- aid: sciencelogic:sciencelogic-dictionary-api
+  name: ScienceLogic Dictionary API
+  description: Dictionaries for various auto-complete and search filter settings.
+  humanURL: https://sciencelogic.com
+  baseURL: https://{appliance}/api/v2
+  tags:
+  - Dictionary
+  properties:
+  - type: OpenAPI
+    url: openapi/sciencelogic-dictionary-api-openapi.yml
+  - type: APIReference
+    url: https://docs.sciencelogic.com/skylar_compliance/api/5-6/api.html
+  - type: ErrorCatalog
+    url: errors/sciencelogic-problem-types.yml
+  - type: DataModel
+    url: data-model/sciencelogic-data-model.yml
+  - type: Documentation
+    url: https://docs.sciencelogic.com/skylar_compliance/
+- aid: sciencelogic:sciencelogic-discovery-api
+  name: ScienceLogic Discovery API
+  description: >-
+    The Skylar Compliance device discovery engine uses a variety of methods to discover hosts on your
+    network that can be
+
+    imported into the main device list. You can also be notified by email of new devices that are installed
+    on your
+
+    network.
+
+
+    **Note:** Device discovery is not guaranteed to discover all the relevant devices on your network;
+    firewalls or
+
+    the device configuration itself may negatively affect the discovery process. Similarly, the device
+    type may not
+
+    always be detected correctly; however, when you import a device, you will be able to override the
+    detected type.
+  humanURL: https://sciencelogic.com
+  baseURL: https://{appliance}/api/v2
+  tags:
+  - Discovery
+  properties:
+  - type: OpenAPI
+    url: openapi/sciencelogic-discovery-api-openapi.yml
+  - type: APIReference
+    url: https://docs.sciencelogic.com/skylar_compliance/api/5-6/api.html
+  - type: ErrorCatalog
+    url: errors/sciencelogic-problem-types.yml
+  - type: DataModel
+    url: data-model/sciencelogic-data-model.yml
+  - type: Documentation
+    url: https://docs.sciencelogic.com/skylar_compliance/
+- aid: sciencelogic:sciencelogic-discovery-device-api
+  name: ScienceLogic Discovery/Device API
+  description: >-
+    New devices as discovered by a manual or scheduled device discovery run will appear here.
+  humanURL: https://sciencelogic.com
+  baseURL: https://{appliance}/api/v2
+  tags:
+  - Discovery/Device
+  properties:
+  - type: OpenAPI
+    url: openapi/sciencelogic-discovery-device-api-openapi.yml
+  - type: APIReference
+    url: https://docs.sciencelogic.com/skylar_compliance/api/5-6/api.html
+  - type: ErrorCatalog
+    url: errors/sciencelogic-problem-types.yml
+  - type: DataModel
+    url: data-model/sciencelogic-data-model.yml
+  - type: Documentation
+    url: https://docs.sciencelogic.com/skylar_compliance/
+- aid: sciencelogic:sciencelogic-domain-api
+  name: ScienceLogic Domain API
+  description: >-
+    Domains allow you to organise devices into separate domains, and delegate their management to Domain
+
+    Administrators.
+
+
+    A typical use is for Service Providers managing multiple customers, or large enterprises with separate
+    teams,
+
+    where it is essential to restrict the scope of administrators to a subset of network devices.
+
+
+    **Please note:** Domains are only available with an Enterprise licence.
+  humanURL: https://sciencelogic.com
+  baseURL: https://{appliance}/api/v2
+  tags:
+  - Domain
+  properties:
+  - type: OpenAPI
+    url: openapi/sciencelogic-domain-api-openapi.yml
+  - type: APIReference
+    url: https://docs.sciencelogic.com/skylar_compliance/api/5-6/api.html
+  - type: ErrorCatalog
+    url: errors/sciencelogic-problem-types.yml
+  - type: DataModel
+    url: data-model/sciencelogic-data-model.yml
+  - type: Documentation
+    url: https://docs.sciencelogic.com/skylar_compliance/
+- aid: sciencelogic:sciencelogic-download-api
+  name: ScienceLogic Download API
+  description: An endpoint to download files from.
+  humanURL: https://sciencelogic.com
+  baseURL: https://{appliance}/api/v2
+  tags:
+  - Download
+  properties:
+  - type: OpenAPI
+    url: openapi/sciencelogic-download-api-openapi.yml
+  - type: APIReference
+    url: https://docs.sciencelogic.com/skylar_compliance/api/5-6/api.html
+  - type: ErrorCatalog
+    url: errors/sciencelogic-problem-types.yml
+  - type: DataModel
+    url: data-model/sciencelogic-data-model.yml
+  - type: Documentation
+    url: https://docs.sciencelogic.com/skylar_compliance/
+- aid: sciencelogic:sciencelogic-export-api
+  name: ScienceLogic Export API
+  description: >-
+    Allows you to export device configurations, logs and settings for multiple devices or domains.
+  humanURL: https://sciencelogic.com
+  baseURL: https://{appliance}/api/v2
+  tags:
+  - Export
+  properties:
+  - type: OpenAPI
+    url: openapi/sciencelogic-export-api-openapi.yml
+  - type: APIReference
+    url: https://docs.sciencelogic.com/skylar_compliance/api/5-6/api.html
+  - type: ErrorCatalog
+    url: errors/sciencelogic-problem-types.yml
+  - type: DataModel
+    url: data-model/sciencelogic-data-model.yml
+  - type: Documentation
+    url: https://docs.sciencelogic.com/skylar_compliance/
+- aid: sciencelogic:sciencelogic-export-policy-api
+  name: ScienceLogic Export/Policy API
+  description: >-
+    Automatically export device configurations to a specified file server.
+
+
+    Please do not mistake this for the [device policy export](#operation/export_device_policies) endpoint.
+  humanURL: https://sciencelogic.com
+  baseURL: https://{appliance}/api/v2
+  tags:
+  - Export/Policy
+  properties:
+  - type: OpenAPI
+    url: openapi/sciencelogic-export-policy-api-openapi.yml
+  - type: APIReference
+    url: https://docs.sciencelogic.com/skylar_compliance/api/5-6/api.html
+  - type: ErrorCatalog
+    url: errors/sciencelogic-problem-types.yml
+  - type: DataModel
+    url: data-model/sciencelogic-data-model.yml
+  - type: Documentation
+    url: https://docs.sciencelogic.com/skylar_compliance/
+- aid: sciencelogic:sciencelogic-fileserver-api
+  name: ScienceLogic Fileserver API
+  description: >-
+    A file server represents a remote storage location that can be used for archiving Skylar Compliance,
+    exporting backups
+
+    and automated exports.
+
+
+    ## Supported connection methods
+
+
+    * FTP
+
+    * SFTP
+
+    * SCP
+
+    * CIFS
+
+    * [Amazon S3](https://aws.amazon.com/s3/)
+
+    * [Azure Blob Storage](https://azure.microsoft.com/en-gb/services/storage/blobs/)
+
+
+    ## CIFS version
+
+
+    Skylar Compliance uses [smbmount](https://linux.die.net/man/8/smbmount) for CIFS. You can specify
+    an optional
+
+    `CifsVersion` parameter to set the version corresponding to the file server you are trying to connect
+    to:
+
+
+    * `3.0` is SMB3 i.e. Windows 8, Windows Server 2012
+
+    * `2.1` is SMB2_10 i.e. Windows 7, Windows Server 2008 R2
+
+    * `2.0` is SMB2_02 i.e. Vista SP1, Windows Server 2008
+
+    * `1.0` is NT1 i.e. Windows 95, NT 4.0
+  humanURL: https://sciencelogic.com
+  baseURL: https://{appliance}/api/v2
+  tags:
+  - Fileserver
+  properties:
+  - type: OpenAPI
+    url: openapi/sciencelogic-fileserver-api-openapi.yml
+  - type: APIReference
+    url: https://docs.sciencelogic.com/skylar_compliance/api/5-6/api.html
+  - type: ErrorCatalog
+    url: errors/sciencelogic-problem-types.yml
+  - type: DataModel
+    url: data-model/sciencelogic-data-model.yml
+  - type: Documentation
+    url: https://docs.sciencelogic.com/skylar_compliance/
+- aid: sciencelogic:sciencelogic-firmware-api
+  name: ScienceLogic Firmware API
+  description: >-
+    Skylar Compliance can act as a repository for device firmware/software, allowing you to upload files
+    like firmware
+
+    images and ISO images to the appliance. Software images can also be pushed to supported devices.
+  humanURL: https://sciencelogic.com
+  baseURL: https://{appliance}/api/v2
+  tags:
+  - Firmware
+  properties:
+  - type: OpenAPI
+    url: openapi/sciencelogic-firmware-api-openapi.yml
+  - type: APIReference
+    url: https://docs.sciencelogic.com/skylar_compliance/api/5-6/api.html
+  - type: ErrorCatalog
+    url: errors/sciencelogic-problem-types.yml
+  - type: DataModel
+    url: data-model/sciencelogic-data-model.yml
+  - type: Documentation
+    url: https://docs.sciencelogic.com/skylar_compliance/
+- aid: sciencelogic:sciencelogic-job-api
+  name: ScienceLogic Job API
+  description: >-
+    Jobs represent a running task in Skylar Compliance, such as a running device backup, command or creating
+    an archive of
+
+    Skylar Compliance.
+
+
+    Normally, a job transitions from:
+
+
+    `Pending` -> `Running` -> `Done`
+
+
+    Once a job is done, it will stay visible for an additional 5 seconds.
+  humanURL: https://sciencelogic.com
+  baseURL: https://{appliance}/api/v2
+  tags:
+  - Job
+  properties:
+  - type: OpenAPI
+    url: openapi/sciencelogic-job-api-openapi.yml
+  - type: APIReference
+    url: https://docs.sciencelogic.com/skylar_compliance/api/5-6/api.html
+  - type: ErrorCatalog
+    url: errors/sciencelogic-problem-types.yml
+  - type: DataModel
+    url: data-model/sciencelogic-data-model.yml
+  - type: Documentation
+    url: https://docs.sciencelogic.com/skylar_compliance/
+- aid: sciencelogic:sciencelogic-label-api
+  name: ScienceLogic Label API
+  description: >-
+    Labels are a way of attaching meta information to devices. They allow for arbitrary grouping and selection
+    of
+
+    devices that can go beyond the use of device specific information fields. They help you organize and
+    tag your
+
+    devices so you can track and find the devices for a given task or operation.
+
+
+    You can define an unlimited number of labels and assign as many labels to a device as you like. You
+    can use
+
+    colours to distinguish labels and use that as a way to differentiate between process, state or some
+    other
+
+    secondary categorisation.
+
+
+    ### Examples
+
+
+    You could use `Lab`, `Dev`, `PreProd`, `Prod` to denote device deployment state.
+
+
+    You could define a `TODO` label to mark devices that need manual checking at a later date.
+
+
+    You could attach a `Primary` and `Secondary` labels to devices in high availibility scenarios
+
+    where your organisation might have standby devices.
+  humanURL: https://sciencelogic.com
+  baseURL: https://{appliance}/api/v2
+  tags:
+  - Label
+  properties:
+  - type: OpenAPI
+    url: openapi/sciencelogic-label-api-openapi.yml
+  - type: APIReference
+    url: https://docs.sciencelogic.com/skylar_compliance/api/5-6/api.html
+  - type: ErrorCatalog
+    url: errors/sciencelogic-problem-types.yml
+  - type: DataModel
+    url: data-model/sciencelogic-data-model.yml
+  - type: Documentation
+    url: https://docs.sciencelogic.com/skylar_compliance/
+- aid: sciencelogic:sciencelogic-log-api
+  name: ScienceLogic Log API
+  description: Almost every system activity will be logged and can be retrieved
+  humanURL: https://sciencelogic.com
+  baseURL: https://{appliance}/api/v2
+  tags:
+  - Log
+  properties:
+  - type: OpenAPI
+    url: openapi/sciencelogic-log-api-openapi.yml
+  - type: APIReference
+    url: https://docs.sciencelogic.com/skylar_compliance/api/5-6/api.html
+  - type: ErrorCatalog
+    url: errors/sciencelogic-problem-types.yml
+  - type: DataModel
+    url: data-model/sciencelogic-data-model.yml
+  - type: Documentation
+    url: https://docs.sciencelogic.com/skylar_compliance/
+- aid: sciencelogic:sciencelogic-login-api
+  name: ScienceLogic Login API
+  description: >-
+    The login endpoint is used by the UI to authenticate a user. On successful login, it will set a session
+    cookie
+
+    that will further authenticate API requests coming from the web interface.
+  humanURL: https://sciencelogic.com
+  baseURL: https://{appliance}/api/v2
+  tags:
+  - Login
+  properties:
+  - type: OpenAPI
+    url: openapi/sciencelogic-login-api-openapi.yml
+  - type: APIReference
+    url: https://docs.sciencelogic.com/skylar_compliance/api/5-6/api.html
+  - type: ErrorCatalog
+    url: errors/sciencelogic-problem-types.yml
+  - type: DataModel
+    url: data-model/sciencelogic-data-model.yml
+  - type: Documentation
+    url: https://docs.sciencelogic.com/skylar_compliance/
+- aid: sciencelogic:sciencelogic-network-api
+  name: ScienceLogic Network API
+  description: Network utility endpoints.
+  humanURL: https://sciencelogic.com
+  baseURL: https://{appliance}/api/v2
+  tags:
+  - Network
+  properties:
+  - type: OpenAPI
+    url: openapi/sciencelogic-network-api-openapi.yml
+  - type: APIReference
+    url: https://docs.sciencelogic.com/skylar_compliance/api/5-6/api.html
+  - type: ErrorCatalog
+    url: errors/sciencelogic-problem-types.yml
+  - type: DataModel
+    url: data-model/sciencelogic-data-model.yml
+  - type: Documentation
+    url: https://docs.sciencelogic.com/skylar_compliance/
+- aid: sciencelogic:sciencelogic-permission-api
+  name: ScienceLogic Permission API
+  description: >-
+    Permissions are the building blocks of what a user's role is entitled to perform. Permissions are
+    read-only.
+  humanURL: https://sciencelogic.com
+  baseURL: https://{appliance}/api/v2
+  tags:
+  - Permission
+  properties:
+  - type: OpenAPI
+    url: openapi/sciencelogic-permission-api-openapi.yml
+  - type: APIReference
+    url: https://docs.sciencelogic.com/skylar_compliance/api/5-6/api.html
+  - type: ErrorCatalog
+    url: errors/sciencelogic-problem-types.yml
+  - type: DataModel
+    url: data-model/sciencelogic-data-model.yml
+  - type: Documentation
+    url: https://docs.sciencelogic.com/skylar_compliance/
+- aid: sciencelogic:sciencelogic-permissions-validaterequest-api
+  name: ScienceLogic Permissions/Validate Request API
+  description: >-
+    The Permissions/ValidateRequest API from ScienceLogic — 1 operation(s) for permissions/validaterequest.
+  humanURL: https://sciencelogic.com
+  baseURL: https://{appliance}/api/v2
+  tags:
+  - Permissions/ValidateRequest
+  properties:
+  - type: OpenAPI
+    url: openapi/sciencelogic-permissions-validaterequest-api-openapi.yml
+  - type: APIReference
+    url: https://docs.sciencelogic.com/skylar_compliance/api/5-6/api.html
+  - type: ErrorCatalog
+    url: errors/sciencelogic-problem-types.yml
+  - type: DataModel
+    url: data-model/sciencelogic-data-model.yml
+  - type: Documentation
+    url: https://docs.sciencelogic.com/skylar_compliance/
+- aid: sciencelogic:sciencelogic-plugin-api
+  name: ScienceLogic Plugin API
+  description: >-
+    Plugins have a number of device specific settings that are required for creating a functional device
+
+    configurations for backup, restore or running commands.
+  humanURL: https://sciencelogic.com
+  baseURL: https://{appliance}/api/v2
+  tags:
+  - Plugin
+  properties:
+  - type: OpenAPI
+    url: openapi/sciencelogic-plugin-api-openapi.yml
+  - type: APIReference
+    url: https://docs.sciencelogic.com/skylar_compliance/api/5-6/api.html
+  - type: ErrorCatalog
+    url: errors/sciencelogic-problem-types.yml
+  - type: DataModel
+    url: data-model/sciencelogic-data-model.yml
+  - type: Documentation
+    url: https://docs.sciencelogic.com/skylar_compliance/
+- aid: sciencelogic:sciencelogic-plugin-default-values-api
+  name: ScienceLogic Plugin default values API
+  description: >-
+    The Plugin default values API from ScienceLogic — 1 operation(s) for plugin default values.
+  humanURL: https://sciencelogic.com
+  baseURL: https://{appliance}/api/v2
+  tags:
+  - Plugin default values
+  properties:
+  - type: OpenAPI
+    url: openapi/sciencelogic-plugin-default-values-api-openapi.yml
+  - type: APIReference
+    url: https://docs.sciencelogic.com/skylar_compliance/api/5-6/api.html
+  - type: ErrorCatalog
+    url: errors/sciencelogic-problem-types.yml
+  - type: DataModel
+    url: data-model/sciencelogic-data-model.yml
+  - type: Documentation
+    url: https://docs.sciencelogic.com/skylar_compliance/
+- aid: sciencelogic:sciencelogic-plugin-redact-rule-api
+  name: ScienceLogic Plugin redact rule API
+  description: The Plugin redact rule API from ScienceLogic — 2 operation(s) for plugin redact rule.
+  humanURL: https://sciencelogic.com
+  baseURL: https://{appliance}/api/v2
+  tags:
+  - Plugin redact rule
+  properties:
+  - type: OpenAPI
+    url: openapi/sciencelogic-plugin-redact-rule-api-openapi.yml
+  - type: APIReference
+    url: https://docs.sciencelogic.com/skylar_compliance/api/5-6/api.html
+  - type: ErrorCatalog
+    url: errors/sciencelogic-problem-types.yml
+  - type: DataModel
+    url: data-model/sciencelogic-data-model.yml
+  - type: Documentation
+    url: https://docs.sciencelogic.com/skylar_compliance/
+- aid: sciencelogic:sciencelogic-policy-api
+  name: ScienceLogic Policy API
+  description: >-
+    Skylar Compliance enables you to create policies that can be used to verify that your devices comply
+    with corporate or
+
+    regulatory guidelines.
+
+
+    Policies are groups of one or more rules; a rule is a pattern that is applied to configurations or
+    device
+
+    firmware version, to test whether they contain a certain phrase or Regular Expressions, or if they
+    match an
+
+    existing device template. If they fail the tests, a compliance violation occurs and an email alert
+    is sent to
+
+    the device owner.
+  humanURL: https://sciencelogic.com
+  baseURL: https://{appliance}/api/v2
+  tags:
+  - Policy
+  properties:
+  - type: OpenAPI
+    url: openapi/sciencelogic-policy-api-openapi.yml
+  - type: APIReference
+    url: https://docs.sciencelogic.com/skylar_compliance/api/5-6/api.html
+  - type: ErrorCatalog
+    url: errors/sciencelogic-problem-types.yml
+  - type: DataModel
+    url: data-model/sciencelogic-data-model.yml
+  - type: Documentation
+    url: https://docs.sciencelogic.com/skylar_compliance/
+- aid: sciencelogic:sciencelogic-policy-rule-api
+  name: ScienceLogic Policy/Rule API
+  description: >-
+    Rules are the individual parts of a device policy.
+
+
+    ## Regular Expressions
+
+
+    A regular expression specifies a set of strings as a pattern, rather than a list. For example, the
+    pattern
+
+    `C(o|as?)t` matches the strings Cot, Cat, and Cast, but not Coast. Skylar Compliance uses Perl-flavour
+    Regular
+
+    Expressions.
+
+
+    Most characters can be used in a regular expression; however, some characters, called metacharacters,
+    have special
+
+    meanings:
+
+
+    * `()` denote grouping: `(a|b)b` matches `ab` and `bb`
+
+    * `|` denotes an alternative (see above)
+
+    * `^` matches the beginning of a line
+
+    * `$` matches the end of a line
+
+    * `.` matches any character
+
+    * `+` denotes one or more occurrences of the previous character: `a+b` matches `ab`, `aab`, `abb`,
+    but not `b`
+
+    * `*` denotes zero or more occurrences of the previous character: `a*b` matches `b`, `ab`, `aab`,
+    `aaab`
+
+    * `?` denotes zero or one occurrences of the previous character: `a?b` matches `b` and `ab`, but not
+    `aab` or `aaab`
+
+
+    Character classes are matches for sets of possible characters, rather than just a single character.
+    For instance:
+
+
+    * `[bcr]at` matches `bat`, `cat` and `rat`
+
+    * `-` can be used as a range operator in a character class, so `[a-g]` matches any character from
+    `a` to `g`
+
+
+    There are some useful abbreviations for common character classes, in particular:
+
+
+    * `\d` matches a digit
+
+    * `\s` matches whitespace (a space or a tab)
+
+    * `\w` matches a word character (alphanumeric or a _)
+
+
+    For instance, `\d\d:\d\d:\d\d` would match a time in a hh:mm:ss format.
+
+
+    For more information and examples of regular expressions, please see
+
+    [this reference guide](http://www.regularexpressions.info/reference.html).
+
+
+    ## Lua Functions
+
+
+    Rules can be defined as Lua functions.
+
+
+    Available functions for compliance rules are:
+
+
+    * `nextline()` returns the next line of text
+
+    * `getline(n)` returns the given line of text
+
+    * `numlines()` returns the number of lines
+
+    * `addmessage(m)` allows you to replace a series of variables in the remediation text. For instance,
+      `addmessage("Hello")` with a remediation text of `$1` "World!" would produce the output `Hello World!`.
+    The next
+      `addmessage` call would replace `$2`, and so on.
+
+    ### Example
+
+
+    This function checks that the number of lines containing "configure" matches the lines containing
+    "port":
+
+
+    ```lua
+
+    num1 = 0
+
+    num2 = 0
+
+    line, next = nextline()
+
+    while next do
+        if line:match("configure") then num1 = num1+1 end
+        if line:match("port") then num2 = num2+1 end
+        line, next = nextline
+    end
+
+    if num1 > num2 then addmessage("more")
+
+    else if num2 < num1 then addmessage("less") end
+
+    return num1 == num2
+
+    ```
+
+
+    Remediation Text: `Config contains $1 configures than ports.`
+
+
+    ## Remediation
+
+
+    Remediation is an action to be performed when a compliance rule is not met, generally intended to
+    rectify the
+
+    violation. The following remediation types can be configured:
+
+
+    * `Manual`: in this case, the remediation text will simply be appended to the notification email,
+    signifying that
+      the recipient should take the appropriate action.
+    * `Command`: this will execute one of the stored Actions on the device (see Controlling a device).
+
+    * `Automatic`: this setting will treat the text specified in the textbox as a command and execute
+    it on the
+      device.
+
+    If the rule match type is **Regex**, the remediation can make use of the **Capture** feature, whereby
+    parts of
+
+    the pattern in brackets can be captured and then referred to in the remediation text (as `$1`, `$2`,
+    etc.).
+
+    For example, a rule may state that a configuration must not contain the regex:
+
+
+    ```
+
+    set telnet (\d+\.\d+\.\d+\.\d+)
+
+    ```
+
+
+    where the part in brackets is a match for an IP address. If this rule is violated, the configuration
+    can be
+
+    remedied using the phrase:
+
+
+    ```
+
+    unset telnet $1
+
+    ```
+
+
+    In this case, the brackets in the rule will capture the IP address, and fill it in when the command
+    is performed, expanding to
+
+
+    ```
+
+    unset telnet 1.2.3.4
+
+    ```
+
+
+    if that was the matched IP address.
+  humanURL: https://sciencelogic.com
+  baseURL: https://{appliance}/api/v2
+  tags:
+  - Policy/Rule
+  properties:
+  - type: OpenAPI
+    url: openapi/sciencelogic-policy-rule-api-openapi.yml
+  - type: APIReference
+    url: https://docs.sciencelogic.com/skylar_compliance/api/5-6/api.html
+  - type: ErrorCatalog
+    url: errors/sciencelogic-problem-types.yml
+  - type: DataModel
+    url: data-model/sciencelogic-data-model.yml
+  - type: Documentation
+    url: https://docs.sciencelogic.com/skylar_compliance/
+- aid: sciencelogic:sciencelogic-policy-variable-api
+  name: ScienceLogic Policy/Variable API
+  description: >-
+    Policy variables can be used in compliance rules as variable replacements, referenced with the `$replace$`
+    format,
+
+    where `replace` is the variable name you have defined. This enables you to use a variable as shorthand
+
+    for configuration elements, that are likely to be referenced multiple times.
+
+
+    For instance, if you create a definition of `Gateway`, and assign it a Value of `192.168.0.1`, you
+    can then use
+
+    it in a compliance rule, e.g. a Configuration rule the Must Contain the Regex `ip default-gateway
+    $Gateway$`.
+
+
+    This rule will be expanded to `ip default-gateway 192.168.0.1`. If later, the gateway address changes,
+    simply
+
+    change the `Value` of the Gateway variable definition, and all rules that use the `$Gateway$` variable
+    will be
+
+    updated automatically.
+  humanURL: https://sciencelogic.com
+  baseURL: https://{appliance}/api/v2
+  tags:
+  - Policy/Variable
+  properties:
+  - type: OpenAPI
+    url: openapi/sciencelogic-policy-variable-api-openapi.yml
+  - type: APIReference
+    url: https://docs.sciencelogic.com/skylar_compliance/api/5-6/api.html
+  - type: ErrorCatalog
+    url: errors/sciencelogic-problem-types.yml
+  - type: DataModel
+    url: data-model/sciencelogic-data-model.yml
+  - type: Documentation
+    url: https://docs.sciencelogic.com/skylar_compliance/
+- aid: sciencelogic:sciencelogic-recovery-api
+  name: ScienceLogic Recovery API
+  description: The Recovery API from ScienceLogic — 2 operation(s) for recovery.
+  humanURL: https://sciencelogic.com
+  baseURL: https://{appliance}/api/v2
+  tags:
+  - Recovery
+  properties:
+  - type: OpenAPI
+    url: openapi/sciencelogic-recovery-api-openapi.yml
+  - type: APIReference
+    url: https://docs.sciencelogic.com/skylar_compliance/api/5-6/api.html
+  - type: ErrorCatalog
+    url: errors/sciencelogic-problem-types.yml
+  - type: DataModel
+    url: data-model/sciencelogic-data-model.yml
+  - type: Documentation
+    url: https://docs.sciencelogic.com/skylar_compliance/
+- aid: sciencelogic:sciencelogic-report-api
+  name: ScienceLogic Report API
+  description: The Report API from ScienceLogic — 4 operation(s) for report.
+  humanURL: https://sciencelogic.com
+  baseURL: https://{appliance}/api/v2
+  tags:
+  - Report
+  properties:
+  - type: OpenAPI
+    url: openapi/sciencelogic-report-api-openapi.yml
+  - type: APIReference
+    url: https://docs.sciencelogic.com/skylar_compliance/api/5-6/api.html
+  - type: ErrorCatalog
+    url: errors/sciencelogic-problem-types.yml
+  - type: DataModel
+    url: data-model/sciencelogic-data-model.yml
+  - type: Documentation
+    url: https://docs.sciencelogic.com/skylar_compliance/
+- aid: sciencelogic:sciencelogic-report-schedule-api
+  name: ScienceLogic Report schedule API
+  description: The Report schedule API from ScienceLogic — 2 operation(s) for report schedule.
+  humanURL: https://sciencelogic.com
+  baseURL: https://{appliance}/api/v2
+  tags:
+  - Report schedule
+  properties:
+  - type: OpenAPI
+    url: openapi/sciencelogic-report-schedule-api-openapi.yml
+  - type: APIReference
+    url: https://docs.sciencelogic.com/skylar_compliance/api/5-6/api.html
+  - type: ErrorCatalog
+    url: errors/sciencelogic-problem-types.yml
+  - type: DataModel
+    url: data-model/sciencelogic-data-model.yml
+  - type: Documentation
+    url: https://docs.sciencelogic.com/skylar_compliance/
+- aid: sciencelogic:sciencelogic-role-api
+  name: ScienceLogic Role API
+  description: >-
+    In addition to the standard built-in roles (`Admin`, `Backup`, and `View Only`), which cannot be edited,
+
+    it is possible to define granular, custom roles, which specify in detail which product elements are
+    accessible to
+
+    the user.
+
+
+    **Please note:** Custom roles are only available with an Enterprise licence.
+  humanURL: https://sciencelogic.com
+  baseURL: https://{appliance}/api/v2
+  tags:
+  - Role
+  properties:
+  - type: OpenAPI
+    url: openapi/sciencelogic-role-api-openapi.yml
+  - type: APIReference
+    url: https://docs.sciencelogic.com/skylar_compliance/api/5-6/api.html
+  - type: ErrorCatalog
+    url: errors/sciencelogic-problem-types.yml
+  - type: DataModel
+    url: data-model/sciencelogic-data-model.yml
+  - type: Documentation
+    url: https://docs.sciencelogic.com/skylar_compliance/
+- aid: sciencelogic:sciencelogic-saml-api
+  name: ScienceLogic SAML API
+  description: The SAML API from ScienceLogic — 2 operation(s) for saml.
+  humanURL: https://sciencelogic.com
+  baseURL: https://{appliance}/api/v2
+  tags:
+  - SAML
+  properties:
+  - type: OpenAPI
+    url: openapi/sciencelogic-saml-api-openapi.yml
+  - type: APIReference
+    url: https://docs.sciencelogic.com/skylar_compliance/api/5-6/api.html
+  - type: ErrorCatalog
+    url: errors/sciencelogic-problem-types.yml
+  - type: DataModel
+    url: data-model/sciencelogic-data-model.yml
+  - type: Documentation
+    url: https://docs.sciencelogic.com/skylar_compliance/
+- aid: sciencelogic:sciencelogic-schedule-api
+  name: ScienceLogic Schedule API
+  description: >-
+    Allows a view of the next occurence of all scheduled events including device backups, Skylar Compliance
+    archival,
+
+    device discovery as well as reporting.
+  humanURL: https://sciencelogic.com
+  baseURL: https://{appliance}/api/v2
+  tags:
+  - Schedule
+  properties:
+  - type: OpenAPI
+    url: openapi/sciencelogic-schedule-api-openapi.yml
+  - type: APIReference
+    url: https://docs.sciencelogic.com/skylar_compliance/api/5-6/api.html
+  - type: ErrorCatalog
+    url: errors/sciencelogic-problem-types.yml
+  - type: DataModel
+    url: data-model/sciencelogic-data-model.yml
+  - type: Documentation
+    url: https://docs.sciencelogic.com/skylar_compliance/
+- aid: sciencelogic:sciencelogic-settings-advanced-api
+  name: ScienceLogic Settings/Advanced API
+  description: The Settings/Advanced API from ScienceLogic — 1 operation(s) for settings/advanced.
+  humanURL: https://sciencelogic.com
+  baseURL: https://{appliance}/api/v2
+  tags:
+  - Settings/Advanced
+  properties:
+  - type: OpenAPI
+    url: openapi/sciencelogic-settings-advanced-api-openapi.yml
+  - type: APIReference
+    url: https://docs.sciencelogic.com/skylar_compliance/api/5-6/api.html
+  - type: ErrorCatalog
+    url: errors/sciencelogic-problem-types.yml
+  - type: DataModel
+    url: data-model/sciencelogic-data-model.yml
+  - type: Documentation
+    url: https://docs.sciencelogic.com/skylar_compliance/
+- aid: sciencelogic:sciencelogic-settings-alerts-api
+  name: ScienceLogic Settings/Alerts API
+  description: Configure system email alert settings.
+  humanURL: https://sciencelogic.com
+  baseURL: https://{appliance}/api/v2
+  tags:
+  - Settings/Alerts
+  properties:
+  - type: OpenAPI
+    url: openapi/sciencelogic-settings-alerts-api-openapi.yml
+  - type: APIReference
+    url: https://docs.sciencelogic.com/skylar_compliance/api/5-6/api.html
+  - type: ErrorCatalog
+    url: errors/sciencelogic-problem-types.yml
+  - type: DataModel
+    url: data-model/sciencelogic-data-model.yml
+  - type: Documentation
+    url: https://docs.sciencelogic.com/skylar_compliance/
+- aid: sciencelogic:sciencelogic-settings-appliance-actions-api
+  name: ScienceLogic Settings/Appliance/Actions API
+  description: Trigger global appliance actions.
+  humanURL: https://sciencelogic.com
+  baseURL: https://{appliance}/api/v2
+  tags:
+  - Settings/Appliance/Actions
+  properties:
+  - type: OpenAPI
+    url: openapi/sciencelogic-settings-appliance-actions-api-openapi.yml
+  - type: APIReference
+    url: https://docs.sciencelogic.com/skylar_compliance/api/5-6/api.html
+  - type: ErrorCatalog
+    url: errors/sciencelogic-problem-types.yml
+  - type: DataModel
+    url: data-model/sciencelogic-data-model.yml
+  - type: Documentation
+    url: https://docs.sciencelogic.com/skylar_compliance/
+- aid: sciencelogic:sciencelogic-settings-appliance-api
+  name: ScienceLogic Settings/Appliance API
+  description: >-
+    Allows you to set general appliance settings as well as triggering global appliance actions.
+  humanURL: https://sciencelogic.com
+  baseURL: https://{appliance}/api/v2
+  tags:
+  - Settings/Appliance
+  properties:
+  - type: OpenAPI
+    url: openapi/sciencelogic-settings-appliance-api-openapi.yml
+  - type: APIReference
+    url: https://docs.sciencelogic.com/skylar_compliance/api/5-6/api.html
+  - type: ErrorCatalog
+    url: errors/sciencelogic-problem-types.yml
+  - type: DataModel
+    url: data-model/sciencelogic-data-model.yml
+  - type: Documentation
+    url: https://docs.sciencelogic.com/skylar_compliance/
+- aid: sciencelogic:sciencelogic-settings-appliance-debug-api
+  name: ScienceLogic Settings/Appliance/Debug API
+  description: Endpoints that can aid in debugging appliance problems.
+  humanURL: https://sciencelogic.com
+  baseURL: https://{appliance}/api/v2
+  tags:
+  - Settings/Appliance/Debug
+  properties:
+  - type: OpenAPI
+    url: openapi/sciencelogic-settings-appliance-debug-api-openapi.yml
+  - type: APIReference
+    url: https://docs.sciencelogic.com/skylar_compliance/api/5-6/api.html
+  - type: ErrorCatalog
+    url: errors/sciencelogic-problem-types.yml
+  - type: DataModel
+    url: data-model/sciencelogic-data-model.yml
+  - type: Documentation
+    url: https://docs.sciencelogic.com/skylar_compliance/
+- aid: sciencelogic:sciencelogic-settings-appliance-logo-api
+  name: ScienceLogic Settings/Appliance/Logo API
+  description: Add, update or reset a custom logo for the appliance UI.
+  humanURL: https://sciencelogic.com
+  baseURL: https://{appliance}/api/v2
+  tags:
+  - Settings/Appliance/Logo
+  properties:
+  - type: OpenAPI
+    url: openapi/sciencelogic-settings-appliance-logo-api-openapi.yml
+  - type: APIReference
+    url: https://docs.sciencelogic.com/skylar_compliance/api/5-6/api.html
+  - type: ErrorCatalog
+    url: errors/sciencelogic-problem-types.yml
+  - type: DataModel
+    url: data-model/sciencelogic-data-model.yml
+  - type: Documentation
+    url: https://docs.sciencelogic.com/skylar_compliance/
+- aid: sciencelogic:sciencelogic-settings-appliance-support-api
+  name: ScienceLogic Settings/Appliance/Support API
+  description: Start and stop remote support sessions.
+  humanURL: https://sciencelogic.com
+  baseURL: https://{appliance}/api/v2
+  tags:
+  - Settings/Appliance/Support
+  properties:
+  - type: OpenAPI
+    url: openapi/sciencelogic-settings-appliance-support-api-openapi.yml
+  - type: APIReference
+    url: https://docs.sciencelogic.com/skylar_compliance/api/5-6/api.html
+  - type: ErrorCatalog
+    url: errors/sciencelogic-problem-types.yml
+  - type: DataModel
+    url: data-model/sciencelogic-data-model.yml
+  - type: Documentation
+    url: https://docs.sciencelogic.com/skylar_compliance/
+- aid: sciencelogic:sciencelogic-settings-appliance-updates-api
+  name: ScienceLogic Settings/Appliance/Updates API
+  description: Check, retrieve and update the appliance.
+  humanURL: https://sciencelogic.com
+  baseURL: https://{appliance}/api/v2
+  tags:
+  - Settings/Appliance/Updates
+  properties:
+  - type: OpenAPI
+    url: openapi/sciencelogic-settings-appliance-updates-api-openapi.yml
+  - type: APIReference
+    url: https://docs.sciencelogic.com/skylar_compliance/api/5-6/api.html
+  - type: ErrorCatalog
+    url: errors/sciencelogic-problem-types.yml
+  - type: DataModel
+    url: data-model/sciencelogic-data-model.yml
+  - type: Documentation
+    url: https://docs.sciencelogic.com/skylar_compliance/
+- aid: sciencelogic:sciencelogic-settings-archive-api
+  name: ScienceLogic Settings/Archive API
+  description: >-
+    You can prepare for disaster recovery scenarios by archiving the Skylar Compliance configuration.
+    This allows you to
+
+    back up the Skylar Compliance appliance automatically, to up to two remote servers, including all
+    device configurations
+
+    stored on Skylar Compliance.
+  humanURL: https://sciencelogic.com
+  baseURL: https://{appliance}/api/v2
+  tags:
+  - Settings/Archive
+  properties:
+  - type: OpenAPI
+    url: openapi/sciencelogic-settings-archive-api-openapi.yml
+  - type: APIReference
+    url: https://docs.sciencelogic.com/skylar_compliance/api/5-6/api.html
+  - type: ErrorCatalog
+    url: errors/sciencelogic-problem-types.yml
+  - type: DataModel
+    url: data-model/sciencelogic-data-model.yml
+  - type: Documentation
+    url: https://docs.sciencelogic.com/skylar_compliance/
+- aid: sciencelogic:sciencelogic-settings-assetfield-api
+  name: ScienceLogic Settings/Assetfield API
+  description: >-
+    Configure device asset information fields including location, asset tag, and serial number.
+  humanURL: https://sciencelogic.com
+  baseURL: https://{appliance}/api/v2
+  tags:
+  - Settings/Assetfield
+  properties:
+  - type: OpenAPI
+    url: openapi/sciencelogic-settings-assetfield-api-openapi.yml
+  - type: APIReference
+    url: https://docs.sciencelogic.com/skylar_compliance/api/5-6/api.html
+  - type: ErrorCatalog
+    url: errors/sciencelogic-problem-types.yml
+  - type: DataModel
+    url: data-model/sciencelogic-data-model.yml
+  - type: Documentation
+    url: https://docs.sciencelogic.com/skylar_compliance/
+- aid: sciencelogic:sciencelogic-settings-assetfield-notifications-api
+  name: ScienceLogic Settings/Assetfield/Notifications API
+  description: Configure device asset notify address.
+  humanURL: https://sciencelogic.com
+  baseURL: https://{appliance}/api/v2
+  tags:
+  - Settings/Assetfield/Notifications
+  properties:
+  - type: OpenAPI
+    url: openapi/sciencelogic-settings-assetfield-notifications-api-openapi.yml
+  - type: APIReference
+    url: https://docs.sciencelogic.com/skylar_compliance/api/5-6/api.html
+  - type: ErrorCatalog
+    url: errors/sciencelogic-problem-types.yml
+  - type: DataModel
+    url: data-model/sciencelogic-data-model.yml
+  - type: Documentation
+    url: https://docs.sciencelogic.com/skylar_compliance/
+- aid: sciencelogic:sciencelogic-settings-authentication-api
+  name: ScienceLogic Settings/Authentication API
+  description: >-
+    Allows you to configure additional authentication methods for Skylar Compliance. Supported methods
+    are:
+
+
+    * RADIUS
+
+    * SAML
+
+    * LDAP
+  humanURL: https://sciencelogic.com
+  baseURL: https://{appliance}/api/v2
+  tags:
+  - Settings/Authentication
+  properties:
+  - type: OpenAPI
+    url: openapi/sciencelogic-settings-authentication-api-openapi.yml
+  - type: APIReference
+    url: https://docs.sciencelogic.com/skylar_compliance/api/5-6/api.html
+  - type: ErrorCatalog
+    url: errors/sciencelogic-problem-types.yml
+  - type: DataModel
+    url: data-model/sciencelogic-data-model.yml
+  - type: Documentation
+    url: https://docs.sciencelogic.com/skylar_compliance/
+- aid: sciencelogic:sciencelogic-settings-device-api
+  name: ScienceLogic Settings/Device API
+  description: >-
+    Allows you to set default device settings that are inherited whenever a new device is added but can
+    be overriden.
+  humanURL: https://sciencelogic.com
+  baseURL: https://{appliance}/api/v2
+  tags:
+  - Settings/Device
+  properties:
+  - type: OpenAPI
+    url: openapi/sciencelogic-settings-device-api-openapi.yml
+  - type: APIReference
+    url: https://docs.sciencelogic.com/skylar_compliance/api/5-6/api.html
+  - type: ErrorCatalog
+    url: errors/sciencelogic-problem-types.yml
+  - type: DataModel
+    url: data-model/sciencelogic-data-model.yml
+  - type: Documentation
+    url: https://docs.sciencelogic.com/skylar_compliance/
+- aid: sciencelogic:sciencelogic-settings-discovery-api
+  name: ScienceLogic Settings/Discovery API
+  description: >-
+    Allows you to set device discovery settings for manual or scheduled device discovery runs.
+  humanURL: https://sciencelogic.com
+  baseURL: https://{appliance}/api/v2
+  tags:
+  - Settings/Discovery
+  properties:
+  - type: OpenAPI
+    url: openapi/sciencelogic-settings-discovery-api-openapi.yml
+  - type: APIReference
+    url: https://docs.sciencelogic.com/skylar_compliance/api/5-6/api.html
+  - type: ErrorCatalog
+    url: errors/sciencelogic-problem-types.yml
+  - type: DataModel
+    url: data-model/sciencelogic-data-model.yml
+  - type: Documentation
+    url: https://docs.sciencelogic.com/skylar_compliance/
+- aid: sciencelogic:sciencelogic-settings-ha-api
+  name: ScienceLogic Settings/HA API
+  description: >-
+    High Availability (HA) provides a way to minimise the effects of hardware failure, by configuring
+    two Skylar Compliance
+
+    appliances in a cluster.
+
+
+    Under normal operating conditions, the primary cluster member is active and the secondary is in standby
+    mode; the
+
+    active appliance performs all network operations, and replicates all settings and device configurations
+    to the
+
+    standby appliance. Skylar Compliance replicates data both incrementally (for instance, just after
+    a backup is retrieved
+
+    from a device) and by performing full synchronisations on a regular basis.
+
+
+    Should the primary member become unavailable because of hardware failure, other network problem, or
+    losing power,
+
+    the secondary member will automatically become Active, and carry on as normal. If the primary recovers,
+    it will
+
+    automatically take over from the secondary and become active.
+
+
+    HA does not require the appliance to be installed on the same network, as long as the traffic requirements
+    are
+
+    met (see below).
+
+
+    Software updates and upgrades are managed at the cluster level; updating the active appliance will
+    automatically
+
+    update the standby appliance.
+
+
+    ### Requirements
+
+
+    * High Availability is a separately licensed feature.
+
+    * Only appliances of the same model can be clustered; appliance must be running the same software
+    version.
+
+    * Cluster members must be able to communicate over HTTPS to exchange heartbeat information and data
+      synchronisation; TCP/443 traffic should be permitted bidirectionally between the appliances.
+  humanURL: https://sciencelogic.com
+  baseURL: https://{appliance}/api/v2
+  tags:
+  - Settings/HA
+  properties:
+  - type: OpenAPI
+    url: openapi/sciencelogic-settings-ha-api-openapi.yml
+  - type: APIReference
+    url: https://docs.sciencelogic.com/skylar_compliance/api/5-6/api.html
+  - type: ErrorCatalog
+    url: errors/sciencelogic-problem-types.yml
+  - type: DataModel
+    url: data-model/sciencelogic-data-model.yml
+  - type: Documentation
+    url: https://docs.sciencelogic.com/skylar_compliance/
+- aid: sciencelogic:sciencelogic-settings-logs-api
+  name: ScienceLogic Settings/Logs API
+  description: Allows you to configure default log rentention and other logging related settings.
+  humanURL: https://sciencelogic.com
+  baseURL: https://{appliance}/api/v2
+  tags:
+  - Settings/Logs
+  properties:
+  - type: OpenAPI
+    url: openapi/sciencelogic-settings-logs-api-openapi.yml
+  - type: APIReference
+    url: https://docs.sciencelogic.com/skylar_compliance/api/5-6/api.html
+  - type: ErrorCatalog
+    url: errors/sciencelogic-problem-types.yml
+  - type: DataModel
+    url: data-model/sciencelogic-data-model.yml
+  - type: Documentation
+    url: https://docs.sciencelogic.com/skylar_compliance/
+- aid: sciencelogic:sciencelogic-settings-network-api
+  name: ScienceLogic Settings/Network API
+  description: >-
+    Allows you to set network settings such as the IP address and static routes.
+
+
+    ### Network Address Translation (NAT)
+
+
+    Skylar Compliance may use back-connections (typically TFTP or FTP) to backup certain devices. If Skylar
+    Compliance is
+
+    accessing a device using back connections through a NAT router or firewall, back-connections will
+    fail, because
+
+    the device will attempt to connect to the original, untranslated IP address. To avoid this problem,
+    proceed as
+
+    follows:
+
+
+    * On your firewall, create a 1:1 NAT mapping (often referred to as Static NAT or Mapped IP) to translate
+    the IP
+      address of Skylar Compliance to a public/routable IP address
+    * Set the public IP address for Skylar Compliance in the `NatAddress` field. The system-wide NAT IP
+    address defined
+      here can be overridden in the Domain settings, or in each individual device's settings
+    * The Back-connection NAT option also needs to be selected in any device which is accessed by Skylar
+    Compliance through
+      NAT
+
+    Skylar Compliance supports multiple NAT addresses; the NAT IP address defined in this page can be
+    overridden by the
+
+    Domain or Device NAT IP setting.
+
+
+    ### Please note
+
+
+    Changing the IP address to a different one will result in aborted connections.
+  humanURL: https://sciencelogic.com
+  baseURL: https://{appliance}/api/v2
+  tags:
+  - Settings/Network
+  properties:
+  - type: OpenAPI
+    url: openapi/sciencelogic-settings-network-api-openapi.yml
+  - type: APIReference
+    url: https://docs.sciencelogic.com/skylar_compliance/api/5-6/api.html
+  - type: ErrorCatalog
+    url: errors/sciencelogic-problem-types.yml
+  - type: DataModel
+    url: data-model/sciencelogic-data-model.yml
+  - type: Documentation
+    url: https://docs.sciencelogic.com/skylar_compliance/
+- aid: sciencelogic:sciencelogic-settings-passwords-api
+  name: ScienceLogic Settings/Passwords API
+  description: >-
+    Password policies allow you to configure various rules for enforcing password strength, for both devices
+    and
+
+    users. These settings are used in the strength meter displayed in all password fields: the background
+    of the
+
+    field will change colour, from red for an unacceptable password, to yellow for a weak password, to
+    green for a
+
+    good password.
+  humanURL: https://sciencelogic.com
+  baseURL: https://{appliance}/api/v2
+  tags:
+  - Settings/Passwords
+  properties:
+  - type: OpenAPI
+    url: openapi/sciencelogic-settings-passwords-api-openapi.yml
+  - type: APIReference
+    url: https://docs.sciencelogic.com/skylar_compliance/api/5-6/api.html
+  - type: ErrorCatalog
+    url: errors/sciencelogic-problem-types.yml
+  - type: DataModel
+    url: data-model/sciencelogic-data-model.yml
+  - type: Documentation
+    url: https://docs.sciencelogic.com/skylar_compliance/
+- aid: sciencelogic:sciencelogic-settings-publickey-api
+  name: ScienceLogic Settings/Public Key API
+  description: >-
+    Returns the default public keys for your appliance that can be used for public key authentication
+    with devices
+
+    that support it.
+  humanURL: https://sciencelogic.com
+  baseURL: https://{appliance}/api/v2
+  tags:
+  - Settings/PublicKey
+  properties:
+  - type: OpenAPI
+    url: openapi/sciencelogic-settings-publickey-api-openapi.yml
+  - type: APIReference
+    url: https://docs.sciencelogic.com/skylar_compliance/api/5-6/api.html
+  - type: ErrorCatalog
+    url: errors/sciencelogic-problem-types.yml
+  - type: DataModel
+    url: data-model/sciencelogic-data-model.yml
+  - type: Documentation
+    url: https://docs.sciencelogic.com/skylar_compliance/
+- aid: sciencelogic:sciencelogic-settings-security-api
+  name: ScienceLogic Settings/Security API
+  description: >-
+    Configure various global settings to mandate a higher level of network security for the Skylar Compliance
+    appliance.
+
+    Setting some of these options may cause compatibility problems with legacy devices and clients.
+  humanURL: https://sciencelogic.com
+  baseURL: https://{appliance}/api/v2
+  tags:
+  - Settings/Security
+  properties:
+  - type: OpenAPI
+    url: openapi/sciencelogic-settings-security-api-openapi.yml
+  - type: APIReference
+    url: https://docs.sciencelogic.com/skylar_compliance/api/5-6/api.html
+  - type: ErrorCatalog
+    url: errors/sciencelogic-problem-types.yml
+  - type: DataModel
+    url: data-model/sciencelogic-data-model.yml
+  - type: Documentation
+    url: https://docs.sciencelogic.com/skylar_compliance/
+- aid: sciencelogic:sciencelogic-settings-security-csr-api
+  name: ScienceLogic Settings/Security/CSR API
+  description: Manage TLS CSRs
+  humanURL: https://sciencelogic.com
+  baseURL: https://{appliance}/api/v2
+  tags:
+  - Settings/Security/CSR
+  properties:
+  - type: OpenAPI
+    url: openapi/sciencelogic-settings-security-csr-api-openapi.yml
+  - type: APIReference
+    url: https://docs.sciencelogic.com/skylar_compliance/api/5-6/api.html
+  - type: ErrorCatalog
+    url: errors/sciencelogic-problem-types.yml
+  - type: DataModel
+    url: data-model/sciencelogic-data-model.yml
+  - type: Documentation
+    url: https://docs.sciencelogic.com/skylar_compliance/
+- aid: sciencelogic:sciencelogic-settings-security-ssh-api
+  name: ScienceLogic Settings/Security/SSH API
+  description: Manage SSH settings
+  humanURL: https://sciencelogic.com
+  baseURL: https://{appliance}/api/v2
+  tags:
+  - Settings/Security/SSH
+  properties:
+  - type: OpenAPI
+    url: openapi/sciencelogic-settings-security-ssh-api-openapi.yml
+  - type: APIReference
+    url: https://docs.sciencelogic.com/skylar_compliance/api/5-6/api.html
+  - type: ErrorCatalog
+    url: errors/sciencelogic-problem-types.yml
+  - type: DataModel
+    url: data-model/sciencelogic-data-model.yml
+  - type: Documentation
+    url: https://docs.sciencelogic.com/skylar_compliance/
+- aid: sciencelogic:sciencelogic-settings-security-tls-api
+  name: ScienceLogic Settings/Security/TLS API
+  description: Configure TLS certificate and key
+  humanURL: https://sciencelogic.com
+  baseURL: https://{appliance}/api/v2
+  tags:
+  - Settings/Security/TLS
+  properties:
+  - type: OpenAPI
+    url: openapi/sciencelogic-settings-security-tls-api-openapi.yml
+  - type: APIReference
+    url: https://docs.sciencelogic.com/skylar_compliance/api/5-6/api.html
+  - type: ErrorCatalog
+    url: errors/sciencelogic-problem-types.yml
+  - type: DataModel
+    url: data-model/sciencelogic-data-model.yml
+  - type: Documentation
+    url: https://docs.sciencelogic.com/skylar_compliance/
+- aid: sciencelogic:sciencelogic-settings-snmp-api
+  name: ScienceLogic Settings/SNMP API
+  description: >-
+    If your network has a Network Management System, you can use SNMP to perform some basic monitoring
+    of the
+
+    Skylar Compliance appliance. Skylar Compliance supports SNMP v1, v2c, and v3.
+  humanURL: https://sciencelogic.com
+  baseURL: https://{appliance}/api/v2
+  tags:
+  - Settings/SNMP
+  properties:
+  - type: OpenAPI
+    url: openapi/sciencelogic-settings-snmp-api-openapi.yml
+  - type: APIReference
+    url: https://docs.sciencelogic.com/skylar_compliance/api/5-6/api.html
+  - type: ErrorCatalog
+    url: errors/sciencelogic-problem-types.yml
+  - type: DataModel
+    url: data-model/sciencelogic-data-model.yml
+  - type: Documentation
+    url: https://docs.sciencelogic.com/skylar_compliance/
+- aid: sciencelogic:sciencelogic-status-api
+  name: ScienceLogic Status API
+  description: Retrieve status information for the appliance.
+  humanURL: https://sciencelogic.com
+  baseURL: https://{appliance}/api/v2
+  tags:
+  - Status
+  properties:
+  - type: OpenAPI
+    url: openapi/sciencelogic-status-api-openapi.yml
+  - type: APIReference
+    url: https://docs.sciencelogic.com/skylar_compliance/api/5-6/api.html
+  - type: ErrorCatalog
+    url: errors/sciencelogic-problem-types.yml
+  - type: DataModel
+    url: data-model/sciencelogic-data-model.yml
+  - type: Documentation
+    url: https://docs.sciencelogic.com/skylar_compliance/
+- aid: sciencelogic:sciencelogic-status-ping-api
+  name: ScienceLogic Status/Ping API
+  description: Check if appliance is ready to accept requests
+  humanURL: https://sciencelogic.com
+  baseURL: https://{appliance}/api/v2
+  tags:
+  - Status/Ping
+  properties:
+  - type: OpenAPI
+    url: openapi/sciencelogic-status-ping-api-openapi.yml
+  - type: APIReference
+    url: https://docs.sciencelogic.com/skylar_compliance/api/5-6/api.html
+  - type: ErrorCatalog
+    url: errors/sciencelogic-problem-types.yml
+  - type: DataModel
+    url: data-model/sciencelogic-data-model.yml
+  - type: Documentation
+    url: https://docs.sciencelogic.com/skylar_compliance/
+- aid: sciencelogic:sciencelogic-syslog-api
+  name: ScienceLogic Syslog API
+  description: >-
+    These are the messages logged to the Skylar Compliance syslog service, by both the appliance itself
+    and any devices
+
+    configured to log to it.
+  humanURL: https://sciencelogic.com
+  baseURL: https://{appliance}/api/v2
+  tags:
+  - Syslog
+  properties:
+  - type: OpenAPI
+    url: openapi/sciencelogic-syslog-api-openapi.yml
+  - type: APIReference
+    url: https://docs.sciencelogic.com/skylar_compliance/api/5-6/api.html
+  - type: ErrorCatalog
+    url: errors/sciencelogic-problem-types.yml
+  - type: DataModel
+    url: data-model/sciencelogic-data-model.yml
+  - type: Documentation
+    url: https://docs.sciencelogic.com/skylar_compliance/
+- aid: sciencelogic:sciencelogic-table-view-api
+  name: ScienceLogic Table view API
+  description: The Table view API from ScienceLogic — 2 operation(s) for table view.
+  humanURL: https://sciencelogic.com
+  baseURL: https://{appliance}/api/v2
+  tags:
+  - Table view
+  properties:
+  - type: OpenAPI
+    url: openapi/sciencelogic-table-view-api-openapi.yml
+  - type: APIReference
+    url: https://docs.sciencelogic.com/skylar_compliance/api/5-6/api.html
+  - type: ErrorCatalog
+    url: errors/sciencelogic-problem-types.yml
+  - type: DataModel
+    url: data-model/sciencelogic-data-model.yml
+  - type: Documentation
+    url: https://docs.sciencelogic.com/skylar_compliance/
+- aid: sciencelogic:sciencelogic-template-api
+  name: ScienceLogic Template API
+  description: >-
+    Templates are specially marked-up configurations that can be pushed to multiple devices, for instance
+    during a
+
+    large deployment of similarly configured devices. Each template can contain parameters, which are
+    substituted for
+
+    entered values for each device pushed to. For instance, a section may be marked "IP Address", and
+    this will then
+
+    be prompted for when pushing to devices.
+  humanURL: https://sciencelogic.com
+  baseURL: https://{appliance}/api/v2
+  tags:
+  - Template
+  properties:
+  - type: OpenAPI
+    url: openapi/sciencelogic-template-api-openapi.yml
+  - type: APIReference
+    url: https://docs.sciencelogic.com/skylar_compliance/api/5-6/api.html
+  - type: ErrorCatalog
+    url: errors/sciencelogic-problem-types.yml
+  - type: DataModel
+    url: data-model/sciencelogic-data-model.yml
+  - type: Documentation
+    url: https://docs.sciencelogic.com/skylar_compliance/
+- aid: sciencelogic:sciencelogic-token-api
+  name: ScienceLogic Token API
+  description: >-
+    Personal access tokens are used to authenticate requests to the API. Tokens are tied to the user that
+    created
+
+    them. All API operations undertaken via a personal access token are linked to the user account that
+    created it
+
+    and will be logged under that account's username.
+
+
+    Tokens are passed as a `Authorization` header in each request:
+
+
+    ```bash
+
+    curl --header "Authorization: Custom <your_access_token>" "https://skylar-compliance.example.com/api/v2/tokens"
+
+    ```
+  humanURL: https://sciencelogic.com
+  baseURL: https://{appliance}/api/v2
+  tags:
+  - Token
+  properties:
+  - type: OpenAPI
+    url: openapi/sciencelogic-token-api-openapi.yml
+  - type: APIReference
+    url: https://docs.sciencelogic.com/skylar_compliance/api/5-6/api.html
+  - type: ErrorCatalog
+    url: errors/sciencelogic-problem-types.yml
+  - type: DataModel
+    url: data-model/sciencelogic-data-model.yml
+  - type: Documentation
+    url: https://docs.sciencelogic.com/skylar_compliance/
+- aid: sciencelogic:sciencelogic-transcript-api
+  name: ScienceLogic Transcript API
+  description: Device command and backup transcripts can be retrieved here.
+  humanURL: https://sciencelogic.com
+  baseURL: https://{appliance}/api/v2
+  tags:
+  - Transcript
+  properties:
+  - type: OpenAPI
+    url: openapi/sciencelogic-transcript-api-openapi.yml
+  - type: APIReference
+    url: https://docs.sciencelogic.com/skylar_compliance/api/5-6/api.html
+  - type: ErrorCatalog
+    url: errors/sciencelogic-problem-types.yml
+  - type: DataModel
+    url: data-model/sciencelogic-data-model.yml
+  - type: Documentation
+    url: https://docs.sciencelogic.com/skylar_compliance/
+- aid: sciencelogic:sciencelogic-user-api
+  name: ScienceLogic User API
+  description: >-
+    Skylar Compliance supports three levels of user access:
+
+
+    - **Admin:** Super User; has full control (can create/modify/delete devices and users, initiate backups/restores
+      and change the appliance configuration). Admins also have an encryption password that allows Skylar
+    Compliance to
+      transition from the locked state to the normal state.
+    - **Backup:** Backup Operator; can perform device backups and restores, but cannot modify devices,
+    users, or
+      appliance settings.
+    - **View Only:** Monitor Operator; can only view existing backups, access logs, and verify that the
+    system is
+      operating normally.
+
+    **Please note:** Administrators authenticating using RADIUS, LDAP or SAML cannot decrypt the system
+    after a reboot.
+  humanURL: https://sciencelogic.com
+  baseURL: https://{appliance}/api/v2
+  tags:
+  - User
+  properties:
+  - type: OpenAPI
+    url: openapi/sciencelogic-user-api-openapi.yml
+  - type: APIReference
+    url: https://docs.sciencelogic.com/skylar_compliance/api/5-6/api.html
+  - type: ErrorCatalog
+    url: errors/sciencelogic-problem-types.yml
+  - type: DataModel
+    url: data-model/sciencelogic-data-model.yml
+  - type: Documentation
+    url: https://docs.sciencelogic.com/skylar_compliance/
+- aid: sciencelogic:sciencelogic-user-ldap-api
+  name: ScienceLogic User/LDAP API
+  description: >-
+    For LDAP users to be able to login to Skylar Compliance, they need to be a member of a group and the
+    group has to be
+
+    added to Skylar Compliance (with domains and roles assigned). LDAP users inherit their groups' domains
+    and roles.
+  humanURL: https://sciencelogic.com
+  baseURL: https://{appliance}/api/v2
+  tags:
+  - User/LDAP
+  properties:
+  - type: OpenAPI
+    url: openapi/sciencelogic-user-ldap-api-openapi.yml
+  - type: APIReference
+    url: https://docs.sciencelogic.com/skylar_compliance/api/5-6/api.html
+  - type: ErrorCatalog
+    url: errors/sciencelogic-problem-types.yml
+  - type: DataModel
+    url: data-model/sciencelogic-data-model.yml
+  - type: Documentation
+    url: https://docs.sciencelogic.com/skylar_compliance/
 common:
   - type: Website
     url: https://sciencelogic.com
