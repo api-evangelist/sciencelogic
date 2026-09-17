@@ -685,63 +685,6 @@ apis:
     url: data-model/sciencelogic-data-model.yml
   - type: Documentation
     url: https://docs.sciencelogic.com/skylar_compliance/
-- aid: sciencelogic:sciencelogic-fileserver-api
-  name: ScienceLogic Fileserver API
-  description: >-
-    A file server represents a remote storage location that can be used for archiving Skylar Compliance,
-    exporting backups
-
-    and automated exports.
-
-
-    ## Supported connection methods
-
-
-    * FTP
-
-    * SFTP
-
-    * SCP
-
-    * CIFS
-
-    * [Amazon S3](https://aws.amazon.com/s3/)
-
-    * [Azure Blob Storage](https://azure.microsoft.com/en-gb/services/storage/blobs/)
-
-
-    ## CIFS version
-
-
-    Skylar Compliance uses [smbmount](https://linux.die.net/man/8/smbmount) for CIFS. You can specify
-    an optional
-
-    `CifsVersion` parameter to set the version corresponding to the file server you are trying to connect
-    to:
-
-
-    * `3.0` is SMB3 i.e. Windows 8, Windows Server 2012
-
-    * `2.1` is SMB2_10 i.e. Windows 7, Windows Server 2008 R2
-
-    * `2.0` is SMB2_02 i.e. Vista SP1, Windows Server 2008
-
-    * `1.0` is NT1 i.e. Windows 95, NT 4.0
-  humanURL: https://sciencelogic.com
-  baseURL: https://{appliance}/api/v2
-  tags:
-  - Fileserver
-  properties:
-  - type: OpenAPI
-    url: openapi/sciencelogic-fileserver-api-openapi.yml
-  - type: APIReference
-    url: https://docs.sciencelogic.com/skylar_compliance/api/5-6/api.html
-  - type: ErrorCatalog
-    url: errors/sciencelogic-problem-types.yml
-  - type: DataModel
-    url: data-model/sciencelogic-data-model.yml
-  - type: Documentation
-    url: https://docs.sciencelogic.com/skylar_compliance/
 - aid: sciencelogic:sciencelogic-firmware-api
   name: ScienceLogic Firmware API
   description: >-
@@ -2160,6 +2103,28 @@ apis:
   properties:
   - type: OpenAPI
     url: openapi/sciencelogic-user-ldap-api-openapi.yml
+  - type: APIReference
+    url: https://docs.sciencelogic.com/skylar_compliance/api/5-6/api.html
+  - type: ErrorCatalog
+    url: errors/sciencelogic-problem-types.yml
+  - type: DataModel
+    url: data-model/sciencelogic-data-model.yml
+  - type: Documentation
+    url: https://docs.sciencelogic.com/skylar_compliance/
+- aid: sciencelogic:sciencelogic-file-server-api
+  name: ScienceLogic File Server API
+  description: >-
+    A file server represents a remote storage location that can be used for archiving Skylar Compliance,
+    exporting backups
+
+    and automated exports.
+  humanURL: https://sciencelogic.com
+  baseURL: https://{appliance}/gql
+  tags:
+  - File Server
+  properties:
+  - type: OpenAPI
+    url: openapi/sciencelogic-file-server-api-openapi.yml
   - type: APIReference
     url: https://docs.sciencelogic.com/skylar_compliance/api/5-6/api.html
   - type: ErrorCatalog
