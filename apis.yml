@@ -157,6 +157,8 @@ apis:
   humanURL: https://sciencelogic.com
   baseURL: https://{appliance}/api/v2
   tags:
+  - Agents
+  tags_raw:
   - Agent
   properties:
   - type: OpenAPI
@@ -632,6 +634,8 @@ apis:
   humanURL: https://sciencelogic.com
   baseURL: https://{appliance}/api/v2
   tags:
+  - Downloads
+  tags_raw:
   - Download
   properties:
   - type: OpenAPI
@@ -832,6 +836,8 @@ apis:
   humanURL: https://sciencelogic.com
   baseURL: https://{appliance}/api/v2
   tags:
+  - Networks
+  tags_raw:
   - Network
   properties:
   - type: OpenAPI
@@ -892,6 +898,8 @@ apis:
   humanURL: https://sciencelogic.com
   baseURL: https://{appliance}/api/v2
   tags:
+  - Plugins
+  tags_raw:
   - Plugin
   properties:
   - type: OpenAPI
@@ -1809,6 +1817,8 @@ apis:
   humanURL: https://sciencelogic.com
   baseURL: https://{appliance}/api/v2
   tags:
+  - Settings - Security
+  tags_raw:
   - Settings/Security
   properties:
   - type: OpenAPI
@@ -1989,6 +1999,8 @@ apis:
   humanURL: https://sciencelogic.com
   baseURL: https://{appliance}/api/v2
   tags:
+  - Templates
+  tags_raw:
   - Template
   properties:
   - type: OpenAPI
@@ -2024,6 +2036,8 @@ apis:
   humanURL: https://sciencelogic.com
   baseURL: https://{appliance}/api/v2
   tags:
+  - Tokens
+  tags_raw:
   - Token
   properties:
   - type: OpenAPI
