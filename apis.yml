@@ -14,15 +14,20 @@ description: >-
   customer appliances, SaaS, or private/public cloud, and are licensed per managed device per month.
 type: Index
 deliveryModel:
-  model: unknown
-  open_source: false
-  commercial: false
+  model: saas
+  license_evidence:
+    not_product:
+    - sciencelogic/mcp
+  open_source: unknown
+  commercial: true
   callable_host: false
-  label: Delivery model not determined — needs a product licence on record
+  label: Hosted service · you call their endpoint
   confidence: low
   source:
-  - none
-  generated: '2026-08-28'
+  - openapi
+  - pricing
+  - repository-not-product
+  generated: '2026-09-25'
   method: derived
 accessModel:
   pricing: paid
