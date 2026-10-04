@@ -1,0 +1,87 @@
+slug: sciencelogic
+provider: ScienceLogic
+generated_by: planning/capability-mapping/scripts/classify_capabilities.py
+model: claude-opus-5
+frame:
+- Software & Technology
+min_confidence: 0.7
+capability_model:
+  source: https://github.com/vincentmakes/turbo-ea-capabilities
+  license: CC-BY-4.0
+  attribution: Turbo EA Capabilities by Vincent Verdet — Turbo EA, https://github.com/vincentmakes/turbo-ea-capabilities,
+    CC BY 4.0
+  notice: NOTICE
+edge_count: 7
+edges:
+- tag: SAML
+  spec_file: sciencelogic-saml-api-openapi.yml
+  capability_id: BC-620.20
+  capability_id_l1: BC-620
+  capability_name: Identity & Access Management
+  confidence: 0.78
+  evidence: GET /saml/groups 'List SAML groups'; POST /saml/groups 'Create a SAML group'
+  reason: SAML group management is single-sign-on federation configuration — mapping identity-provider
+    groups to platform access. That is federation within Identity & Access Management. Could alternatively
+    be read as tenant identity federation, but ScienceLogic SL1 here is a self-hosted appliance administered
+    by the customer, so the enterprise IAM reading fits better.
+- tag: Discovery
+  spec_file: sciencelogic-discovery-api-openapi.yml
+  capability_id: BC-600
+  capability_id_l1: BC-600
+  capability_name: Information Technology Management
+  confidence: 0.75
+  evidence: POST /discovery  run_discovery  Run device discovery
+  reason: Operations run, import and rescan device discovery across the managed IT estate — this is IT
+    operations/infrastructure discovery tooling, so Information Technology Management at L1. Not confident
+    whether it is better read as IT Operations Management (automated monitoring/discovery runs) or IT
+    Infrastructure Management (device inventory), so no L2 asserted.
+- tag: Role
+  spec_file: sciencelogic-role-api-openapi.yml
+  capability_id: BC-620.20
+  capability_id_l1: BC-620
+  capability_name: Identity & Access Management
+  confidence: 0.75
+  evidence: GET /roles list_roles 'List roles'; POST /roles 'Create a role'; PUT /roles/{id} 'Update a
+    role'
+  reason: Full CRUD over roles in the platform's administration surface is role-based access control,
+    i.e. identity and access management. It is product administration, but role definition and assignment
+    is the substance of BC-620.20. Confidence held below 0.8 because the operations alone do not show
+    user-to-role assignment or permission semantics.
+- tag: Credential/Provider/CyberArk
+  spec_file: sciencelogic-credential-provider-cyberark-api-openapi.yml
+  capability_id: BC-620.20
+  capability_id_l1: BC-620
+  capability_name: Identity & Access Management
+  confidence: 0.72
+  evidence: POST /credentials/providers/cyberark  create_cyberark_provider  Create CyberArk provider
+  reason: Configures integration with CyberArk, a privileged access/credential vault, so that device access
+    secrets are brokered externally — squarely privileged identity and access management.
+- tag: Discovery/Device
+  spec_file: sciencelogic-discovery-device-api-openapi.yml
+  capability_id: BC-600
+  capability_id_l1: BC-600
+  capability_name: Information Technology Management
+  confidence: 0.72
+  evidence: GET /discovery/devices  list_discovered_devices  List discovered devices
+  reason: Listing and changing settings of discovered network/infrastructure devices is IT estate management.
+    L1 Information Technology Management is defensible; the split between IT Operations and IT Infrastructure
+    sub-capabilities is not resolvable from these two operations.
+- tag: User/LDAP
+  spec_file: sciencelogic-user-ldap-api-openapi.yml
+  capability_id: BC-620.20
+  capability_id_l1: BC-620
+  capability_name: Identity & Access Management
+  confidence: 0.72
+  evidence: POST /users/ldap/groups  create_ldap_group  Create an LDAP group
+  reason: Managing LDAP group mappings for platform users is directory federation and access administration,
+    which fits Identity & Access Management; the LDAP integration makes the identity reading fairly unambiguous.
+- tag: Firmware
+  spec_file: sciencelogic-firmware-api-openapi.yml
+  capability_id: BC-600.50
+  capability_id_l1: BC-600
+  capability_name: IT Infrastructure Management
+  confidence: 0.7
+  evidence: POST /firmware/{id}/push  push_firmware  Push firmware to devices
+  reason: Uploading, versioning and pushing firmware to managed network devices is maintenance of compute/network
+    infrastructure, mapping to IT Infrastructure Management under IT Management. Moderate confidence as
+    it could alternatively sit under IT Operations Management.

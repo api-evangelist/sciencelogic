@@ -2153,6 +2153,9 @@ apis:
   - type: Documentation
     url: https://docs.sciencelogic.com/skylar_compliance/
 common:
+  - type: CapabilityMap
+    url: capabilities/sciencelogic-capability-edges.yml
+    name: ScienceLogic Business Capability Map
   - type: Website
     url: https://sciencelogic.com
   - type: Documentation
