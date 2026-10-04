@@ -1,5 +1,7 @@
 aid: sciencelogic
+
 name: ScienceLogic
+
 description: >-
   ScienceLogic is an AIOps and IT operations company whose ScienceLogic AI Platform — rebranded in 2026 as
   the Skylar family — covers infrastructure and application observability, network configuration and
@@ -12,7 +14,9 @@ description: >-
   AI adds Advisor and Analytics on top. The ScienceLogic GitHub organization also publishes an MCP server
   that exposes read-only Skylar One and Skylar Compliance tools to AI agents. Products are deployed on
   customer appliances, SaaS, or private/public cloud, and are licensed per managed device per month.
+
 type: Index
+
 deliveryModel:
   model: saas
   license_evidence:
@@ -29,6 +33,7 @@ deliveryModel:
   - repository-not-product
   generated: '2026-09-25'
   method: derived
+
 accessModel:
   pricing: paid
   onboarding: sales-assisted
@@ -41,7 +46,9 @@ accessModel:
   - https://sciencelogic.com/why-sciencelogic/pricing
   generated: '2026-08-29'
   method: searched
+
 image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/sciencelogic.png
+
 tags:
   - AIOps
   - IT Operations
@@ -51,11 +58,108 @@ tags:
   - Compliance
   - Automation
   - Incident Management
+
 url: >-
   https://raw.githubusercontent.com/api-evangelist/sciencelogic/refs/heads/main/apis.yml
+
 created: '2026-03-27'
+
 modified: '2026-08-29'
+
 specificationVersion: '0.23'
+
+maintainers:
+  - FN: Kin Lane
+    email: kin@apievangelist.com
+
+common:
+  - type: AgenticAccess
+    url: agentic-access/sciencelogic-agentic-access.yml
+  - type: Spectral
+    url: rules/sciencelogic-rules.yml
+  - type: Vocabulary
+    url: vocabulary/sciencelogic-vocabulary.yml
+  - type: Hosts
+    url: hosts/sciencelogic-hosts.yml
+  - type: Vendors
+    url: vendors/sciencelogic-vendors.yml
+  - type: Newsroom
+    url: https://sciencelogic.com/about/news
+  - type: Leadership
+    url: https://sciencelogic.com/about/leadership
+  - type: Website
+    url: https://sciencelogic.com
+  - type: Documentation
+    url: https://docs.sciencelogic.com
+  - type: DeveloperPortal
+    url: https://docs.sciencelogic.com/dev-docs/
+  - type: APIReference
+    url: https://docs.sciencelogic.com/skylar_compliance/api/5-6/api.html
+  - type: GettingStarted
+    url: https://docs.sciencelogic.com/latest/Content/Web_Content_Dev_and_Integration/ScienceLogic_API/api_intro.htm
+  - type: Blog
+    url: https://sciencelogic.com/feed
+  - type: Support
+    url: https://support.sciencelogic.com/s/
+  - type: Community
+    url: https://community.sciencelogic.com
+  - type: GitHubOrganization
+    url: https://github.com/ScienceLogic
+  - type: LinkedIn
+    url: https://www.linkedin.com/company/sciencelogic
+  - type: Pricing
+    url: https://sciencelogic.com/why-sciencelogic/pricing
+  - type: SignUp
+    url: https://sciencelogic.com/get-free-trial
+  - type: TermsOfService
+    url: https://sciencelogic.com/company/standard-terms-and-conditions-v20260116
+  - type: PrivacyPolicy
+    url: https://sciencelogic.com/company/legal
+  - type: Authentication
+    url: authentication/sciencelogic-authentication.yml
+  - type: Conventions
+    url: conventions/sciencelogic-conventions.yml
+  - type: ErrorCatalog
+    url: errors/sciencelogic-problem-types.yml
+  - type: Lifecycle
+    url: lifecycle/sciencelogic-lifecycle.yml
+  - type: Deprecation
+    url: lifecycle/sciencelogic-lifecycle.yml
+  - type: ChangeLog
+    url: changelog/sciencelogic-changelog.yml
+  - type: DataModel
+    url: data-model/sciencelogic-data-model.yml
+  - type: Conformance
+    url: conformance/sciencelogic-conformance.yml
+  - type: Compliance
+    url: conformance/sciencelogic-conformance.yml
+  - type: TrustCenter
+    url: security/sciencelogic-trust-center.yml
+  - type: DomainSecurity
+    url: security/sciencelogic-domain-security.yml
+  - type: WellKnown
+    url: well-known/sciencelogic-well-known.yml
+  - type: MCPServer
+    url: mcp/sciencelogic-mcp.yml
+  - type: ToolCrosswalk
+    url: mcp/sciencelogic-tool-crosswalk.yml
+  - type: Overlay
+    url: overlays/sciencelogic-skylar-compliance-overlay.yaml
+  - type: Webhooks
+    url: asyncapi/sciencelogic-webhooks.yml
+  - type: AgentSkill
+    url: skills/_index.yml
+  - type: Plans
+    url: plans/sciencelogic-plans-pricing.yml
+  - type: RateLimits
+    url: rate-limits/sciencelogic-rate-limits.yml
+  - type: FinOps
+    url: finops/sciencelogic-finops.yml
+  - type: LLMsTxt
+    url: llms/sciencelogic-llms.txt
+  - type: LlmsText
+    url: https://docs.sciencelogic.com/llms.txt
+
 apis:
 - aid: sciencelogic:sciencelogic
   name: ScienceLogic
@@ -69,6 +173,8 @@ apis:
   properties:
   - type: Documentation
     url: https://docs.sciencelogic.com
+  - type: Support
+    url: https://sciencelogic.com/contact-us
 - aid: sciencelogic:skylar-one-graphql-api
   name: Skylar One GraphQL API
   description: >-
@@ -2152,86 +2258,9 @@ apis:
     url: data-model/sciencelogic-data-model.yml
   - type: Documentation
     url: https://docs.sciencelogic.com/skylar_compliance/
-common:
-  - type: Website
-    url: https://sciencelogic.com
-  - type: Documentation
-    url: https://docs.sciencelogic.com
-  - type: DeveloperPortal
-    url: https://docs.sciencelogic.com/dev-docs/
-  - type: APIReference
-    url: https://docs.sciencelogic.com/skylar_compliance/api/5-6/api.html
-  - type: GettingStarted
-    url: https://docs.sciencelogic.com/latest/Content/Web_Content_Dev_and_Integration/ScienceLogic_API/api_intro.htm
-  - type: Blog
-    url: https://sciencelogic.com/feed
-  - type: Support
-    url: https://support.sciencelogic.com/s/
-  - type: Community
-    url: https://community.sciencelogic.com
-  - type: GitHubOrganization
-    url: https://github.com/ScienceLogic
-  - type: LinkedIn
-    url: https://www.linkedin.com/company/sciencelogic
-  - type: Pricing
-    url: https://sciencelogic.com/why-sciencelogic/pricing
-  - type: SignUp
-    url: https://sciencelogic.com/get-free-trial
-  - type: TermsOfService
-    url: https://sciencelogic.com/company/standard-terms-and-conditions-v20260116
-  - type: PrivacyPolicy
-    url: https://sciencelogic.com/company/legal
-  - type: Authentication
-    url: authentication/sciencelogic-authentication.yml
-  - type: Conventions
-    url: conventions/sciencelogic-conventions.yml
-  - type: ErrorCatalog
-    url: errors/sciencelogic-problem-types.yml
-  - type: Lifecycle
-    url: lifecycle/sciencelogic-lifecycle.yml
-  - type: Deprecation
-    url: lifecycle/sciencelogic-lifecycle.yml
-  - type: ChangeLog
-    url: changelog/sciencelogic-changelog.yml
-  - type: DataModel
-    url: data-model/sciencelogic-data-model.yml
-  - type: Conformance
-    url: conformance/sciencelogic-conformance.yml
-  - type: Compliance
-    url: conformance/sciencelogic-conformance.yml
-  - type: TrustCenter
-    url: security/sciencelogic-trust-center.yml
-  - type: DomainSecurity
-    url: security/sciencelogic-domain-security.yml
-  - type: WellKnown
-    url: well-known/sciencelogic-well-known.yml
-  - type: Packages
-    url: packages/sciencelogic-packages.yml
-  - type: MCPServer
-    url: mcp/sciencelogic-mcp.yml
-  - type: ToolCrosswalk
-    url: mcp/sciencelogic-tool-crosswalk.yml
-  - type: Overlay
-    url: overlays/sciencelogic-skylar-compliance-overlay.yaml
-  - type: Webhooks
-    url: asyncapi/sciencelogic-webhooks.yml
-  - type: AgentSkill
-    url: skills/_index.yml
-  - type: Plans
-    url: plans/sciencelogic-plans-pricing.yml
-  - type: RateLimits
-    url: rate-limits/sciencelogic-rate-limits.yml
-  - type: FinOps
-    url: finops/sciencelogic-finops.yml
-  - type: LLMsTxt
-    url: llms/sciencelogic-llms.txt
-  - type: LlmsText
-    url: https://docs.sciencelogic.com/llms.txt
-maintainers:
-  - FN: Kin Lane
-    email: kin@apievangelist.com
 x-enrichment:
-  date: '2026-08-29'
+  date: '2026-10-04'
   status: enriched
-  artifacts_added: 19
-  pass: local-v1
+  artifacts_added: 8
+  pass: modular-v1
+  engine: identity=local,contract=local,surfaces=local,docs=local,regulatory=local

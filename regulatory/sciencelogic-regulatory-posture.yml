@@ -1,0 +1,39 @@
+generated: "2026-10-04"
+source: "https://sciencelogic.com/company/legal"
+method: probed
+signals:
+  data_subject_request:
+    - source: "https://sciencelogic.com/company/legal"
+      http_status: 200
+      fetched: "/tmp/legal.html"
+      quote: "These rights may only apply in certain circumstances and are subject to certain exemptions. Please see the table below for a summary of your rights."
+      note: "Describes GDPR data subject rights for EU/UK/Swiss residents."
+  data_retention:
+    - source: "https://sciencelogic.com/company/legal"
+      http_status: 200
+      fetched: "/tmp/legal.html"
+      quote: "Where we hold Personal Information that you post in participating in our support community, we will retain this information so long as needed for the purposes it was collected or processed and in accordance with our data retention policy."
+      note: "Specifies retention period tied to purpose and policy."
+  subprocessors:
+    - source: "https://sciencelogic.com/company/legal"
+      http_status: 200
+      fetched: "/tmp/legal.html"
+      quote: "This Privacy Policy also describes the privacy practices of the following affiliates of ScienceLogic, Inc: ScienceLogic Australia Pty Ltd, ScienceLogic Canada Ltd, ScienceLogic Ireland Ltd, ScienceLogic Singapore Pty Ltd, ScienceLogic Taiwan Co. Ltd, ScienceLogic Ltd, Restorepoint Ltd, ScienceLogic Federal Solutions LLC, ScienceLogic AIOps India Private Limited."
+      note: "Lists affiliates acting as subprocessors."
+  incident_notification:
+    - source: "https://sciencelogic.com/company/legal"
+      http_status: 200
+      fetched: "/tmp/legal.html"
+      quote: "third parties if we are under a duty to disclose or share your Personal Information in order to comply with any legal obligation or instructions of a regulatory body (including in connection with a court order)"
+      note: "Mentions duty to disclose to regulators, implying incident notification obligations."
+  ai_transparency: []
+  data_residency: []
+  global_privacy_control: []
+  exit_assistance: []
+  notice_and_action: []
+  accessibility_conformance: []
+  support_lifetime: []
+  age_assurance: []
+  sbom: []
+  training_data_summary: []
+  transparency_report: []

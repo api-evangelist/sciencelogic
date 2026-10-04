@@ -1,0 +1,385 @@
+generated: '2026-10-04'
+method: derived
+generator: derive-vocabulary.py
+source:
+- openapi/sciencelogic-agent-api-openapi.yml
+- openapi/sciencelogic-agent-debug-api-openapi.yml
+- openapi/sciencelogic-agent-remote-api-openapi.yml
+- openapi/sciencelogic-backup-api-openapi.yml
+- openapi/sciencelogic-command-api-openapi.yml
+vocabulary:
+  name: ScienceLogic Domain Vocabulary
+  description: 'Terms declared by ScienceLogic''s own API contract: its resource groups, objects and enumerations, with the contract''s definitions.
+    Derived, not authored.'
+  version: '2026-10-04'
+  terms:
+  - term: Agent
+    definition: Agents allow a Skylar Compliance appliance to manage devices located on a remote or otherwise disjointed network, not directly
+      routable by Skylar Compliance, without the need of complex firewall changes, Network Address Translation, or VPNs.
+    tags:
+    - Resource Group
+    source: openapi/sciencelogic-agent-api-openapi.yml
+  - term: Agent/Debug
+    definition: Endpoints that can aid in debugging agent problems.
+    tags:
+    - Resource Group
+    source: openapi/sciencelogic-agent-debug-api-openapi.yml
+  - term: Agent/Remote
+    definition: Start and stop remote support access on agents.
+    tags:
+    - Resource Group
+    source: openapi/sciencelogic-agent-remote-api-openapi.yml
+  - term: Backup
+    definition: A device backup can encapsulates one or more device configurations. Depending on the type of device, a device backup might be
+      a simple text file or a multi-gigabyte TGZ.
+    tags:
+    - Resource Group
+    source: openapi/sciencelogic-backup-api-openapi.yml
+  - term: Command
+    definition: Skylar Compliance allows you to send a CLI command to a device or group of devices and capture the output of the command.
+    tags:
+    - Resource Group
+    source: openapi/sciencelogic-command-api-openapi.yml
+  - term: Command/Output
+    definition: Logs from running scheduled commands with `StoreLog` enabled can be retrieved here.
+    tags:
+    - Resource Group
+    source: openapi/sciencelogic-command-output-api-openapi.yml
+  - term: Command/Schedule
+    definition: Commands can be scheduled to run automatically at defined intervals or once.
+    tags:
+    - Resource Group
+    source: openapi/sciencelogic-command-schedule-api-openapi.yml
+  - term: Command/Variables
+    definition: Commands can have one or multiple variables. The user can upload a csv file with a list of variables and they will be parsed and
+      used when running the command.
+    tags:
+    - Resource Group
+    source: openapi/sciencelogic-command-variables-api-openapi.yml
+  - term: Credential
+    definition: Set of username and up to two passwords that can be used across multiple devices.
+    tags:
+    - Resource Group
+    source: openapi/sciencelogic-credential-api-openapi.yml
+  - term: Credential/Bulk
+    definition: Allows creating or updating multiple credentials at once. It will create a scheduled task with the given credentials and create
+      a log entry for the beginning and end of the credentials creation/modification.
+    tags:
+    - Resource Group
+    source: openapi/sciencelogic-credential-bulk-api-openapi.yml
+  - term: Credential/Provider/CyberArk
+    definition: Allows retrieving credentials from the external vault.
+    tags:
+    - Resource Group
+    source: openapi/sciencelogic-credential-provider-cyberark-api-openapi.yml
+  - term: Device
+    definition: Devices are Skylar Compliance's representation of physical or virtual network devices.
+    tags:
+    - Resource Group
+    source: openapi/sciencelogic-device-api-openapi.yml
+  - term: Device/Backup
+    definition: A device backup can encapsulates one or more device configurations. Depending on the type of device, a device backup might be
+      a simple text file or a multi-gigabyte TGZ.
+    tags:
+    - Resource Group
+    source: openapi/sciencelogic-device-backup-api-openapi.yml
+  - term: Device/BulkCreate
+    definition: Allows creating multiple devices at once. It will create a scheduled task with the given devices and create a log entry for each
+      device creation and one when all the devices are created.
+    tags:
+    - Resource Group
+    source: openapi/sciencelogic-device-bulkcreate-api-openapi.yml
+  - term: Device/BulkEdit
+    definition: Allows editing multiple devices at once.
+    tags:
+    - Resource Group
+    source: openapi/sciencelogic-device-bulkedit-api-openapi.yml
+  - term: Dictionary
+    definition: Dictionaries for various auto-complete and search filter settings.
+    tags:
+    - Resource Group
+    source: openapi/sciencelogic-dictionary-api-openapi.yml
+  - term: Discovery
+    definition: The Skylar Compliance device discovery engine uses a variety of methods to discover hosts on your network that can be imported
+      into the main device list.
+    tags:
+    - Resource Group
+    source: openapi/sciencelogic-discovery-api-openapi.yml
+  - term: Discovery/Device
+    definition: New devices as discovered by a manual or scheduled device discovery run will appear here.
+    tags:
+    - Resource Group
+    source: openapi/sciencelogic-discovery-device-api-openapi.yml
+  - term: Domain
+    definition: Domains allow you to organise devices into separate domains, and delegate their management to Domain Administrators. A typical
+      use is for Service Providers managing multiple customers, or large enterprises with separate teams, where it is essential to restrict the
+      scope of administrators to a subset of network devices. **Please note:** Domains are only available with an Enterprise licence.
+    tags:
+    - Resource Group
+    source: openapi/sciencelogic-domain-api-openapi.yml
+  - term: Download
+    definition: An endpoint to download files from.
+    tags:
+    - Resource Group
+    source: openapi/sciencelogic-download-api-openapi.yml
+  - term: Export
+    definition: Allows you to export device configurations, logs and settings for multiple devices or domains.
+    tags:
+    - Resource Group
+    source: openapi/sciencelogic-export-api-openapi.yml
+  - term: Export/Policy
+    definition: Automatically export device configurations to a specified file server. Please do not mistake this for the device policy export
+      endpoint.
+    tags:
+    - Resource Group
+    source: openapi/sciencelogic-export-policy-api-openapi.yml
+  - term: File Server
+    definition: A file server represents a remote storage location that can be used for archiving Skylar Compliance, exporting backups and automated
+      exports.
+    tags:
+    - Resource Group
+    source: openapi/sciencelogic-file-server-api-openapi.yml
+  - term: Firmware
+    definition: Skylar Compliance can act as a repository for device firmware/software, allowing you to upload files like firmware images and
+      ISO images to the appliance. Software images can also be pushed to supported devices.
+    tags:
+    - Resource Group
+    source: openapi/sciencelogic-firmware-api-openapi.yml
+  - term: Job
+    definition: 'Jobs represent a running task in Skylar Compliance, such as a running device backup, command or creating an archive of Skylar
+      Compliance. Normally, a job transitions from: `Pending` -> `Running` -> `Done` Once a job is done, it will stay visible for an additional
+      5 seconds.'
+    tags:
+    - Resource Group
+    source: openapi/sciencelogic-job-api-openapi.yml
+  - term: Label
+    definition: Labels are a way of attaching meta information to devices.
+    tags:
+    - Resource Group
+    source: openapi/sciencelogic-label-api-openapi.yml
+  - term: Log
+    definition: Almost every system activity will be logged and can be retrieved
+    tags:
+    - Resource Group
+    source: openapi/sciencelogic-log-api-openapi.yml
+  - term: Login
+    definition: The login endpoint is used by the UI to authenticate a user. On successful login, it will set a session cookie that will further
+      authenticate API requests coming from the web interface.
+    tags:
+    - Resource Group
+    source: openapi/sciencelogic-login-api-openapi.yml
+  - term: Network
+    definition: Network utility endpoints.
+    tags:
+    - Resource Group
+    source: openapi/sciencelogic-network-api-openapi.yml
+  - term: Permission
+    definition: Permissions are the building blocks of what a user's role is entitled to perform. Permissions are read-only.
+    tags:
+    - Resource Group
+    source: openapi/sciencelogic-permission-api-openapi.yml
+  - term: Plugin
+    definition: Plugins have a number of device specific settings that are required for creating a functional device configurations for backup,
+      restore or running commands.
+    tags:
+    - Resource Group
+    source: openapi/sciencelogic-plugin-api-openapi.yml
+  - term: Policy
+    definition: Skylar Compliance enables you to create policies that can be used to verify that your devices comply with corporate or regulatory
+      guidelines. Policies are groups of one or more rules; a rule is a pattern that is applied to configurations or device firmware version,
+      to test whether they contain a certain phrase or Regular Expressions, or if they match an existing device template. If they fail the t
+    tags:
+    - Resource Group
+    source: openapi/sciencelogic-policy-api-openapi.yml
+  - term: Policy/Rule
+    definition: Rules are the individual parts of a device policy.
+    tags:
+    - Resource Group
+    source: openapi/sciencelogic-policy-rule-api-openapi.yml
+  - term: Policy/Variable
+    definition: Policy variables can be used in compliance rules as variable replacements, referenced with the `$replace$` format, where `replace`
+      is the variable name you have defined.
+    tags:
+    - Resource Group
+    source: openapi/sciencelogic-policy-variable-api-openapi.yml
+  - term: Role
+    definition: In addition to the standard built-in roles (`Admin`, `Backup`, and `View Only`), which cannot be edited, it is possible to define
+      granular, custom roles, which specify in detail which product elements are accessible to the user. **Please note:** Custom roles are only
+      available with an Enterprise licence.
+    tags:
+    - Resource Group
+    source: openapi/sciencelogic-role-api-openapi.yml
+  - term: Schedule
+    definition: Allows a view of the next occurence of all scheduled events including device backups, Skylar Compliance archival, device discovery
+      as well as reporting.
+    tags:
+    - Resource Group
+    source: openapi/sciencelogic-schedule-api-openapi.yml
+  - term: Settings/Alerts
+    definition: Configure system email alert settings.
+    tags:
+    - Resource Group
+    source: openapi/sciencelogic-settings-alerts-api-openapi.yml
+  - term: Settings/Appliance/Actions
+    definition: Trigger global appliance actions.
+    tags:
+    - Resource Group
+    source: openapi/sciencelogic-settings-appliance-actions-api-openapi.yml
+  - term: Settings/Appliance
+    definition: Allows you to set general appliance settings as well as triggering global appliance actions.
+    tags:
+    - Resource Group
+    source: openapi/sciencelogic-settings-appliance-api-openapi.yml
+  - term: Settings/Appliance/Debug
+    definition: Endpoints that can aid in debugging appliance problems.
+    tags:
+    - Resource Group
+    source: openapi/sciencelogic-settings-appliance-debug-api-openapi.yml
+  - term: Settings/Appliance/Logo
+    definition: Add, update or reset a custom logo for the appliance UI.
+    tags:
+    - Resource Group
+    source: openapi/sciencelogic-settings-appliance-logo-api-openapi.yml
+  - term: Settings/Appliance/Support
+    definition: Start and stop remote support sessions.
+    tags:
+    - Resource Group
+    source: openapi/sciencelogic-settings-appliance-support-api-openapi.yml
+  - term: Settings/Appliance/Updates
+    definition: Check, retrieve and update the appliance.
+    tags:
+    - Resource Group
+    source: openapi/sciencelogic-settings-appliance-updates-api-openapi.yml
+  - term: Settings/Archive
+    definition: You can prepare for disaster recovery scenarios by archiving the Skylar Compliance configuration. This allows you to back up the
+      Skylar Compliance appliance automatically, to up to two remote servers, including all device configurations stored on Skylar Compliance.
+    tags:
+    - Resource Group
+    source: openapi/sciencelogic-settings-archive-api-openapi.yml
+  - term: Settings/Assetfield
+    definition: Configure device asset information fields including location, asset tag, and serial number.
+    tags:
+    - Resource Group
+    source: openapi/sciencelogic-settings-assetfield-api-openapi.yml
+  - term: Settings/Assetfield/Notifications
+    definition: Configure device asset notify address.
+    tags:
+    - Resource Group
+    source: openapi/sciencelogic-settings-assetfield-notifications-api-openapi.yml
+  - term: Settings/Authentication
+    definition: 'Allows you to configure additional authentication methods for Skylar Compliance. Supported methods are: * RADIUS * SAML * LDAP'
+    tags:
+    - Resource Group
+    source: openapi/sciencelogic-settings-authentication-api-openapi.yml
+  - term: Settings/Device
+    definition: Allows you to set default device settings that are inherited whenever a new device is added but can be overriden.
+    tags:
+    - Resource Group
+    source: openapi/sciencelogic-settings-device-api-openapi.yml
+  - term: Settings/Discovery
+    definition: Allows you to set device discovery settings for manual or scheduled device discovery runs.
+    tags:
+    - Resource Group
+    source: openapi/sciencelogic-settings-discovery-api-openapi.yml
+  - term: Settings/HA
+    definition: High Availability (HA) provides a way to minimise the effects of hardware failure, by configuring two Skylar Compliance appliances
+      in a cluster.
+    tags:
+    - Resource Group
+    source: openapi/sciencelogic-settings-ha-api-openapi.yml
+  - term: Settings/Logs
+    definition: Allows you to configure default log rentention and other logging related settings.
+    tags:
+    - Resource Group
+    source: openapi/sciencelogic-settings-logs-api-openapi.yml
+  - term: Settings/Network
+    definition: Allows you to set network settings such as the IP address and static routes.
+    tags:
+    - Resource Group
+    source: openapi/sciencelogic-settings-network-api-openapi.yml
+  - term: Settings/Passwords
+    definition: 'Password policies allow you to configure various rules for enforcing password strength, for both devices and users. These settings
+      are used in the strength meter displayed in all password fields: the background of the field will change colour, from red for an unacceptable
+      password, to yellow for a weak password, to green for a good password.'
+    tags:
+    - Resource Group
+    source: openapi/sciencelogic-settings-passwords-api-openapi.yml
+  - term: Settings/PublicKey
+    definition: Returns the default public keys for your appliance that can be used for public key authentication with devices that support it.
+    tags:
+    - Resource Group
+    source: openapi/sciencelogic-settings-publickey-api-openapi.yml
+  - term: Settings - Security
+    definition: Configure various global settings to mandate a higher level of network security for the Skylar Compliance appliance. Setting some
+      of these options may cause compatibility problems with legacy devices and clients.
+    tags:
+    - Resource Group
+    source: openapi/sciencelogic-settings-security-api-openapi.yml
+  - term: Settings/Security/CSR
+    definition: Manage TLS CSRs
+    tags:
+    - Resource Group
+    source: openapi/sciencelogic-settings-security-csr-api-openapi.yml
+  - term: Settings/Security/SSH
+    definition: Manage SSH settings
+    tags:
+    - Resource Group
+    source: openapi/sciencelogic-settings-security-ssh-api-openapi.yml
+  - term: Settings/Security/TLS
+    definition: Configure TLS certificate and key
+    tags:
+    - Resource Group
+    source: openapi/sciencelogic-settings-security-tls-api-openapi.yml
+  - term: Settings/SNMP
+    definition: If your network has a Network Management System, you can use SNMP to perform some basic monitoring of the Skylar Compliance appliance.
+      Skylar Compliance supports SNMP v1, v2c, and v3.
+    tags:
+    - Resource Group
+    source: openapi/sciencelogic-settings-snmp-api-openapi.yml
+  - term: Status
+    definition: Retrieve status information for the appliance.
+    tags:
+    - Resource Group
+    source: openapi/sciencelogic-status-api-openapi.yml
+  - term: Status/Ping
+    definition: Check if appliance is ready to accept requests
+    tags:
+    - Resource Group
+    source: openapi/sciencelogic-status-ping-api-openapi.yml
+  - term: Syslog
+    definition: These are the messages logged to the Skylar Compliance syslog service, by both the appliance itself and any devices configured
+      to log to it.
+    tags:
+    - Resource Group
+    source: openapi/sciencelogic-syslog-api-openapi.yml
+  - term: Template
+    definition: Templates are specially marked-up configurations that can be pushed to multiple devices, for instance during a large deployment
+      of similarly configured devices. Each template can contain parameters, which are substituted for entered values for each device pushed to.
+      For instance, a section may be marked "IP Address", and this will then be prompted for when pushing to devices.
+    tags:
+    - Resource Group
+    source: openapi/sciencelogic-template-api-openapi.yml
+  - term: Token
+    definition: 'Personal access tokens are used to authenticate requests to the API. Tokens are tied to the user that created them. All API operations
+      undertaken via a personal access token are linked to the user account that created it and will be logged under that account''s username.
+      Tokens are passed as a `Authorization` header in each request: ```bash curl --header "Authorization: Custom " "https://skylar-com'
+    tags:
+    - Resource Group
+    source: openapi/sciencelogic-token-api-openapi.yml
+  - term: Transcript
+    definition: Device command and backup transcripts can be retrieved here.
+    tags:
+    - Resource Group
+    source: openapi/sciencelogic-transcript-api-openapi.yml
+  - term: User
+    definition: 'Skylar Compliance supports three levels of user access: - **Admin:** Super User; has full control (can create/modify/delete devices
+      and users, initiate backups/restores and change the appliance configuration).'
+    tags:
+    - Resource Group
+    source: openapi/sciencelogic-user-api-openapi.yml
+  - term: User/LDAP
+    definition: For LDAP users to be able to login to Skylar Compliance, they need to be a member of a group and the group has to be added to
+      Skylar Compliance (with domains and roles assigned). LDAP users inherit their groups' domains and roles.
+    tags:
+    - Resource Group
+    source: openapi/sciencelogic-user-ldap-api-openapi.yml

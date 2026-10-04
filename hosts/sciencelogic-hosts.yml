@@ -1,0 +1,188 @@
+generated: '2026-10-04'
+method: derived
+source: the pre-flight dossier, apis.yml pointers, spec servers, well-known, vendors -- nothing fetched here
+generator: derive-hosts.py
+summary:
+  hosts: 13
+  own: 10
+  other_domain: 1
+  platform: 2
+  roles:
+  - api
+  - community
+  - other
+  - partner
+  - portal
+  - source
+  - support
+  - website
+hosts:
+- host: api.sciencelogic.com
+  found_by:
+  - contract-discovery
+  types: []
+  serves: []
+  registrable_domain: sciencelogic.com
+  role: api
+  relation: own
+- host: community.sciencelogic.com
+  found_by:
+  - pointer
+  - probed
+  - site-links
+  - contract-discovery
+  - well-known
+  types:
+  - Community
+  serves: []
+  registrable_domain: sciencelogic.com
+  role: community
+  relation: own
+- host: copilotstudio.microsoft.com
+  found_by:
+  - docs-index
+  types: []
+  serves:
+  - docs
+  registrable_domain: microsoft.com
+  role: other
+  relation: other-domain
+- host: docs.sciencelogic.com
+  found_by:
+  - pointer
+  - apis[]
+  - probed
+  - site-links
+  - docs-index
+  - contract-discovery
+  - well-known
+  - vendor-detect
+  types:
+  - Documentation
+  - DeveloperPortal
+  - APIReference
+  - GettingStarted
+  - LlmsText
+  serves:
+  - docs
+  - cdn
+  vendor: cloudfront
+  registrable_domain: sciencelogic.com
+  role: portal
+  relation: own
+- host: github.com
+  found_by:
+  - pointer
+  - apis[]
+  types:
+  - GitHubOrganization
+  serves:
+  - docs
+  registrable_domain: github.com
+  role: source
+  relation: platform
+- host: my.sciencelogic.com
+  found_by:
+  - probed
+  - site-links
+  - well-known
+  types: []
+  serves: []
+  registrable_domain: sciencelogic.com
+  role: other
+  relation: own
+- host: nexuslive.sciencelogic.com
+  found_by:
+  - probed
+  - site-links
+  - well-known
+  types: []
+  serves: []
+  registrable_domain: sciencelogic.com
+  role: other
+  relation: own
+- host: partner.sciencelogic.com
+  found_by:
+  - probed
+  - site-links
+  - namespace-probe
+  - well-known
+  types: []
+  serves: []
+  title: ScienceLogic Partner Connect
+  status: 200
+  registrable_domain: sciencelogic.com
+  role: partner
+  relation: own
+- host: partners.sciencelogic.com
+  found_by:
+  - probed
+  - site-links
+  - namespace-probe
+  types: []
+  serves: []
+  title: ScienceLogic Partner Connect
+  status: 200
+  registrable_domain: sciencelogic.com
+  role: partner
+  relation: own
+- host: sciencelogic.com
+  found_by:
+  - pointer
+  - apis[]
+  - probed
+  - docs-index
+  - contract-discovery
+  - well-known
+  - vendor-detect
+  types:
+  - Newsroom
+  - Leadership
+  - Website
+  - Blog
+  - Pricing
+  - SignUp
+  - TermsOfService
+  - PrivacyPolicy
+  serves:
+  - docs
+  - cdn
+  - hosting
+  vendor: cloudflare
+  registrable_domain: sciencelogic.com
+  role: website
+  relation: own
+- host: support.sciencelogic.com
+  found_by:
+  - pointer
+  - probed
+  - site-links
+  - docs-index
+  - contract-discovery
+  - well-known
+  types:
+  - Support
+  serves:
+  - docs
+  registrable_domain: sciencelogic.com
+  role: support
+  relation: own
+- host: trust.sciencelogic.com
+  found_by:
+  - probed
+  - site-links
+  - well-known
+  types: []
+  serves: []
+  registrable_domain: sciencelogic.com
+  role: other
+  relation: own
+- host: www.linkedin.com
+  found_by:
+  - pointer
+  types:
+  - LinkedIn
+  serves: []
+  registrable_domain: linkedin.com
+  role: other
+  relation: platform
