@@ -1,0 +1,9 @@
+generated: '2026-10-04'
+method: derived
+source: >-
+  Generated overlay for sciencelogic-agent-api-openapi.yml to capture enhancements.
+provider: ScienceLogic
+providerId: sciencelogic
+openapi_file: openapi/sciencelogic-agent-api-openapi.yml
+overlay_version: 1.0.0
+actions: []

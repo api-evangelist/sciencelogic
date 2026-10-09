@@ -30,6 +30,7 @@ content_negotiation:
   skylar_compliance: application/json (plus text/plain, text/csv, application/zip, application/octet-stream on export operations)
   skylar_one_rest: Accept header selects application/json or application/xml
 idempotency:
+  coverage: none
   supported: false
   header: null
   evidence: >-

@@ -1,39 +1,361 @@
-# All ScienceLogic AI Platform Documentation
+# ScienceLogic Skylar One Documentation, file created 5/5/2026
 
-> This site provides access to the product documentation for the ScienceLogic AI platform.
+> Skylar One (formerly SL1) is the ScienceLogic core observability platform. It delivers unified visibility across hybrid and multi-vendor IT environments, correlating telemetry data into business context and enabling intelligent automation. This llms.txt file provides a structured index of the Skylar One product documentation at docs.sciencelogic.com to help LLMs and AI agents find accurate, current information. All URLs in this file are verified from the official sitemap at https://docs.sciencelogic.com/skylar_one/latest/Sitemap.xml.
 
 ## Important Notes for LLMs
 
-- This site hosts authoritative manuals, release notes, and conceptual guidance for ScienceLogic products.  
-- Documentation is organized by product, with each product maintained as a dedicated sub-site.  
-- LLM users should prefer product-specific documentation when answering detailed or version-sensitive questions.
-- When possible, consume documentation pages corresponding to the latest supported releases.  
-- Product sub-sites contain their own 'llms.txt' files with deeper, product-specific guidance.
-- The ScienceLogic AI Platform documentation sub-sites include Skylar AI, Skylar One (formerly SL1), Skylar One PowerPacks, Skylar Automation (formerly PowerFlow), and Skylar Compliance (formerly Restorepoint)
+- Skylar One was formerly known as SL1. Both names refer to the same product. Use either term when searching.
+- The current major version is 12.5 (codename Juneau), minor version 12.5.7. The previous major version is 12.3 (codename Ibiza).
+- Skylar One is part of the broader ScienceLogic AI Platform, which also includes Skylar AI, Skylar Automation (formerly PowerFlow), and Skylar Compliance (formerly Restorepoint).
+- The platform was rebranded in 2025. Legacy references to "EM7", "SL1", and "PowerFlow" map to Skylar One, Skylar One, and Skylar Automation respectively.
+- Two user interfaces exist: the default "AP2" interface and the legacy "classic" interface (also called EM7). Most new features are in AP2.
+- All documentation pages for manuals follow the URL pattern: https://docs.sciencelogic.com/skylar_one/latest/Content/Manuals/<TopicFolder>/<page>.htm
+- All documentation pages for release notes follow the URL pattern: https://docs.sciencelogic.com/skylar_one/latest/Content/Manuals/<TopicFolder>/<page>.htm
+https://docs.sciencelogic.com/skylar_one/latest/Content/Release_Notes/<VersionNumber>/<VersionNumber>_release_notes.htm
+- The older docs.sciencelogic.com/latest/ site stopped receiving updates on March 27, 2026 and will go offline September 1, 2026. Always use the /skylar_one/latest/ paths in this file.
 
-## Core Documentation Portals
+## Documentation Home Pages
 
-- [Documentation Home](https://docs.sciencelogic.com/)
-  : Entry point for all ScienceLogic product documentation, provides access to all five sites.
+- [Skylar One Product Documentation Home](https://docs.sciencelogic.com/skylar_one/latest/Content/home_skylar_one.htm): Entry point for all Skylar One manuals and release notes.
+- [All ScienceLogic AI Platform Documentation](https://docs.sciencelogic.com/skylar_one/latest/Content/home.htm): Top-level index for all ScienceLogic products.
+- [Skylar One Release Notes Index](https://docs.sciencelogic.com/skylar_one/latest/Content/home_skylar_one_release_notes.htm): Links to all current Skylar One platform release notes (12.5.x Juneau and 12.3.x Ibiza).
+- [AP2 User Interface Release Notes Index](https://docs.sciencelogic.com/skylar_one/latest/Content/home_ap2_release_notes.htm): Links to all AP2 UI release notes (dessert-themed codenames).
+- [Documentation Updates](https://docs.sciencelogic.com/skylar_one/latest/Content/Manuals/documentation_updates.htm): Running list of new and updated documentation pages by release.
 
-- [Skylar One Product Documentation](https://docs.sciencelogic.com/skylar_one/)
-  : Core observability platform documentation (formerly SL1), including manuals and release notes.
+## Release Notes: Skylar One Platform
 
-- [Skylar One PowerPack Product Documentation](https://docs.sciencelogic.com/skylar_one/)
-  : Core observability platform documentation (formerly SL1), including manuals and release notes.
+- [12.5.7 Release Notes](https://docs.sciencelogic.com/skylar_one/latest/Content/Release_Notes/12-5-7/12-5-7_release_notes.htm): Latest Skylar One Juneau release.
+- [12.5.6 Release Notes](https://docs.sciencelogic.com/skylar_one/latest/Content/Release_Notes/12-5-6/12-5-6_release_notes.htm)
+- [12.5.5 Release Notes](https://docs.sciencelogic.com/skylar_one/latest/Content/Release_Notes/12-5-5/12-5-5_release_notes.htm)
+- [12.5.4 Release Notes](https://docs.sciencelogic.com/skylar_one/latest/Content/Release_Notes/12-5-4/12-5-4_release_notes.htm)
+- [12.5.3 Release Notes](https://docs.sciencelogic.com/skylar_one/latest/Content/Release_Notes/12-5-3/12-5-3_release_notes.htm)
+- [12.5.2 Release Notes](https://docs.sciencelogic.com/skylar_one/latest/Content/Release_Notes/12-5-2/12-5-2_release_notes.htm)
+- [12.5.1 Release Notes](https://docs.sciencelogic.com/skylar_one/latest/Content/Release_Notes/12-5-1/12-5-1_release_notes.htm)
+- [12.3.14 Release Notes](https://docs.sciencelogic.com/skylar_one/latest/Content/Release_Notes/12-3-14/12-3-14_release_notes.htm): Latest SL1 Ibiza release.
+- [12.3.13 Release Notes](https://docs.sciencelogic.com/skylar_one/latest/Content/Release_Notes/12-3-13/12-3-13_release_notes.htm)
+- [12.3.12 Release Notes](https://docs.sciencelogic.com/skylar_one/latest/Content/Release_Notes/12-3-12/12-3-12_release_notes.htm)
+- [12.3.11 Release Notes](https://docs.sciencelogic.com/skylar_one/latest/Content/Release_Notes/12-3-11/12-3-11_release_notes.htm)
+- [12.3.10 Release Notes](https://docs.sciencelogic.com/skylar_one/latest/Content/Release_Notes/12-3-10/12-3-10_release_notes.htm): DoDIN-certified release.
+- [12.3.9 Release Notes](https://docs.sciencelogic.com/skylar_one/latest/Content/Release_Notes/12-3-9/12-3-9_release_notes.htm)
+- [12.3.8 Release Notes](https://docs.sciencelogic.com/skylar_one/latest/Content/Release_Notes/12-3-8/12-3-8_release_notes.htm)
+- [12.3.7 Release Notes](https://docs.sciencelogic.com/skylar_one/latest/Content/Release_Notes/12-3-7/12-3-7_release_notes.htm)
+- [12.3.6 Release Notes](https://docs.sciencelogic.com/skylar_one/latest/Content/Release_Notes/12-3-6/12-3-6_release_notes.htm)
+- [12.3.5 Release Notes](https://docs.sciencelogic.com/skylar_one/latest/Content/Release_Notes/12-3-5/12-3-5_release_notes.htm)
+- [12.3.4 Release Notes](https://docs.sciencelogic.com/skylar_one/latest/Content/Release_Notes/12-3-4/12-3-4_release_notes.htm)
+- [12.3.3 Release Notes](https://docs.sciencelogic.com/skylar_one/latest/Content/Release_Notes/12-3-3/12-3-3_release_notes.htm)
+- [12.3.2 Release Notes](https://docs.sciencelogic.com/skylar_one/latest/Content/Release_Notes/12-3-2/12-3-2_release_notes.htm)
+- [12.3.1 Release Notes](https://docs.sciencelogic.com/skylar_one/latest/Content/Release_Notes/12-3-1/12-3-1_release_notes.htm)
+- [12.3.0 Release Notes](https://docs.sciencelogic.com/skylar_one/latest/Content/Release_Notes/12-3-0/12-3-0_release_notes.htm): Introduced GQL Browser and Skylar Analytics beta.
 
-- [Skylar Automation Product Documentation](https://docs.sciencelogic.com/skylar_automation/)
-  : Intelligent automation and workflow orchestration documentation (formerly PowerFlow), including manuals and release notes.
+## Release Notes: AP2 User Interface
 
-- [Skylar AI Product Documentation](https://docs.sciencelogic.com/skylar_ai/)
-  : Skylar Advisor, Analytics, and insights layered across the ScienceLogic platform, including manuals and release notes.
+- [Pancake Release Notes](https://docs.sciencelogic.com/skylar_one/latest/Content/Release_Notes/AP2/ap2-pancake_release_notes.htm): Latest AP2 release.
+- [Opera Cake Release Notes](https://docs.sciencelogic.com/skylar_one/latest/Content/Release_Notes/AP2/ap2-opera_cake_release_notes.htm)
+- [Nougat Release Notes](https://docs.sciencelogic.com/skylar_one/latest/Content/Release_Notes/AP2/ap2-nougat_release_notes.htm)
+- [Mochi Release Notes](https://docs.sciencelogic.com/skylar_one/latest/Content/Release_Notes/AP2/ap2-mochi_release_notes.htm)
+- [Lokma Release Notes](https://docs.sciencelogic.com/skylar_one/latest/Content/Release_Notes/AP2/ap2-lokma_release_notes.htm)
+- [Key Lime Pie Release Notes](https://docs.sciencelogic.com/skylar_one/latest/Content/Release_Notes/AP2/ap2-key_lime_pie_release_notes.htm)
+- [Jelly Bean Release Notes](https://docs.sciencelogic.com/skylar_one/latest/Content/Release_Notes/AP2/ap2-jelly_bean_release_notes.htm)
+- [Ice Pop Release Notes](https://docs.sciencelogic.com/skylar_one/latest/Content/Release_Notes/AP2/ap2-ice_pop_release_notes.htm)
+- [Halwa Release Notes](https://docs.sciencelogic.com/skylar_one/latest/Content/Release_Notes/AP2/ap2-halwa_release_notes.htm)
+- [Gelato Release Notes](https://docs.sciencelogic.com/skylar_one/latest/Content/Release_Notes/AP2/ap2-gelato_release_notes.htm)
 
-- [Skylar Compliance Product Documentation](https://docs.sciencelogic.com/skylar_compliance/)
-  : Compliance, configuration auditing, and governance documentation (formerly Restorepoint), including manuals and release notes.
+## Getting Started
 
+- [Introduction and UI Overview](https://docs.sciencelogic.com/skylar_one/latest/Content/Manuals/Getting_Started_Skylar_One/getting_started_introduction.htm): Login, navigation, search, filtering, bulk actions. Covers both AP2 and classic interfaces.
+- [Feature Overview](https://docs.sciencelogic.com/skylar_one/latest/Content/Manuals/Getting_Started_Skylar_One/getting_started_features.htm): Summary of all major Skylar One platform features.
+- [User Preferences](https://docs.sciencelogic.com/skylar_one/latest/Content/Manuals/Getting_Started_Skylar_One/getting_started_preferences.htm): Configuring personal preferences in the Skylar One UI.
+- [Product Life Cycle](https://docs.sciencelogic.com/skylar_one/latest/Content/Manuals/prod_lifecycle_sl1.htm): End of Maintenance and End of Life dates for all versions.
 
-## Usage Guidance
+## Architecture
 
-- Prefer official documentation pages over marketing content.
-- Treat product names and version numbers as authoritative when explicitly stated.
-- When summarizing or citing documentation, include the product name and release family if available.
+- [Architecture Overview](https://docs.sciencelogic.com/skylar_one/latest/Content/Manuals/Architecture/architecture_overview.htm): Overview of Skylar One deployment architectures.
+- [All-In-One Architecture](https://docs.sciencelogic.com/skylar_one/latest/Content/Manuals/Architecture/architecture_aio.htm): Single-appliance deployment.
+- [Distributed Architecture](https://docs.sciencelogic.com/skylar_one/latest/Content/Manuals/Architecture/architecture_distributed.htm): Multi-appliance distributed deployment.
+- [Extended Architecture](https://docs.sciencelogic.com/skylar_one/latest/Content/Manuals/Architecture/architecture_extended.htm): Kubernetes-based extended deployment with Compute and Storage Clusters.
+- [Database Layer](https://docs.sciencelogic.com/skylar_one/latest/Content/Manuals/Architecture/architecture_db_layer.htm): Database Server functions and data storage.
+- [Collector Groups](https://docs.sciencelogic.com/skylar_one/latest/Content/Manuals/Architecture/architecture_collector_groups.htm): How collector groups work.
+- [Agent Architecture](https://docs.sciencelogic.com/skylar_one/latest/Content/Manuals/Architecture/architecture_agent.htm): How the Skylar One agent fits into the architecture.
+- [APIs and Interface Layer](https://docs.sciencelogic.com/skylar_one/latest/Content/Manuals/Architecture/architecture_if_layer_apis.htm): REST API, GraphQL API, and interface layer overview.
+- [Backup, Recovery, and HA](https://docs.sciencelogic.com/skylar_one/latest/Content/Manuals/Architecture/architecture_backup_recov_ha.htm): Backup, recovery, and high availability architecture overview.
+
+## Installation
+
+- [Installation Overview](https://docs.sciencelogic.com/skylar_one/latest/Content/Manuals/Installation/installation_install_overview.htm): Pre-installation planning and overview.
+- [Hardware and Virtual Appliance Installation](https://docs.sciencelogic.com/skylar_one/latest/Content/Manuals/Installation/installation_install_sl1_hw_virtual.htm): Installing on hardware or VMs.
+- [Collector Installation](https://docs.sciencelogic.com/skylar_one/latest/Content/Manuals/Installation/installation_install_collector.htm): Adding Data Collectors and Message Collectors.
+- [Amazon Cloud Installation](https://docs.sciencelogic.com/skylar_one/latest/Content/Manuals/Installation/installation_amazon_cloud.htm): Deploying on AWS.
+- [Azure VM Installation](https://docs.sciencelogic.com/skylar_one/latest/Content/Manuals/Installation/installation_azure_vm.htm): Deploying on Microsoft Azure.
+- [Web Configuration Utility](https://docs.sciencelogic.com/skylar_one/latest/Content/Manuals/Installation/installation_web_config.htm): Post-install configuration via the web UI.
+- [Updating Skylar One](https://docs.sciencelogic.com/skylar_one/latest/Content/Manuals/Installation/updating_sl1.htm): Upgrading platform versions.
+- [Port Requirements](https://docs.sciencelogic.com/skylar_one/latest/Content/Manuals/Installation/installation_prep_ports.htm): Required network ports for all appliance types.
+- [PhoneHome Collectors](https://docs.sciencelogic.com/skylar_one/latest/Content/Manuals/Installation/installation_phone_home.htm): Configuring outbound-only PhoneHome Data Collectors.
+
+## Discovery and Credentials
+
+- [Discovery and Credentials Introduction](https://docs.sciencelogic.com/skylar_one/latest/Content/Manuals/Discovery_and_Credentials/discovery_credentials_intro.htm): Overview of the discovery and credentials system.
+- [Credentials](https://docs.sciencelogic.com/skylar_one/latest/Content/Manuals/Discovery_and_Credentials/credentials.htm): Creating and managing credentials (SNMP, SSH, WMI, PowerShell, SOAP/XML, LDAP, Universal).
+- [Credential Tests](https://docs.sciencelogic.com/skylar_one/latest/Content/Manuals/Discovery_and_Credentials/credential_tests.htm): Testing credentials before running discovery.
+- [Discovery Overview](https://docs.sciencelogic.com/skylar_one/latest/Content/Manuals/Discovery_and_Credentials/discovery_overview.htm): How discovery works in Skylar One.
+- [Managing Discovery Sessions](https://docs.sciencelogic.com/skylar_one/latest/Content/Manuals/Discovery_and_Credentials/discovery_managing.htm): Creating and running discovery sessions.
+- [Discovery Collection](https://docs.sciencelogic.com/skylar_one/latest/Content/Manuals/Discovery_and_Credentials/discovery_collection.htm): How Skylar One collects data from discovered devices.
+- [Duplication Protection](https://docs.sciencelogic.com/skylar_one/latest/Content/Manuals/Discovery_and_Credentials/discovery_duplication_protection.htm): Preventing duplicate device records.
+- [External Credential Services (CyberArk)](https://docs.sciencelogic.com/skylar_one/latest/Content/Manuals/Discovery_and_Credentials/discovery_using_external_credentials.htm): Integrating CyberArk Vault for credential management.
+- [Discovery Troubleshooting](https://docs.sciencelogic.com/skylar_one/latest/Content/Manuals/Discovery_and_Credentials/discovery_troubleshooting.htm): Common discovery issues and fixes.
+
+## Device Management
+
+- [Devices Introduction](https://docs.sciencelogic.com/skylar_one/latest/Content/Manuals/Device_Management/devices_introduction.htm): Overview of device management in Skylar One.
+- [Devices Page](https://docs.sciencelogic.com/skylar_one/latest/Content/Manuals/Device_Management/devices_page.htm): Using the main Devices inventory page.
+- [Device Investigator](https://docs.sciencelogic.com/skylar_one/latest/Content/Manuals/Device_Management/device_investigator.htm): The Device Investigator page and its tabs.
+- [Device Classes and Categories](https://docs.sciencelogic.com/skylar_one/latest/Content/Manuals/Device_Management/device_classes_and_categories.htm): Managing device classification.
+- [Custom Attributes](https://docs.sciencelogic.com/skylar_one/latest/Content/Manuals/Device_Management/custom_attributes.htm): Adding custom metadata fields to devices.
+- [Device Relationships](https://docs.sciencelogic.com/skylar_one/latest/Content/Manuals/Device_Management/device_relationships.htm): Parent-child and component relationships between devices.
+- [Device Maintenance](https://docs.sciencelogic.com/skylar_one/latest/Content/Manuals/Device_Management/device_maintenance.htm): Scheduling and managing device maintenance windows.
+- [Bulk Device Management](https://docs.sciencelogic.com/skylar_one/latest/Content/Manuals/Device_Management/device_bulk_management.htm): Performing actions on multiple devices at once.
+- [Vanishing and Purging](https://docs.sciencelogic.com/skylar_one/latest/Content/Manuals/Device_Management/vanishing_and_purging.htm): Removing devices from Skylar One.
+- [Virtual Devices](https://docs.sciencelogic.com/skylar_one/latest/Content/Manuals/Device_Management/virtual_devices.htm): Creating and using virtual device records.
+- [Device Dashboards](https://docs.sciencelogic.com/skylar_one/latest/Content/Manuals/Device_Management/device_dashboards.htm): Aligning dashboards with devices, device classes, and device categories.
+- [Managing Dynamic Applications](https://docs.sciencelogic.com/skylar_one/latest/Content/Manuals/Device_Management/managing_dynamic_apps.htm): Aligning and managing Dynamic Applications on devices.
+
+## Device Groups and Templates
+
+- [Device Groups Overview](https://docs.sciencelogic.com/skylar_one/latest/Content/Manuals/Device_Groups_and_Device_Templates/device_groups_overview.htm): Static and dynamic device groups.
+- [Creating and Editing Device Groups](https://docs.sciencelogic.com/skylar_one/latest/Content/Manuals/Device_Groups_and_Device_Templates/device_groups_create_edit.htm)
+- [Device Templates Overview](https://docs.sciencelogic.com/skylar_one/latest/Content/Manuals/Device_Groups_and_Device_Templates/device_templates_overview.htm): Using templates to apply consistent configuration to devices.
+- [Creating and Editing Device Templates](https://docs.sciencelogic.com/skylar_one/latest/Content/Manuals/Device_Groups_and_Device_Templates/device_templates_create_edit.htm)
+
+## Infrastructure Health Monitoring
+
+- [Introduction](https://docs.sciencelogic.com/skylar_one/latest/Content/Manuals/Infrastructure_Health/introduction.htm): Overview of infrastructure health monitoring.
+- [Availability and Latency](https://docs.sciencelogic.com/skylar_one/latest/Content/Manuals/Infrastructure_Health/monitoring_availability_and_latency.htm): Monitoring device availability and network latency.
+- [Network Interfaces](https://docs.sciencelogic.com/skylar_one/latest/Content/Manuals/Infrastructure_Health/monitoring_network_interfaces.htm): Monitoring interface utilization and errors.
+- [Hardware and Software](https://docs.sciencelogic.com/skylar_one/latest/Content/Manuals/Infrastructure_Health/monitoring_hardware_and_software.htm): CPU, memory, storage, and installed software.
+- [Processes](https://docs.sciencelogic.com/skylar_one/latest/Content/Manuals/Infrastructure_Health/monitoring_processes.htm): Monitoring running processes on devices.
+- [Windows Services](https://docs.sciencelogic.com/skylar_one/latest/Content/Manuals/Infrastructure_Health/monitoring_windows_services.htm): Monitoring Windows service states.
+- [Logs](https://docs.sciencelogic.com/skylar_one/latest/Content/Manuals/Infrastructure_Health/monitoring_logs.htm): Collecting and viewing device logs.
+- [Agent-based Log Monitoring](https://docs.sciencelogic.com/skylar_one/latest/Content/Manuals/Infrastructure_Health/monitoring_logs_agent.htm): Log collection via the Skylar One agent.
+- [SSL Certificates](https://docs.sciencelogic.com/skylar_one/latest/Content/Manuals/Infrastructure_Health/monitoring_ssl_certificates.htm): Monitoring SSL certificate expiry.
+- [Web Content](https://docs.sciencelogic.com/skylar_one/latest/Content/Manuals/Infrastructure_Health/monitoring_web_content.htm): Monitoring web page availability and content.
+- [SOAP/XML Transactions](https://docs.sciencelogic.com/skylar_one/latest/Content/Manuals/Infrastructure_Health/monitoring_soap_xml_transactions.htm): Monitoring web service transactions.
+- [DNS and Domain Servers](https://docs.sciencelogic.com/skylar_one/latest/Content/Manuals/Infrastructure_Health/monitoring_domain_servers_and_dns.htm)
+- [Email Round Trips](https://docs.sciencelogic.com/skylar_one/latest/Content/Manuals/Infrastructure_Health/monitoring_email_round_trips.htm)
+- [Collection Labels](https://docs.sciencelogic.com/skylar_one/latest/Content/Manuals/Infrastructure_Health/collection_labels.htm): Grouping performance metrics with collection labels.
+- [Performance Graphs](https://docs.sciencelogic.com/skylar_one/latest/Content/Manuals/Infrastructure_Health/viewing_performance_graphs.htm): Viewing performance data graphs.
+
+## Events and Alerts
+
+- [Events Overview](https://docs.sciencelogic.com/skylar_one/latest/Content/Manuals/Events/events_overview.htm): How events work in Skylar One.
+- [Event Views](https://docs.sciencelogic.com/skylar_one/latest/Content/Manuals/Events/event_views.htm): The Events page and event list views.
+- [Event Policies](https://docs.sciencelogic.com/skylar_one/latest/Content/Manuals/Events/event_policies.htm): Creating and managing event policies.
+- [Event Correlation](https://docs.sciencelogic.com/skylar_one/latest/Content/Manuals/Events/event_correlation.htm): How Skylar One correlates related events.
+- [Event Automation](https://docs.sciencelogic.com/skylar_one/latest/Content/Manuals/Events/event_automation.htm): Triggering automation actions from events.
+- [Event Responses](https://docs.sciencelogic.com/skylar_one/latest/Content/Manuals/Events/event_responses.htm): Configuring automated event responses.
+- [Event Insights](https://docs.sciencelogic.com/skylar_one/latest/Content/Manuals/Events/event_insights.htm): AI-driven event analysis and insights.
+- [Event Webhooks](https://docs.sciencelogic.com/skylar_one/latest/Content/Manuals/Events/event_webhooks.htm): Sending event data to external systems via webhooks.
+- [Events and Tickets](https://docs.sciencelogic.com/skylar_one/latest/Content/Manuals/Events/events_and_tickets.htm): Creating tickets from events.
+- [Events from Email](https://docs.sciencelogic.com/skylar_one/latest/Content/Manuals/Events/events_from_email.htm): Generating events from inbound email.
+- [Event Settings](https://docs.sciencelogic.com/skylar_one/latest/Content/Manuals/Events/event_settings.htm): Global event configuration settings.
+- [Event Reports](https://docs.sciencelogic.com/skylar_one/latest/Content/Manuals/Events/event_reports.htm): Generating reports on event data.
+- [Syslogs and Traps Introduction](https://docs.sciencelogic.com/skylar_one/latest/Content/Manuals/Syslogs_and_Traps/syslogs_and_traps_intro.htm): Overview of syslog and SNMP trap processing.
+- [SNMP Traps](https://docs.sciencelogic.com/skylar_one/latest/Content/Manuals/Syslogs_and_Traps/snmp_traps.htm): Receiving and processing SNMP traps.
+- [Syslog Messages](https://docs.sciencelogic.com/skylar_one/latest/Content/Manuals/Syslogs_and_Traps/syslog_messages.htm): Processing inbound syslog messages.
+- [Syslog and Trap Events](https://docs.sciencelogic.com/skylar_one/latest/Content/Manuals/Syslogs_and_Traps/syslog_and_trap_events.htm): Turning syslog and trap messages into events.
+
+## Dashboards
+
+- [Viewing Dashboards](https://docs.sciencelogic.com/skylar_one/latest/Content/Manuals/Dashboards/viewing_dashboards.htm): Working with dashboards in the AP2 interface.
+- [Creating and Editing Dashboards](https://docs.sciencelogic.com/skylar_one/latest/Content/Manuals/Dashboards/creating_and_editing_dashboards.htm): Building custom dashboards and widgets.
+- [Default Dashboards](https://docs.sciencelogic.com/skylar_one/latest/Content/Manuals/Dashboards/default_dashboards.htm): Pre-built dashboards available in Skylar One.
+- [Classic Dashboards](https://docs.sciencelogic.com/skylar_one/latest/Content/Manuals/Classic_Dashboards/viewing_classic_dashboards.htm): Dashboards in the legacy classic interface.
+- [Classic Device Dashboards](https://docs.sciencelogic.com/skylar_one/latest/Content/Manuals/Classic_Dashboards/device_dashboards.htm): Aligning dashboards with devices, device classes, and categories (classic UI).
+- [Base Widgets](https://docs.sciencelogic.com/skylar_one/latest/Content/Manuals/Classic_Dashboards/base_widgets.htm): Reference for classic dashboard widget types.
+
+## Business Services
+
+Business Services lets you model, monitor, and measure the health, availability, and risk of the services your organization delivers. Services are organized in a three-tier hierarchy: Device Services at the bottom, IT Services in the middle, and Business Services at the top. An N-tier custom service model option is also available for more complex structures.
+
+Each service tracks three metrics: Health (0â€“100, color-coded severity), Availability (0 = unavailable, 1 = available), and Risk (0â€“100%, how close the service is to an undesirable state).
+
+Note: Business services created in the classic Skylar One UI are separate from and unrelated to the Business Services feature in the AP2 UI.
+
+- [Introduction to Business Services](https://docs.sciencelogic.com/skylar_one/latest/Content/Manuals/Business_Services/business_services_intro.htm): Service types, the three-tier hierarchy, health/availability/risk metrics, and the Business Services page.
+- [Creating Services and Service Policies](https://docs.sciencelogic.com/skylar_one/latest/Content/Manuals/Business_Services/business_services_create.htm): Creating business services, IT services, device services, and custom N-tier service models.
+- [Event Correlation for Business Services](https://docs.sciencelogic.com/skylar_one/latest/Content/Manuals/Business_Services/business_services_correlation.htm): How events are correlated and surfaced within the service hierarchy.
+- [Enhanced Service Investigator](https://docs.sciencelogic.com/skylar_one/latest/Content/Manuals/Business_Services/business_services_enhanced_investigator.htm): Using the Service Investigator page to diagnose service health issues.
+- [Troubleshooting Business Services](https://docs.sciencelogic.com/skylar_one/latest/Content/Manuals/Business_Services/business_services_troubleshoot.htm): Common issues with service health calculation and topology.
+
+## IT Services (Classic)
+
+- [IT Services Overview](https://docs.sciencelogic.com/skylar_one/latest/Content/Manuals/IT_Services/it_services_overview.htm): Overview of the classic IT Services feature.
+- [Creating and Editing IT Services](https://docs.sciencelogic.com/skylar_one/latest/Content/Manuals/IT_Services/it_services_create_edit.htm): Configuring IT service policies, device subsets, metrics, and service dependencies.
+- [Viewing IT Services](https://docs.sciencelogic.com/skylar_one/latest/Content/Manuals/IT_Services/it_services_view.htm): Viewing IT service status and data.
+- [IT Services Dashboards](https://docs.sciencelogic.com/skylar_one/latest/Content/Manuals/IT_Services/it_services_dashboards.htm): Dashboards for IT service data.
+- [SLA Reports and Widgets](https://docs.sciencelogic.com/skylar_one/latest/Content/Manuals/IT_Services/sla_reports_and_widgets.htm): Generating SLA compliance reports.
+
+## Ticketing
+
+- [Viewing Tickets](https://docs.sciencelogic.com/skylar_one/latest/Content/Manuals/Ticketing/viewing_tickets.htm): The ticket list and ticket views.
+- [Creating and Editing Tickets](https://docs.sciencelogic.com/skylar_one/latest/Content/Manuals/Ticketing/creating_and_editing_tickets.htm): Ticket fields, creation, and editing.
+- [Ticket Queues](https://docs.sciencelogic.com/skylar_one/latest/Content/Manuals/Ticketing/ticket_queues.htm): Managing ticket queues and routing.
+- [Ticket Templates](https://docs.sciencelogic.com/skylar_one/latest/Content/Manuals/Ticketing/ticket_templates.htm): Creating reusable ticket templates.
+- [Ticket Escalations](https://docs.sciencelogic.com/skylar_one/latest/Content/Manuals/Ticketing/ticket_escalations.htm): Automatic ticket escalation policies.
+- [Ticket Watchers](https://docs.sciencelogic.com/skylar_one/latest/Content/Manuals/Ticketing/ticket_watchers.htm): Adding watchers to tickets for notifications.
+- [Resolving Tickets](https://docs.sciencelogic.com/skylar_one/latest/Content/Manuals/Ticketing/resolving_tickets.htm): Closing and resolving tickets.
+- [Custom Ticket States](https://docs.sciencelogic.com/skylar_one/latest/Content/Manuals/Ticketing/custom_ticket_states.htm): Defining custom ticket status values.
+- [Ticket Settings and Customization](https://docs.sciencelogic.com/skylar_one/latest/Content/Manuals/Ticketing/ticket_settings_and_customization.htm): Global ticketing configuration.
+- [Ticket Reports](https://docs.sciencelogic.com/skylar_one/latest/Content/Manuals/Ticketing/ticket_reports.htm): Reporting on ticket data.
+
+## Run Book Automation
+
+- [Run Book Introduction](https://docs.sciencelogic.com/skylar_one/latest/Content/Manuals/Run_Book_Automation/run_book_intro.htm): Overview of Run Book Automation.
+- [Automation Policies](https://docs.sciencelogic.com/skylar_one/latest/Content/Manuals/Run_Book_Automation/automation_policies.htm): Creating policies to trigger automation from events.
+- [Action Policies](https://docs.sciencelogic.com/skylar_one/latest/Content/Manuals/Run_Book_Automation/action_policies.htm): Defining the actions that automation policies can execute.
+- [Snippet Actions](https://docs.sciencelogic.com/skylar_one/latest/Content/Manuals/Run_Book_Automation/snippet_actions.htm): Writing Python snippet-based automation actions.
+- [Run Book Variables](https://docs.sciencelogic.com/skylar_one/latest/Content/Manuals/Run_Book_Automation/run_book_variables.htm): System variables available in automation actions.
+- [Run Book Examples](https://docs.sciencelogic.com/skylar_one/latest/Content/Manuals/Run_Book_Automation/run_book_examples.htm): Example automation workflows.
+
+## Maps
+
+- [Maps Introduction](https://docs.sciencelogic.com/skylar_one/latest/Content/Manuals/Maps/maps_intro.htm): Overview of the Maps feature.
+- [Creating Maps](https://docs.sciencelogic.com/skylar_one/latest/Content/Manuals/Maps/maps_create.htm): Building topology and relationship maps.
+- [Viewing Maps](https://docs.sciencelogic.com/skylar_one/latest/Content/Manuals/Maps/maps_view.htm): Navigating and using maps.
+- [Geographic Maps](https://docs.sciencelogic.com/skylar_one/latest/Content/Manuals/Maps/maps_geo.htm): Using geo-location maps.
+- [Locations](https://docs.sciencelogic.com/skylar_one/latest/Content/Manuals/Maps/maps_locations.htm): Assigning geographic locations to devices.
+
+## Reports
+
+- [Reports Overview](https://docs.sciencelogic.com/skylar_one/latest/Content/Manuals/Reports/reports_overview.htm): Overview of the reporting system.
+- [Running and Scheduling Reports](https://docs.sciencelogic.com/skylar_one/latest/Content/Manuals/Reports/scheduling_reports.htm): Running reports on demand and on a schedule.
+- [Quick Reports](https://docs.sciencelogic.com/skylar_one/latest/Content/Manuals/Reports/quick_reports.htm): Generating quick reports from inventory pages.
+- [Default Reports Landing Page](https://docs.sciencelogic.com/skylar_one/latest/Content/Manuals/Reports/default_reports_landing_page.htm): Index of all default built-in reports.
+- [Device Reports](https://docs.sciencelogic.com/skylar_one/latest/Content/Manuals/Reports/device_reports.htm)
+- [Event Reports](https://docs.sciencelogic.com/skylar_one/latest/Content/Manuals/Reports/default_reports_events.htm)
+- [Ticketing Reports](https://docs.sciencelogic.com/skylar_one/latest/Content/Manuals/Reports/ticketing_reports.htm)
+- [Service Delivery Reports](https://docs.sciencelogic.com/skylar_one/latest/Content/Manuals/Reports/default_reports_service_delivery.htm)
+- [Report Development Overview](https://docs.sciencelogic.com/skylar_one/latest/Content/Manuals/Report_Development/report_development_overview.htm): Building custom reports.
+- [Report Output Templates](https://docs.sciencelogic.com/skylar_one/latest/Content/Manuals/Report_Development/report_output.htm): OpenDocument output templates, bindtable/bindrow/bindsheet directives.
+
+## Publisher and Data Streaming
+
+- [Publisher Overview](https://docs.sciencelogic.com/skylar_one/latest/Content/Manuals/Publisher/publisher_overview.htm): How Publisher streams data from Skylar One via Kafka.
+- [Publisher CRDs](https://docs.sciencelogic.com/skylar_one/latest/Content/Manuals/Publisher/publisher_crds.htm): Custom Resource Definitions for Publisher configuration.
+- [Consuming Messages (sl-schema-registry)](https://docs.sciencelogic.com/skylar_one/latest/Content/Manuals/Publisher/sl-schema_registry.htm): Using the sl-schema-registry Python library to decode Kafka messages.
+- [Troubleshooting Publisher](https://docs.sciencelogic.com/skylar_one/latest/Content/Manuals/Publisher/troubleshooting_publisher.htm): Common Publisher issues and fixes.
+
+## Organizations and Users
+
+- [Understanding Organizations](https://docs.sciencelogic.com/skylar_one/latest/Content/Manuals/Organizations_and_Users/orgs_and_users_understand_org.htm)
+- [Creating and Editing Organizations](https://docs.sciencelogic.com/skylar_one/latest/Content/Manuals/Organizations_and_Users/orgs_and_users_create_edit_org.htm)
+- [Understanding Users](https://docs.sciencelogic.com/skylar_one/latest/Content/Manuals/Organizations_and_Users/orgs_and_users_understand_user.htm)
+- [Creating and Editing Users](https://docs.sciencelogic.com/skylar_one/latest/Content/Manuals/Organizations_and_Users/orgs_and_users_create_edit_user.htm)
+- [Role-Based Access Control (RBAC)](https://docs.sciencelogic.com/skylar_one/latest/Content/Manuals/Organizations_and_Users/orgs_and_users_RBAC.htm)
+- [User Policies](https://docs.sciencelogic.com/skylar_one/latest/Content/Manuals/Organizations_and_Users/orgs_and_users_user_policies.htm)
+
+## Access Permissions
+
+- [Access Permissions Introduction](https://docs.sciencelogic.com/skylar_one/latest/Content/Manuals/Access_Permissions/access_permissions_intro.htm): Overview of access hooks and permission keys.
+- [Creating and Managing Access Keys](https://docs.sciencelogic.com/skylar_one/latest/Content/Manuals/Access_Permissions/access_permissions_create_manage_keys.htm)
+- [Assigning Access Hooks](https://docs.sciencelogic.com/skylar_one/latest/Content/Manuals/Access_Permissions/access_permissions_assign_hooks.htm)
+- [Access Hooks Appendix](https://docs.sciencelogic.com/skylar_one/latest/Content/Manuals/Access_Permissions/access_permissions_appendix_access_hooks.htm): Full reference list of all access hooks.
+- [Best Practices](https://docs.sciencelogic.com/skylar_one/latest/Content/Manuals/Access_Permissions/access_permissions_best_prac.htm)
+
+## Authentication
+
+- [Authentication Overview](https://docs.sciencelogic.com/skylar_one/latest/Content/Manuals/Authentication/authentication_overview.htm)
+- [Single Sign-On (SSO)](https://docs.sciencelogic.com/skylar_one/latest/Content/Manuals/Authentication/authentication_sso.htm)
+- [Active Directory](https://docs.sciencelogic.com/skylar_one/latest/Content/Manuals/Authentication/authentication_active_directory.htm)
+- [Multi-Factor Authentication (MFA)](https://docs.sciencelogic.com/skylar_one/latest/Content/Manuals/Authentication/authentication_mfa.htm)
+- [CAC Authentication](https://docs.sciencelogic.com/skylar_one/latest/Content/Manuals/Authentication/authentication_cac.htm)
+- [Authentication Profiles and Resources](https://docs.sciencelogic.com/skylar_one/latest/Content/Manuals/Authentication/authentication_profile_resources.htm)
+- [AD/LDAP Overview](https://docs.sciencelogic.com/skylar_one/latest/Content/Manuals/AD_LDAP/ad_ldap_overview.htm)
+- [SSO Introduction](https://docs.sciencelogic.com/skylar_one/latest/Content/Manuals/SSO/sso_introduction.htm)
+- [SSO for Authentication Only](https://docs.sciencelogic.com/skylar_one/latest/Content/Manuals/SSO/sso_for_authentication_only.htm)
+
+## High Availability and Disaster Recovery
+
+- [HA/DR Overview](https://docs.sciencelogic.com/skylar_one/latest/Content/Manuals/HA_DR_Configuration/HA_DR_overview.htm)
+- [High Availability with Two Appliances](https://docs.sciencelogic.com/skylar_one/latest/Content/Manuals/HA_DR_Configuration/high_availability.htm): Two-node HA cluster setup with DRBD.
+- [HA and DR Combined](https://docs.sciencelogic.com/skylar_one/latest/Content/Manuals/HA_DR_Configuration/ha_and_dr.htm): Combined HA and DR configuration.
+- [Disaster Recovery](https://docs.sciencelogic.com/skylar_one/latest/Content/Manuals/HA_DR_Configuration/disaster_recovery.htm): DR configuration and failover procedures.
+- [HA/DR Troubleshooting](https://docs.sciencelogic.com/skylar_one/latest/Content/Manuals/HA_DR_Configuration/ha_dr_troubleshooting.htm)
+
+## System Administration
+
+- [Extended Architecture Upgrade](https://docs.sciencelogic.com/skylar_one/latest/Content/Manuals/System_Administration/sl1_extended_arch_upgrade.htm)
+- [System Upgrade](https://docs.sciencelogic.com/skylar_one/latest/Content/Manuals/System_Administration/sys_admin_system_upgrade.htm)
+- [Backup Management](https://docs.sciencelogic.com/skylar_one/latest/Content/Manuals/System_Administration/sys_admin_backup_management.htm)
+- [Collector Groups](https://docs.sciencelogic.com/skylar_one/latest/Content/Manuals/System_Administration/sys_admin_collector_groups.htm)
+- [Global Settings](https://docs.sciencelogic.com/skylar_one/latest/Content/Manuals/System_Administration/sys_admin_global_settings.htm)
+- [SSL Certificates](https://docs.sciencelogic.com/skylar_one/latest/Content/Manuals/System_Administration/sys_admin_ssl_certificates.htm)
+- [Self Monitoring](https://docs.sciencelogic.com/skylar_one/latest/Content/Manuals/System_Administration/sys_admin_self_monitoring.htm)
+- [Daily Health Checks](https://docs.sciencelogic.com/skylar_one/latest/Content/Manuals/System_Administration/sys_admin_daily_health.htm)
+- [Diagnostics](https://docs.sciencelogic.com/skylar_one/latest/Content/Manuals/System_Administration/sys_admin_diagnostics.htm)
+- [Licenses](https://docs.sciencelogic.com/skylar_one/latest/Content/Manuals/System_Administration/sys_admin_licenses.htm)
+- [Subscription Licenses](https://docs.sciencelogic.com/skylar_one/latest/Content/Manuals/System_Administration/sys_admin_subscription_licenses.htm)
+
+## Security
+
+- [Security Features: Appliance and Data Security](https://docs.sciencelogic.com/skylar_one/latest/Content/Manuals/Security_Features/security_features_appliances_data.htm)
+- [Network Security](https://docs.sciencelogic.com/skylar_one/latest/Content/Manuals/Security_Features/security_features_network_security.htm)
+- [Security Settings](https://docs.sciencelogic.com/skylar_one/latest/Content/Manuals/Security_Features/security_features_security_settings.htm)
+
+## Global Manager
+
+- [Global Manager Introduction](https://docs.sciencelogic.com/skylar_one/latest/Content/Manuals/Global_Manager/global_manager_introduction.htm): Managing multiple Skylar One stacks from a single interface.
+- [Stacks Configuration](https://docs.sciencelogic.com/skylar_one/latest/Content/Manuals/Global_Manager/global_manager_stacks.htm)
+- [Global Manager Events](https://docs.sciencelogic.com/skylar_one/latest/Content/Manuals/Global_Manager/global_manager_events.htm)
+- [Global Manager Devices](https://docs.sciencelogic.com/skylar_one/latest/Content/Manuals/Global_Manager/global_manager_devices.htm)
+- [Global Manager Dashboards](https://docs.sciencelogic.com/skylar_one/latest/Content/Manuals/Global_Manager/global_manager_dashboards.htm)
+- [Global Manager Business Services](https://docs.sciencelogic.com/skylar_one/latest/Content/Manuals/Global_Manager/global_manager_business_services.htm)
+
+## Agent Monitoring
+
+- [Introduction to the Agent](https://docs.sciencelogic.com/skylar_one/latest/Content/Manuals/Agent_Monitoring/introduction_to_agent.htm): Windows, Linux, AIX, and Solaris agents.
+- [Installing the Agent](https://docs.sciencelogic.com/skylar_one/latest/Content/Manuals/Agent_Monitoring/installing_agent.htm)
+- [Configuring the Agent](https://docs.sciencelogic.com/skylar_one/latest/Content/Manuals/Agent_Monitoring/configuring_agent.htm)
+- [Agent Log Monitoring](https://docs.sciencelogic.com/skylar_one/latest/Content/Manuals/Agent_Monitoring/monitoring_logs.htm)
+- [Agent Troubleshooting](https://docs.sciencelogic.com/skylar_one/latest/Content/Manuals/Agent_Monitoring/troubleshooting.htm)
+
+## PowerPacks
+
+- [PowerPacks Introduction](https://docs.sciencelogic.com/skylar_one/latest/Content/Manuals/Power_Packs/power_packs_introduction.htm): Packaging and distributing Dynamic Applications, event policies, dashboards, and more.
+- [Installing a PowerPack](https://docs.sciencelogic.com/skylar_one/latest/Content/Manuals/Power_Packs/power_packs_installing_a_power_pack.htm)
+- [Creating a PowerPack](https://docs.sciencelogic.com/skylar_one/latest/Content/Manuals/Power_Packs/power_packs_creating_a_power_pack.htm)
+- [Editing a PowerPack](https://docs.sciencelogic.com/skylar_one/latest/Content/Manuals/Power_Packs/power_packs_editing_a_power_pack.htm)
+
+## UI Customization
+
+- [Customization Introduction](https://docs.sciencelogic.com/skylar_one/latest/Content/Manuals/Customizing_User_Experience/customizing_intro.htm)
+- [Theme Customization](https://docs.sciencelogic.com/skylar_one/latest/Content/Manuals/Customizing_User_Experience/customizing_theme_customization.htm): Custom logos, colors, and light/dark mode.
+- [Navigation Bars](https://docs.sciencelogic.com/skylar_one/latest/Content/Manuals/Customizing_User_Experience/customizing_navigation_bars.htm)
+- [Navigation Tabs](https://docs.sciencelogic.com/skylar_one/latest/Content/Manuals/Customizing_User_Experience/customizing_navigation_tabs.htm)
+- [External Links](https://docs.sciencelogic.com/skylar_one/latest/Content/Manuals/Customizing_User_Experience/customizing_external_links.htm)
+- [Login Alert Message](https://docs.sciencelogic.com/skylar_one/latest/Content/Manuals/Customizing_User_Experience/customizing_login_alert_message.htm)
+
+## Asset Management
+
+- [What is an Asset?](https://docs.sciencelogic.com/skylar_one/latest/Content/Manuals/Asset_Management_Vendors/asset_management_what_is_an_asset.htm)
+- [Viewing Assets](https://docs.sciencelogic.com/skylar_one/latest/Content/Manuals/Asset_Management_Vendors/asset_management_viewing_assets.htm)
+- [Automatic Asset Management](https://docs.sciencelogic.com/skylar_one/latest/Content/Manuals/Asset_Management_Vendors/asset_management_automatic_asset_management.htm)
+- [Manual Asset Management](https://docs.sciencelogic.com/skylar_one/latest/Content/Manuals/Asset_Management_Vendors/asset_management_manual_asset_management.htm)
+- [Vendors](https://docs.sciencelogic.com/skylar_one/latest/Content/Manuals/Asset_Management_Vendors/asset_management_vendors.htm)
+
+## SaaS VPN
+
+- [SaaS VPN Introduction](https://docs.sciencelogic.com/skylar_one/latest/Content/Manuals/SaaS_VPN/saas_vpn_introduction.htm): Connecting on-premises collectors to ScienceLogic SaaS.
+- [SaaS VPN Configuration](https://docs.sciencelogic.com/skylar_one/latest/Content/Manuals/SaaS_VPN/saas_vpn_configure.htm)
+
+## Related ScienceLogic Products
+
+- [Skylar AI Documentation](https://docs.sciencelogic.com/skylar_ai/): Anomaly detection, predictive alerting, and AI-driven analytics.
+- [Skylar Automation Documentation](https://docs.sciencelogic.com/skylar_automation/): Low-code workflow automation and ITSM integrations (formerly PowerFlow). Includes ServiceNow SyncPacks.
+- [Skylar Compliance Documentation](https://docs.sciencelogic.com/skylar_compliance/): Network configuration management and compliance (formerly Restorepoint).
+- [Skylar One PowerPack Documentation](https://docs.sciencelogic.com/powerpacks/): Integration PowerPacks for third-party platforms.
+
+## Support and Feedback
+
+- [ScienceLogic Support Center](https://support.sciencelogic.com/s/)
+- [SkyeDocs AI Search](https://copilotstudio.microsoft.com/environments/Default-4df927fc-2cb7-4222-a6a5-c12dab55b4a6/bots/copilots_header_10c2f/webchat?__version__=2): ScienceLogic's own AI-powered documentation search tool.
+- Documentation feedback: docs@sciencelogic.com
+- [ScienceLogic Terms and Agreements](https://sciencelogic.com/company/legal)
