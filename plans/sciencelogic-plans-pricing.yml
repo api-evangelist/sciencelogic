@@ -110,3 +110,42 @@ api_access_note: >-
   "SSO/SAML and API access" is listed as an included feature of both Skylar One Standard and Skylar
   Compliance Standard. There is no separate API plan, no per-call pricing and no published API quota — API
   access is a feature of the product licence, metered by managed device rather than by request.
+x-canonical:
+  generated: '2026-10-08'
+  vocabulary: all/0-working/economics/plans-canonical.yml
+  models:
+  - subscription
+  units: []
+  plans:
+  - name: Skylar One Standard
+    access: other
+    model: subscription
+    model_how: derived
+    units:
+    - other
+    periods:
+    - month
+  - name: Skylar One Advanced
+    access: other
+    model: subscription
+    model_how: derived
+    units:
+    - other
+    periods:
+    - month
+  - name: Skylar Compliance Standard
+    access: other
+    model: subscription
+    model_how: derived
+    units:
+    - other
+    periods:
+    - month
+  - name: Skylar Compliance Advanced (H/A)
+    access: other
+    model: subscription
+    model_how: derived
+    units:
+    - other
+    periods:
+    - month
