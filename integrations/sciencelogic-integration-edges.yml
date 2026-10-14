@@ -1,6 +1,7 @@
 generated: '2026-10-13'
 method: searched
 checked:
+- crowdstrike/integrations/crowdstrike-integration-edges.yml
 - https://azuremarketplace.microsoft.com/
 marketplace_apps: []
 edges:
@@ -21,3 +22,21 @@ edges:
   seller_name: Sciencelogic, Inc.
   detected_by: sweep-cloud-marketplaces.py
   detected: '2026-10-13'
+- partner_name: CrowdStrike (own)
+  partner: crowdstrike
+  partner_match: mirror
+  mirror_match: domain
+  type: marketplace
+  relationship: platform-app
+  direction: third-party
+  channel: partner-built
+  marketplace: own
+  evidence: https://marketplace.crowdstrike.com/listings/sciencelogic-sl1/
+  mirror_of: crowdstrike/integrations/crowdstrike-integration-edges.yml
+  apps:
+  - 'ScienceLogic SL1: Unified IT Visibility'
+  listing_count: 1
+  detected: '2026-10-14'
+  detected_by: mirror-platform-listings.py
+source:
+- crowdstrike/integrations/crowdstrike-integration-edges.yml
