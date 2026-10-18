@@ -537,6 +537,8 @@ apis:
   humanURL: https://sciencelogic.com
   baseURL: https://{appliance}/api/v2
   tags:
+  - Dictionaries
+  tags_raw:
   - Dictionary
   properties:
   - type: OpenAPI
