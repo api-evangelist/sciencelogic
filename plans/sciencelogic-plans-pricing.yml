@@ -1,0 +1,123 @@
+# Pricing transcribed from the provider's own page — see provenance. Numbers are quoted, not derived.
+generated: '2026-10-28'
+method: searched
+source: https://sciencelogic.com/why-sciencelogic/pricing
+sources:
+- https://sciencelogic.com/why-sciencelogic/pricing
+provenance:
+  tool: engine/economics/harvest_pricing.py
+  run: 20261028T141238
+  grounding: every price_text was found verbatim in the fetched page text
+audience: business-product
+pricing_basis: usage-other
+delivery:
+  delivery: managed+licensed
+  method: page
+  read: '2026-10-28'
+  evidence: SaaS, Private/Public Cloud, On-Prem
+  managed_tier: Standard
+published: true
+note: Per managed device/node metered pricing; overages invoiced in arrears at an agreed rate. Deployment
+  options include SaaS, on-premises, private/public cloud.
+plan_count: 6
+currency: USD
+plans:
+- name: Skylar One Standard
+  price_text: From $5 USD
+  price: 5
+  currency: USD
+  period: month
+  unit: Per device/month*
+  included_quota: PowerPacks, Skylar One Studio, hybrid cloud monitoring, infrastructure & app observability,
+    400+ out-of-the-box integrations, event management, business service visibility, behavioral correlation,
+    SSO/SAML and API access
+  overage: Contact us for device group pricing
+- name: Skylar One Advanced
+  price_text: From $6 USD
+  price: 6
+  currency: USD
+  period: month
+  unit: Per device/month*
+  included_quota: Standard + IT Workflow Automation, Skylar Automation SyncPacks, 100+ workflow automations,
+    low code-authoring of custom workflows
+  overage: Contact us for device group pricing
+- name: Skylar Compliance Standard
+  price_text: From $12 USD
+  price: 12
+  currency: USD
+  period: month
+  unit: Per device/month*
+  included_quota: Configuration backup & one-click recovery, change detection & automation, compliance
+    auditing & reporting, 100+ vendor-native integrations, SaaS/Private/Public Cloud/On-Prem, SSO/SAML
+    and API access
+  overage: Contact us for volume discounts and enterprise pricing
+- name: Skylar Compliance Advanced (H/A)
+  price_text: From $20 USD
+  price: 20
+  currency: USD
+  period: month
+  unit: Per device/month*
+  included_quota: High availability, automatic failover, backup and business continuation; SaaS, Private/Public
+    Cloud, On-Prem
+  overage: Contact us for volume discounts and enterprise pricing
+- name: Skylar Analytics
+  price_text: Please reach out to your ScienceLogic team for more information.
+  period: none
+  included_quota: Predictive Alerting, Anomaly Detection, ODBC, Visualizations
+- name: Skylar Advisor
+  price_text: Please reach out to your ScienceLogic team for more information.
+  period: none
+  included_quota: Advisories, Knowledge Management and Sharing, Conversational Interface
+x-canonical:
+  generated: '2026-11-01'
+  vocabulary: engine/economics/plans-canonical.yml
+  models:
+  - hybrid
+  units: []
+  plans:
+  - name: Skylar One Standard
+    access: other
+    model: hybrid
+    model_how: derived
+    units:
+    - other
+    periods:
+    - month
+  - name: Skylar One Advanced
+    access: other
+    model: hybrid
+    model_how: derived
+    units:
+    - other
+    periods:
+    - month
+  - name: Skylar Compliance Standard
+    access: other
+    model: hybrid
+    model_how: derived
+    units:
+    - other
+    periods:
+    - month
+  - name: Skylar Compliance Advanced (H/A)
+    access: other
+    model: hybrid
+    model_how: derived
+    units:
+    - other
+    periods:
+    - month
+  - name: Skylar Analytics
+    access: other
+    model: unstated
+    model_how: derived
+    units: []
+    periods:
+    - none
+  - name: Skylar Advisor
+    access: other
+    model: unstated
+    model_how: derived
+    units: []
+    periods:
+    - none
